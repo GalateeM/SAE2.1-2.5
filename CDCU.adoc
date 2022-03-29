@@ -2,8 +2,10 @@
 
 . Présentation du projet et mise en contexte +
 . Besoins +
+
+
 . Contraintes +
 (sujet) +
-expre bsoins et contraintres tech +
-. Délais et budget +
-test
+contraintres tech et délais +
+
+
