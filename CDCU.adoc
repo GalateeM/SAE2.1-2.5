@@ -12,31 +12,32 @@ Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire
 
 
 . Contraintes +
-  .. Contraintes techniques +
-  Les langages de programmation utilisés sont imposés. L'application déjà existante utilise les langages JAVA (pour les fonctionalités) et Oracle (pour la base de données). Il s'agira donc d'ajouter de nouvelles fonctionalités avec ces mêmes langages.
+.. Contraintes techniques +
+Les langages de programmation utilisés sont imposés. L'application déjà existante utilise les langages JAVA (pour les fonctionalités) et Oracle (pour la base de données). Il s'agira donc d'ajouter de nouvelles fonctionalités avec ces mêmes langages.
 
-  .. Contraintes organisationnelles +
-  Une planification a été établie avec le client, avec des dates précises pour chaque rendu. +
-  Semaine 13 :
-  * Première version du GANTT
-    * Première version du cahier des charges +
-  Semaine 16 :
-    * Deuxième et troisième version du GANTT 
-    * Deuxième et troisième version du cahier des charges
-    * Première version du cahier des tests +
-  Semaine 20 : 
-  * Première version du document technique
-  * Première version du document utilisateur
-  * Deuxième version du cahier des test
-  * Mise à jour du GANTT +
-  Semaine 22 :
-  * Deuxième et troisième version du document technique
-  * Deuxième et troisième version du document utilisateur
-  * Troisième version du cahier des tests
-  * Mise à jour du GANTT +
-  * Première version d l'application
-  Semaine 23 :
-  * Deuxième et troisième version de l'application
-  * Livraison finale des documents
-  * Chiffrage du projet
-  * Bilan du projet
+.. Contraintes organisationnelles +
+Une planification a été établie avec le client, avec des dates précises pour chaque rendu. +
+Semaine 13 :
+[circle]
+* Première version du GANTT
+* Première version du cahier des charges +
+Semaine 16 :
+* Deuxième et troisième version du GANTT 
+* Deuxième et troisième version du cahier des charges
+* Première version du cahier des tests +
+Semaine 20 : 
+* Première version du document technique
+* Première version du document utilisateur
+* Deuxième version du cahier des test
+* Mise à jour du GANTT +
+Semaine 22 :
+* Deuxième et troisième version du document technique
+* Deuxième et troisième version du document utilisateur
+* Troisième version du cahier des tests
+* Mise à jour du GANTT +
+* Première version d l'application
+Semaine 23 :
+* Deuxième et troisième version de l'application
+* Livraison finale des documents
+* Chiffrage du projet
+* Bilan du projet
