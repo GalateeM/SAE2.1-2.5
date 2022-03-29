@@ -1,10 +1,15 @@
-= Cahier des Charges
+= Cahier des Charges V1
+
+Date : 29/03/2022 +
+Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
+
 
 . Présentation du projet et mise en contexte +
 .. Contexte +
 Pour s'adapter aux avancées technologiques, tous les secteurs doivent augmenter leurs ivestissements dans le digital et restructurer leurs services. Les banques doivent notamment proposer la majorité de leurs services à distance via leurs sites ou applications afin d'augmenter leur accéssibilité et interêt auprès des clients. Dans une stratégie de différenciation, il est important pour les banques d'innover et d'effectuer une veille informatique constante afin de développer un avantage concurrentiel sur le marché. De plus, avec la pandémie de Covid-19, les clients ont pris l'habitude de tout faire à distance, sans avoir besoin d'aller en agence consulter un conseiller. C'est donc pour répondre aux besoins de leurs clients et pour rester compétitifs que les banques se doivent de proposer des services digitaux efficaces.
 .. Client +
 Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s'intégrer dans cette stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d'application qui nécessite une refonte. En effet, les besoins de la banque évoluent, tout comme ceux des clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces besoins. 
+[%hardbreaks]
 
 =============================
 
