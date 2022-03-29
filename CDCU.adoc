@@ -1,9 +1,6 @@
 = Cahier des Charges
 
 . Présentation du projet et mise en contexte +
-= Cahier des Charges
-
-. Présentation du projet et mise en contexte +
 .. Contexte +
 Pour s'adapter aux avancées technologiques, tous les secteurs doivent augmenter leurs ivestissements dans le digital et restructurer leurs services. +
 Les banques doivent notamment proposer la majorité de leurs services à distance via leurs sites ou applications afin d'augmenter leur accéssibilité et interêt auprès des clients. +
