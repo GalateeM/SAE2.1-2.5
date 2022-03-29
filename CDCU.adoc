@@ -9,7 +9,16 @@ Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire
 =============================
 
 . Besoins +
+Afin de mener ce projet à bien, il est nécessaire de réaliser une application Java. L'application doit permettre de gérer des comptes bancaires de dépôt, une gestion définie par les fonctionnalités listées ci-dessous, organisées en fonction du poste de l'utilisateur de l'application au sein de la banque. +
 
+* Guichetier +
+** Créditer et débiter un compte +
+** Créer un compte +
+** Effectuer un virement de compte à compte +
+** Clôturer un compte +
+
+* Chef d'agence +
+** Consulter les employés et pouvoir en créer / modifier / supprimer +
 
 . Contraintes +
 .. Contraintes techniques +
