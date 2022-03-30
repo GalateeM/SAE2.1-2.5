@@ -1,5 +1,6 @@
 = Cahier des Charges V1
 :toc:
+:toc-title: Sommaire
 
 Date : 29/03/2022 +
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
@@ -13,9 +14,16 @@ Pour s'adapter aux avancées technologiques, tous les secteurs doivent augmenter
 Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s'intégrer dans cette stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d'application qui nécessite une refonte. En effet, les besoins de la banque évoluent, tout comme ceux des clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces besoins. +
 
 
+== 2. Analyse de l'existant
+Une version de l'application existe déjà. Elle comprend des fonctionnalités pour le guichetier :
 
+* Modifier des informations client (adresse, téléphone,...)
+* Créer un nouveau client
+* Consulter un compte
+* Débiter un compte
+Le chef d'agence peut faire tout ce que fait le guichetier, et également rendre inactif un client.
 
-== 2. Besoins
+== 3. Besoins
 Afin de mener ce projet à bien, il est nécessaire de réaliser une application Java. L'application doit permettre de gérer des comptes bancaires de dépôt, une gestion définie par les fonctionnalités listées ci-dessous, organisées en fonction du poste de l'utilisateur de l'application au sein de la banque. +
 
 * Guichetier +
@@ -27,7 +35,7 @@ Afin de mener ce projet à bien, il est nécessaire de réaliser une application
 * Chef d'agence +
 ** Consulter les employés et pouvoir en créer / modifier / supprimer +
 
-== 3. Contraintes 
+== 4. Contraintes 
 === a) Contraintes techniques
 Les langages de programmation utilisés sont imposés. L'application déjà existante utilise les langages JAVA (pour les fonctionalités) et Oracle (pour la base de données). Il s'agira donc d'ajouter de nouvelles fonctionalités avec ces mêmes langages.
 
