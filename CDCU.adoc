@@ -5,6 +5,7 @@
 Date : 29/03/2022 +
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 
+<<<
 
 == 1. Présentation du projet et mise en contexte
 === a) Contexte
