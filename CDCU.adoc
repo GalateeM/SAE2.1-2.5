@@ -73,4 +73,4 @@ Semaine 23 :
 * Deuxième et troisième version de l'application
 * Livraison finale des documents
 * Chiffrage du projet
-* Bilan du projet
+* Bilan du projet 
