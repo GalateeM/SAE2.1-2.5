@@ -4,18 +4,18 @@
 Date : 29/03/2022 +
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 
-== test
 
-. Présentation du projet et mise en contexte +
-.. Contexte +
+== 1. Présentation du projet et mise en contexte
+=== a) Contexte
 Pour s'adapter aux avancées technologiques, tous les secteurs doivent augmenter leurs ivestissements dans le digital et restructurer leurs services. Les banques doivent notamment proposer la majorité de leurs services à distance via leurs sites ou applications afin d'augmenter leur accéssibilité et interêt auprès des clients. Dans une stratégie de différenciation, il est important pour les banques d'innover et d'effectuer une veille informatique constante afin de développer un avantage concurrentiel sur le marché. De plus, avec la pandémie de Covid-19, les clients ont pris l'habitude de tout faire à distance, sans avoir besoin d'aller en agence consulter un conseiller. C'est donc pour répondre aux besoins de leurs clients et pour rester compétitifs que les banques se doivent de proposer des services digitaux efficaces.
-.. Client +
-Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s'intégrer dans cette stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d'application qui nécessite une refonte. En effet, les besoins de la banque évoluent, tout comme ceux des clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces besoins. 
-[%hardbreaks]
 
-=============================
+=== b) Client +
+Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s'intégrer dans cette stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d'application qui nécessite une refonte. En effet, les besoins de la banque évoluent, tout comme ceux des clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces besoins. +
 
-. Besoins +
+
+
+
+== 2. Besoins
 Afin de mener ce projet à bien, il est nécessaire de réaliser une application Java. L'application doit permettre de gérer des comptes bancaires de dépôt, une gestion définie par les fonctionnalités listées ci-dessous, organisées en fonction du poste de l'utilisateur de l'application au sein de la banque. +
 
 * Guichetier +
@@ -27,32 +27,40 @@ Afin de mener ce projet à bien, il est nécessaire de réaliser une application
 * Chef d'agence +
 ** Consulter les employés et pouvoir en créer / modifier / supprimer +
 
-. Contraintes +
-.. Contraintes techniques +
+== 3. Contraintes 
+=== a) Contraintes techniques
 Les langages de programmation utilisés sont imposés. L'application déjà existante utilise les langages JAVA (pour les fonctionalités) et Oracle (pour la base de données). Il s'agira donc d'ajouter de nouvelles fonctionalités avec ces mêmes langages.
 
-.. Contraintes organisationnelles +
+=== b) Contraintes organisationnelles
 Une planification a été établie avec le client, avec des dates précises pour chaque rendu. +
 Semaine 13 :
 [circle]
 * Première version du GANTT
 * Première version du cahier des charges +
+
 Semaine 16 :
+[circle]
 * Deuxième et troisième version du GANTT 
 * Deuxième et troisième version du cahier des charges
 * Première version du cahier des tests +
+
 Semaine 20 : 
+[circle]
 * Première version du document technique
 * Première version du document utilisateur
 * Deuxième version du cahier des test
 * Mise à jour du GANTT +
+
 Semaine 22 :
+[circle]
 * Deuxième et troisième version du document technique
 * Deuxième et troisième version du document utilisateur
 * Troisième version du cahier des tests
 * Mise à jour du GANTT +
 * Première version d l'application
+
 Semaine 23 :
+[circle]
 * Deuxième et troisième version de l'application
 * Livraison finale des documents
 * Chiffrage du projet
