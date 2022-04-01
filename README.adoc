@@ -2,8 +2,27 @@
 
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva
 
-== Semaine 13 :
+== Version v0 :
+*Dans la version existante de notre application, un guichetier peut :*
+
+* Modifier informations client (adresse, téléphone, …)
+
+* Créer un nouveau client
+
+* Consulter un compte
+
+* Débiter un compte (BD)
+
+*Un chef d’agence peut faire tout ce que fait un guichetier et :*
+
+* Rendre inactif un client
+
+== Version v1 :
+En cours de développement, sera disponible très bientôt
+
+== Ce qui est actuellement disponible :
+
+*Semaine 13 :*
 
 * Gantt v1 (.pdf et .mpp)
-* Cahier Des Charges v1
-
+* Cahier Des Charges v1 (.adoc)
