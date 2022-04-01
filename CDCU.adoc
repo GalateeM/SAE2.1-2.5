@@ -1,4 +1,4 @@
-= Cahier des Charges V1 
+= Cahier des Charges V1
 :toc:
 :toc-title: Sommaire
 
