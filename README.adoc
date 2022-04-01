@@ -1,5 +1,4 @@
-# sae2022-bank-2b01
-sae2022-bank-2b01 created by GitHub Classroom
+= S2.01 - Développement d'une application et S2.05 - Gestion d'un projet
 
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva
 
