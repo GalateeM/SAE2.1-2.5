@@ -32,7 +32,7 @@ En cours de développement, sera disponible très bientôt
 |===
 | Date    | Nom         |  Lien                             | Retour
 | 03/04   | Gantt V1    |                                                              | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant-IssuesRetour.adoc
-|         | CdC V1      |                                   |   
+|         | CdC V1      |                                   |   https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/retourcdcu.adoc
 |         | Suivi Projet |                                   |   le dépot est privé je ne peux pas voir les commits...          
 | 22/04  | CdC V2/V3 final|                                     |  
 |         | Gantt V2    |                               |     
