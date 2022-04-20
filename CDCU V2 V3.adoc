@@ -1,6 +1,4 @@
 = Cahier des Charges V2 V3
-
-
 :toc:
 :toc-title: Sommaire
 
