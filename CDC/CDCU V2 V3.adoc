@@ -26,6 +26,8 @@ Une version de l'application existe déjà. Elle comprend des fonctionnalités p
 * Débiter un compte
 Le chef d'agence peut faire tout ce que fait le guichetier, et également rendre inactif un client.
 
+![Use Case](use case v0.svg)
+
 == 3. Besoins
 Afin de mener ce projet à bien, il est nécessaire de réaliser une application Java. L'application doit permettre de gérer des comptes bancaires de dépôt, une gestion définie par les fonctionnalités listées ci-dessous, organisées en fonction du poste de l'utilisateur de l'application au sein de la banque. +
 
