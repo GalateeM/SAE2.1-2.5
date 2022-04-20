@@ -1,0 +1,20 @@
+@startuml issue1
+
+usecase a as "Créditer un compte (BD)"
+usecase b as "Créer un compte"
+usecase c as "Effectuer un virement de compte à compte"
+usecase d as "Clôturer un compte"
+usecase e as "Gérer les employés"
+
+actor Guichetier 
+actor Chef_agence 
+
+Guichetier <|-- Chef_agence
+
+Guichetier --> a
+Guichetier --> b
+Guichetier --> c
+Guichetier --> d
+Chef_agence --> e
+
+@enduml
