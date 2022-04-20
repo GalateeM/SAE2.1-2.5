@@ -24,9 +24,11 @@ Une version de l'application existe déjà. Elle comprend des fonctionnalités p
 * Créer un nouveau client
 * Consulter un compte
 * Débiter un compte
-Le chef d'agence peut faire tout ce que fait le guichetier, et également rendre inactif un client.
+* Le chef d'agence peut faire tout ce que fait le guichetier, et également rendre inactif un client.
 
+Voici le use case décrivant l'existant :+
 image:use case v0.svg[]
+Nous vouyons donc sur ce use case 2 utilisateurs principaux : le guichetier et le chef de l'agence. Leur rôle est décrit ci-dessus.
 
 == 3. Besoins
 Afin de mener ce projet à bien, il est nécessaire de réaliser une application Java. L'application doit permettre de gérer des comptes bancaires de dépôt, une gestion définie par les fonctionnalités listées ci-dessous, organisées en fonction du poste de l'utilisateur de l'application au sein de la banque. +
