@@ -75,6 +75,7 @@ Pour ce qui est du "batch", ses fonctionnalités seront la génération de relev
 === a) Contraintes techniques
 Les langages de programmation utilisés sont imposés. L'application déjà existante utilise les langages JAVA (pour les fonctionalités), JavaFX (pour le visuel : l'IHM) et Oracle (pour la base de données). Il s'agira donc d'ajouter de nouvelles fonctionalités avec ces mêmes langages. Aussi, il s'agira de ne pas repartir de zéro par rapport à l'existant. Il faudra donc l'étudier (code Java, Javafx, et la base de données) afin d'ajouter les nouvelles fonctionnalités. +
 La maîtrise d'oeuvre (MOE) sera constituée de 3 développeurs : Tubia Eva, Monte Hugo et Marcq Galatée. +
+Marcq Galatée a le rôle de chef de projet.+
 
 === b) Contraintes organisationnelles
 Une planification a été établie avec le client, avec des dates précises pour chaque rendu. +
