@@ -1,0 +1,43 @@
+|===
+| Version | Date | Action | Résultat
+
+| 1.0
+| 20/04/2022
+| Créer un compte
+| Permet de saisir les informations du compte, propose un bouton de création finalisant l'opération
+
+| 1.0
+| 20/04/2022
+| Créditer un compte
+| Permet de saisir une somme à créditer à un compte en particulier
+
+| 1.0
+| 20/04/2022
+| Débiter un compte
+| Permet de saisir une somme à débiter d'un compte en particulier
+
+| 1.0
+| 20/04/2022
+| Effectuer un virement de compte à compte
+| Permet de choisir un compte envoyeur et un compte destinataire en plus d'un montant à transférer
+
+| 1.0
+| 20/04/2022
+| Consulter les employées
+| ...
+
+| 1.0
+| 20/04/2022
+| Créer un employé
+| ...
+
+| 1.0
+| 20/04/2022
+| Modifier un employé
+| ...
+
+| 1.0
+| 20/04/2022
+| Supprimer un employé
+| ...
+|===
