@@ -1,10 +1,12 @@
 = Cahier des Charges V2 V3
 
-Date : 29/03/2022 +
-Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 
 :toc:
 :toc-title: Sommaire
+
+Date : 29/03/2022 +
+Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
+
 
 <<<
 
