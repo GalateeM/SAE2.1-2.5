@@ -1,4 +1,4 @@
-= Cahier des Charges V1
+= Cahier des Charges V2 V3
 :toc:
 :toc-title: Sommaire
 
@@ -13,6 +13,8 @@ Pour s'adapter aux avancées technologiques, tous les secteurs doivent augmenter
 
 === b) Client +
 Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s'intégrer dans cette stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d'application qui nécessite une refonte. En effet, les besoins de la banque évoluent, tout comme ceux des clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces besoins. +
+
+=== c) Objectif +
 
 
 == 2. Analyse de l'existant
