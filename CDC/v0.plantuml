@@ -1,15 +1,20 @@
 @startuml issue1
 
-usecase a as "Gérer ses chantiers (date de début, de fin, adresse, …​)"
-usecase b as "Gérer ses artisans (salaire horaire, coordonnées, …​)"
-usecase c as "Gérer quels artisans sont affectés à \n quels chantiers (nombre d’heures effectuées par \n tel artisan sur tel chantier, début et fin de mission sur un chantier, …​)"
-usecase d as "Calculer automatiquement la paye \n d’un artisan donné pour un chantier donné"
+usecase a as "Modifier informations client"
+usecase b as "Créer un nouveau client"
+usecase c as "Consulter un compte"
+usecase d as "Débiter un compte (BD)"
+usecase e as "Rendre inactif un client"
 
-actor Entreprise 
+actor Guichetier 
+actor Chef_agence 
 
+Guichetier <|-- Chef_agence
 
-Entreprise -> a
-Entreprise -> b
-Entreprise -> c
-Entreprise -> d
+Guichetier --> a
+Guichetier --> b
+Guichetier --> c
+Guichetier --> d
+Chef_agence --> e
+
 @enduml
