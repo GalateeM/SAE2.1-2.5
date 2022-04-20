@@ -1,0 +1,14 @@
+@startuml issue1
+
+usecase a as "Générer les relevés mensuels en PDF"
+usecase b as "Exécuter les prélèvements automatiques"
+usecase c as "autres fonctionnalités"
+
+actor Chef_agence 
+actor Batch
+
+Batch --> a
+Batch --> b
+Chef_agence --> c
+
+@enduml
