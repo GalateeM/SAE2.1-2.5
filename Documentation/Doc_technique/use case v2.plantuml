@@ -1,0 +1,20 @@
+@startuml issue1
+
+usecase a as "Générer un relevé mensuel d’un compte en PDF"
+usecase b as "Gérer les prélèvements automatiques"
+usecase c as "Effectuer un Débit exceptionnel"
+usecase d as "Simuler un emprunt"
+usecase e as "Simuler une assurance d’emprunt"
+
+actor Guichetier 
+actor Chef_agence 
+
+Guichetier <|-- Chef_agence
+
+Guichetier --> a
+Guichetier --> b
+Chef_agence --> c
+Chef_agence --> d
+Chef_agence --> e
+
+@enduml
