@@ -110,4 +110,16 @@ Semaine 23 :
 * Deuxième et troisième version de l'application
 * Livraison finale des documents
 * Chiffrage du projet
-* Bilan du projet 
+* Bilan du projet
+
+== 5. Livrables du projet
+=== a) Pour le client
+* Cahier des tests v1 v2 v3
+* Documentation utilisateur v1 v2 v3
+* Chiffrage du projet
+* Application (jar)
+
+=== b) Dans le cadre de la SAE
+* Gantt v1 v2 v3
+* Cahier des charges v1 v2 v3
+* Documentation technique v1 v2 v3
