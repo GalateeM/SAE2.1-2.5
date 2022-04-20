@@ -9,13 +9,13 @@ Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 
 == 1. Présentation du projet et mise en contexte
 === a) Contexte
-Pour s'adapter aux avancées technologiques, tous les secteurs doivent augmenter leurs ivestissements dans le digital et restructurer leurs services. Les banques doivent notamment proposer la majorité de leurs services à distance via leurs sites ou applications afin d'augmenter leur accéssibilité et interêt auprès des clients. Dans une stratégie de différenciation, il est important pour les banques d'innover et d'effectuer une veille informatique constante afin de développer un avantage concurrentiel sur le marché. De plus, avec la pandémie de Covid-19, les clients ont pris l'habitude de tout faire à distance, sans avoir besoin d'aller en agence consulter un conseiller. C'est donc pour répondre aux besoins de leurs clients et pour rester compétitifs que les banques se doivent de proposer des services digitaux efficaces.
+Pour s'adapter aux avancées technologiques, tous les secteurs doivent augmenter leurs ivestissements dans le digital et restructurer leurs services. Les banques doivent notamment proposer la majorité de leurs services à distance via leurs sites ou applications afin d'augmenter leur accéssibilité et interêt auprès des clients. Dans une stratégie de différenciation, il est important pour les banques d'innover et d'effectuer une veille informatique constante afin de développer un avantage concurrentiel sur le marché. De plus, avec la pandémie de Covid-19, les clients ont pris l'habitude de tout faire à distance, sans avoir besoin d'aller en agence consulter un conseiller. De plus, de nouveaux concurrents sont apparus sur le marché : les néo-banques. C'est donc pour répondre aux besoins de leurs clients et pour rester compétitifs que les banques se doivent de proposer des services digitaux efficaces.
 
 === b) Client +
 Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s'intégrer dans cette stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d'application qui nécessite une refonte. En effet, les besoins de la banque évoluent, tout comme ceux des clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces besoins. +
 
 === c) Objectif +
-
+Le but est de partir d'une application existante et d'y rajouter des fonctionnalités. Il y a deux types d'utilisateurs de l'application : le guichetier et le chef d'agence. Les guichetiers pourront créer de nouveaux clients et faire les opérations courantes (Create Read Update Delete). Les chefs d’agences pourront gérer les employés et les opérations exeptionnelles. L'application sera découpée en plusieurs versions (3) à la demande du client. +
 
 == 2. Analyse de l'existant
 Une version de l'application existe déjà. Elle comprend des fonctionnalités pour le guichetier :
