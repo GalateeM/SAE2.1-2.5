@@ -1,47 +1,15 @@
-@startuml tp
+@startuml issue1
 
-hide circle
-hide empty members
+usecase a as "Gérer ses chantiers (date de début, de fin, adresse, …​)"
+usecase b as "Gérer ses artisans (salaire horaire, coordonnées, …​)"
+usecase c as "Gérer quels artisans sont affectés à \n quels chantiers (nombre d’heures effectuées par \n tel artisan sur tel chantier, début et fin de mission sur un chantier, …​)"
+usecase d as "Calculer automatiquement la paye \n d’un artisan donné pour un chantier donné"
+
+actor Entreprise 
 
 
-
-
-skinparam classAttributeIconSize 0
-
-skinparam roundcorner 5
-
-skinparam class {
-	BackgroundColor FFFEC0
-	BorderColor C92D2D
-	ArrowColor C92D2D
-	FontColor Black
-	FontSize 12
-	FontName Helvetica
-}
-
-skinparam arrow {
-    MessageAlign center
-}
-
-class Roues {
-
-}
-
-class Voiture {
-	couleur
-	modele
-	start()
-	run()
-	stop()
-}
-
-class Moteur {}
-
-class Chauffeur {}
-
-Voiture *-left- "4" Roues
-Voiture *-- "1" Moteur
-Roues "2..4" -- "0..1" Moteur : controler
-Voiture "0..*" -- "0..1" Chauffeur : conduire
-
+Entreprise -> a
+Entreprise -> b
+Entreprise -> c
+Entreprise -> d
 @enduml
