@@ -38,6 +38,35 @@ Afin de mener ce projet à bien, il est nécessaire de réaliser une application
 * Chef d'agence +
 ** Consulter les employés et pouvoir en créer / modifier / supprimer +
 
+En résumé, un guichetier peut créer un compte, le créditer, le débiter, effectuer un virement depuis celui-ci vers un autre compte ainsi que le côturer. +
+Pour ce qui est du chef d'agence, il peut consulter les employées ainsi qu'en créer, supprimer et modifier ceux qui existent déjà.
+
+==== Version 2
+
+* Guichetier
+** Générer un relevé mensuel d'un compte en PDF
+** Gérer les prélèvements automatiques
+* Chef d'Agence (uniquement les spécifications)
+** Effectuer un débit exceptionnel
+** Simuler un emprunt
+** Simuler une assurance d'emprunt
+
+En résumé, à patir de la version 2, le guichetier peut en plus, générer le relevé mensuel d'un compte (format PDF), gérer les prélèvements automatiques (créer un nouveau, modifier/voir/supprimer les existants). +
+Pour ce qui est du chef d'agence, les spécifications des fonctionnalités suivantes seront disponibles : effectuer un débit exceptionnel sur un compte, simuler un emprunt ainsi qu'une assurance d'emprunt.
+
+==== Version 3
+
+* Chef d’Agence
+** Les spécifications finalisées de la version 2
+** Supers options pour les tops …
+** Développer une ou plusieurs fonctionnalités au choix et selon vos compétences
+* Batch
+** Générer les relevés mensuels en PDF
+** Exécuter les prélèvements automatiques
+
+En résumé, à partir de la version 3, seront disponibles de nouvelles fonctionnalités. Le chef d'agence peut utiliser les fonctionnalités dont ont été réalisées les spécifications. +
+Pour ce qui est du "batch", ses fonctionnalités seront la génération de relevés mensuels (format PDF) et l'exécution des prélèvements automatiques.
+
 == 4. Contraintes 
 === a) Contraintes techniques
 Les langages de programmation utilisés sont imposés. L'application déjà existante utilise les langages JAVA (pour les fonctionalités), JavaFX (pour le visuel : l'IHM) et Oracle (pour la base de données). Il s'agira donc d'ajouter de nouvelles fonctionalités avec ces mêmes langages. Aussi, il s'agira de ne pas repartir de zéro par rapport à l'existant. Il faudra donc l'étudier (code Java, Javafx, et la base de données) afin d'ajouter les nouvelles fonctionnalités. +
