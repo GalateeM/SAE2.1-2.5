@@ -35,7 +35,7 @@ En cours de développement, sera disponible très bientôt
 | 03/04   | Gantt V1    |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet1.pdf                                                            | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Gant-IssuesRetour.adoc
 |         | CdC V1      |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/CDCU.adoc                                 |   https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/retourcdcu.adoc
 |         | Suivi Projet |                                   |   le dépot est privé je ne peux pas voir les commits...          
-| 22/04  | CdC V2/V3 final| https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/CDCU%20V2%20V3.adoc                                    |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/CDCU%20V2%20V3.adoc
+| 22/04  | CdC V2/V3 final| https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/CDCU%20V2%20V3.adoc                                    | 
 |         | Gantt V2    |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v2_v3.pdf                             |     
 |         | Gantt V3 |         |     
 |         | Doc. Tec. V1 |        |    
