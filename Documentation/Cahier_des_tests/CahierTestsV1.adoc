@@ -1,7 +1,7 @@
-== Cahier de Tests - Version 1
+= Cahier de Tests - Version 1
 
 Date : 20/04/2022 +
-Equipe : Galatée Marcq - Hugo Monte - Tubia Eva +
+Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 Responsable du document : Hugo Monte
 
 |===
