@@ -1,4 +1,4 @@
-== Manuel d'utilisation de l'application
+= Manuel d'utilisation de l'application
 :toc:
 :toc-title: Sommaire
 
