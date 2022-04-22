@@ -3,7 +3,7 @@
 :toc-title: Sommaire
 
 Version de l'application : 1 +
-Date : 20/04/2022
+Date : 20/04/2022 +
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 
 <<<
