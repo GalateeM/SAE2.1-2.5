@@ -1,0 +1,13 @@
+= Manuel d'utilisation de l'application
+:toc:
+:toc-title: Sommaire
+
+Version de l'application : 1 +
+Date : 20/04/2022 +
+Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
+
+<<<
+
+== 1. Prérequis
+== 2. Lancer l'application
+== 3. Utiliser l'application
