@@ -32,12 +32,12 @@ En cours de développement, sera disponible très bientôt
 [cols="1,2,2,5",options=header]
 |===
 | Date    | Nom         |  Lien                             | Retour
-| 03/04   | Gantt V1    |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet1.pdf                                                            | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Gant-IssuesRetour.adoc
+| 03/04   | Gantt V1    |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v1.pdf                                                            | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Gant-IssuesRetour.adoc
 |         | CdC V1      |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/CDCU%20v1.adoc                                |   https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/retourcdcu.adoc
 |         | Suivi Projet |                                   |   le dépot est privé je ne peux pas voir les commits...          
 | 22/04  | CdC V2/V3 final| https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/CDCU%20V2%20V3.adoc                                    | 
-|         | Gantt V2    |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v2_v3.pdf                             |     
-|         | Gantt V3 |         |     
+|         | Gantt V2    |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v2.pdf                             |     
+|         | Gantt V3 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v3.pdf        |     
 |         | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20Technique.adoc       |    
 |         | Doc User V1    | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20utilisateur.adoc        |
 |         | Recette V1  | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc                     | 
