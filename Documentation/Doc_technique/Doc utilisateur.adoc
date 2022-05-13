@@ -21,6 +21,13 @@ Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire
 
 Le but est de partir d’une application existante et d’y rajouter des fonctionnalités. Il y a deux types d’utilisateurs de l’application : le guichetier et le chef d’agence. Les guichetiers pourront créer de nouveaux clients et faire les opérations courantes (Create Read Update Delete). Les chefs d’agences pourront gérer les employés et les opérations exeptionnelles. L’application sera découpée en plusieurs versions (3) à la demande du client.
 
-== 2. Prérequis
-== 3. Lancer l'application
+== 2. Lancer l'application
+=== a) Prérequis
+
+L'application DailyBankApp nécessite d'avoir installé Java 1.8. Si vous avez d'autres versions de Java installées, il faut lancer votre cmd en Java 1.8. +
+
+=== b) Lancer le fichier jar
+Si vous n'avez que la version 1.8 de Java, double cliquez sur le fichier DayliBank.jar pour lancer l'application. +
+Si vous avez plusieurs versions de Java, ouvrez votre cmd dans le dossier où se trouve le fichier jar et éxecutez la commande suivante `java -jar DailyBank.jar` .
+
 == 4. Utiliser l'application
