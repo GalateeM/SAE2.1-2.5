@@ -8,6 +8,10 @@ Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 
 <<<
 
-== 1. Prérequis
-== 2. Lancer l'application
-== 3. Utiliser l'application
+== 1. Description du Projet
+=== a) Equipe
+=== b) Contexte du projet
+=== c) Objectifs du projet
+== 2. Prérequis
+== 3. Lancer l'application
+== 4. Utiliser l'application
