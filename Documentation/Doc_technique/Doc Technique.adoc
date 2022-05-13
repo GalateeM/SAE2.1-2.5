@@ -12,7 +12,6 @@ Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 === a) Equipe
 === b) Contexte du projet
 === c) Objectifs du projet
-== 2. Diagramme des Use Cases
-=== a) Utilisateur
-=== b) Interface
-== 3. Diagramme de classes UML
+== 2. Architecture
+== 3. Fonctionnalités
+=== a) Fonctionnalité créditer un compte
