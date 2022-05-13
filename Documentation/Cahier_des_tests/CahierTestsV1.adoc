@@ -15,7 +15,7 @@ Responsable du document : Hugo Monte
 | V0
 | 13/05/2022
 | Quitter
-| Ferme l'ensemble de ce qui a été ouvert
+| Ouvre une demande de validation de fermeture
 
 | V0
 | 13/05/2022
