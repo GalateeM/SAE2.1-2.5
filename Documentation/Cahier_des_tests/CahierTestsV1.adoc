@@ -7,43 +7,33 @@ Responsable du document : Hugo Monte
 |===
 | Version | Date | Action | Résultat
 
-| 1.0
-| 20/04/2022
-| Créer un compte
-| Permet de saisir les informations du compte, propose un bouton de création finalisant l'opération
+| V0
+| 13/05/2022
+| Connexion
+| Ouvre une fenêtre invitant la personne à saisir son login et son mot de passe
 
-| 1.0
-| 20/04/2022
-| Créditer un compte
-| Permet de saisir une somme à créditer à un compte en particulier
+| V0
+| 13/05/2022
+| Quitter
+| Ferme l'ensemble de ce qui a été ouvert
 
-| 1.0
-| 20/04/2022
+| V0
+| 13/05/2022
+| Modifier les informations d'un client
+| Ouvre une fenêtre invitant la personne à changer les informations existantes concernant le client
+
+| V0
+| 13/05/2022
+| Créer un nouveau client
+| Ouvre une fenêtre invitant la personne à saisir les informations du nouveau client
+
+| V0
+| 13/05/2022
+| Consulter un compte
+| Ouvre une fenêtre avec toutes les opérations du compte concerné et ses informations
+
+| V0
+| 13/05/2022
 | Débiter un compte
-| Permet de saisir une somme à débiter d'un compte en particulier
-
-| 1.0
-| 20/04/2022
-| Effectuer un virement de compte à compte
-| Permet de choisir un compte envoyeur et un compte destinataire en plus d'un montant à transférer
-
-| 1.0
-| 20/04/2022
-| Consulter les employées
-| ...
-
-| 1.0
-| 20/04/2022
-| Créer un employé
-| ...
-
-| 1.0
-| 20/04/2022
-| Modifier un employé
-| ...
-
-| 1.0
-| 20/04/2022
-| Supprimer un employé
-| ...
+| Ouvre une fenêtre invitant à saisir les données du retrait (type: espèce ou carte bleue) ainsi que le montant tout en indiquant le solde et le découvert autorisé
 |===
