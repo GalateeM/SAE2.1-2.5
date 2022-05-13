@@ -10,7 +10,7 @@ Date : 20/04/2022 +
 == 1. Description du Projet
 === a) Equipe
 
-Concepteurs/Développeurs : Marcq Galatée - Monté Hugo - Tubia Eva +
+Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
 
 === b) Contexte du projet
 
