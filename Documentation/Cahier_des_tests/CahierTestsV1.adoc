@@ -36,4 +36,9 @@ Responsable du document : Hugo Monte
 | 13/05/2022
 | Débiter un compte
 | Ouvre une fenêtre invitant à saisir les données du retrait (type: espèce ou carte bleue) ainsi que le montant tout en indiquant le solde et le découvert autorisé
+
+| V0 (indiqué mais pas réalisé)
+| 13/05/2022
+| Rendre inactif un client (chef d'agence seulement)
+| Permet de rendre un client sélectionné inactif
 |===
