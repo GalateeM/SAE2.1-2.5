@@ -41,4 +41,29 @@ Responsable du document : Hugo Monte
 | 13/05/2022
 | Rendre inactif un client (chef d'agence seulement)
 | Permet de rendre un client sélectionné inactif
+
+| V1
+| 13/05/2022
+| Créditer/débiter un compte
+| Ouvre une fenêtre invitant à saisir les informations concernant le crédit ou le débit (en fonction de l'action)
+
+| V1
+| 13/05/2022
+| Créer un compte
+| Ouvre une fenêtre invitant à saisir les informations concernant le nouveau compte
+
+| V1
+| 13/05/2022
+| Effectuer un virement de compte à compte
+| Ouvre la fenêtre invitant à saisir le destinataire et les autres informations concernant le virement
+
+| V1
+| 13/05/2022
+| Clôturer un compte
+| Ouvre un menu de validation demandant si la clôture est bel est bien souhaitée
+
+| V1
+| 13/05/2022
+| Gérer les employés (CRUD - Pour Chef d'Agence)
+| Ouvre l'interface permettant de gérer (Créer / Voir / Modifier / Supprimer) les employés (guichetiers et chefs d'agence compris)
 |===
