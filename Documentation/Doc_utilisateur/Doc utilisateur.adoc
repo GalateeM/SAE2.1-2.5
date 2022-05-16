@@ -5,6 +5,8 @@
 Version de l'application : 1 +
 Date : 20/04/2022 +
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
+Client : BankUniv +
+Projet : Daily Bank + 
 
 <<<
 
@@ -27,7 +29,10 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 L'application DailyBankApp nécessite d'avoir installé Java 1.8. Si vous avez d'autres versions de Java installées, il faut lancer votre cmd en Java 1.8. +
 
 === b) Lancer le fichier jar
-Si vous n'avez que la version 1.8 de Java, double cliquez sur le fichier DayliBank.jar pour lancer l'application. +
-Si vous avez plusieurs versions de Java, ouvrez votre cmd dans le dossier où se trouve le fichier jar et éxecutez la commande suivante `java -jar DailyBank.jar` .
+Si vous n'avez que la version 1.8 de Java, double cliquez sur le fichier DayliBank.jar pour lancer l'application. Si vous avez plusieurs versions de Java, ouvrez votre cmd dans le dossier où se trouve le fichier jar et éxecutez la commande suivante `java -jar DailyBank.jar` .
 
-== 4. Utiliser l'application
+== 3. Utiliser l'application
+
+=== a) Explications des rôles
+=== b) Guichetier
+=== c) Chef d'agence
