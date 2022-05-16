@@ -24,12 +24,6 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 == Version 0
 
-== Version 1
-
-== Version 2
-
-== Version 3
-
 |===
 | Version | Date | Action | Résultat
 
@@ -65,8 +59,14 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 | V0 (indiqué mais pas réalisé)
 | 13/05/2022
-| Rendre inactif un client (chef d'agence seulement,  fenêtes de gestion des comptes)
+| Rendre inactif un client (chef d'agence seulement,  fenêtre de gestion des comptes)
 | Permet de rendre un client sélectionné inactif
+|===
+
+== Version 1
+
+|===
+| Version | Date | Action | Résultat
 
 | V1
 | 13/05/2022
@@ -93,3 +93,7 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 | Gérer les employés (CRUD - Pour Chef d'Agence, fenêtre de gestion des employés) 
 | Ouvre l'interface permettant de gérer (Créer / Voir / Modifier / Supprimer) les employés (guichetiers et chefs d'agence compris)
 |===
+
+== Version 2
+
+== Version 3
