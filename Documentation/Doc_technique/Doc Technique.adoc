@@ -4,6 +4,8 @@
 
 Version de l'application : 1 +
 Date : 20/04/2022 +
+Client : BankUniv +
+Projet : Daily Bank + 
 
 <<<
 
@@ -21,5 +23,14 @@ Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire
 Le but est de partir d’une application existante et d’y rajouter des fonctionnalités. Il y a deux types d’utilisateurs de l’application : le guichetier et le chef d’agence. Les guichetiers pourront créer de nouveaux clients et faire les opérations courantes (Create Read Update Delete). Les chefs d’agences pourront gérer les employés et les opérations exeptionnelles. L’application sera découpée en plusieurs versions (3) à la demande du client.
 
 == 2. Architecture
+
 == 3. Fonctionnalités
-=== a) Fonctionnalité créditer un compte
+
+=== a) Version 1
+
+Fonctionnalité créditer un compte
+
+=== b) Version 2
+
+=== c) Version 3
+
