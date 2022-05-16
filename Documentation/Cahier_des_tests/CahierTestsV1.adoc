@@ -1,8 +1,34 @@
 = Cahier de Tests - Version 1
+:toc:
+:toc-title: Sommaire
 
+Version de l'application : 1 +
 Date : 20/04/2022 +
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
-Responsable du document : Hugo Monte
+Client : BankUniv +
+Projet : Daily Bank + 
+
+<<<
+== 1. Description du Projet
+=== a) Equipe
+
+Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
+
+=== b) Contexte du projet
+
+Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s’intégrer dans une stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d’application qui nécessite une refonte. Les besoins de la banque ont évolués, tout comme ceux de leurs clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces nouveaux besoins.
+
+=== c) Objectifs du projet
+
+Le but est de partir d’une application existante et d’y rajouter des fonctionnalités. Il y a deux types d’utilisateurs de l’application : le guichetier et le chef d’agence. Les guichetiers pourront créer de nouveaux clients et faire les opérations courantes (Create Read Update Delete). Les chefs d’agences pourront gérer les employés et les opérations exeptionnelles. L’application sera découpée en plusieurs versions (3) à la demande du client.
+
+== Version 0
+
+== Version 1
+
+== Version 2
+
+== Version 3
 
 |===
 | Version | Date | Action | Résultat
