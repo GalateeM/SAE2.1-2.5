@@ -28,7 +28,9 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 === a) Version 1
 
-Fonctionnalité créditer un compte
+==== Fonctionnalité créditer un compte
+
+(explications)
 
 === b) Version 2
 
