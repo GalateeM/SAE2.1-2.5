@@ -9,61 +9,61 @@ Responsable du document : Hugo Monte
 
 | V0
 | 13/05/2022
-| Connexion
+| Se connecter (page d'accueil) 
 | Ouvre une fenêtre invitant la personne à saisir son login et son mot de passe
 
 | V0
 | 13/05/2022
-| Quitter
+| Quitter l'application (entièreté de l'application)
 | Ouvre une demande de validation de fermeture
 
 | V0
 | 13/05/2022
-| Modifier les informations d'un client
+| Modifier les informations d'un client (fenêtre de gestion des clients)
 | Ouvre une fenêtre invitant la personne à changer les informations existantes concernant le client
 
 | V0
 | 13/05/2022
-| Créer un nouveau client
+| Créer un nouveau client (fenêtre de gestion des clients)
 | Ouvre une fenêtre invitant la personne à saisir les informations du nouveau client
 
 | V0
 | 13/05/2022
-| Consulter un compte
+| Consulter un compte (fenêtre des comptes d'un client)
 | Ouvre une fenêtre avec toutes les opérations du compte concerné et ses informations
 
 | V0
 | 13/05/2022
-| Débiter un compte
+| Débiter un compte (fenêtre des comptes d'un client)
 | Ouvre une fenêtre invitant à saisir les données du retrait (type: espèce ou carte bleue) ainsi que le montant tout en indiquant le solde et le découvert autorisé
 
 | V0 (indiqué mais pas réalisé)
 | 13/05/2022
-| Rendre inactif un client (chef d'agence seulement)
+| Rendre inactif un client (chef d'agence seulement,  fenêtes de gestion des comptes)
 | Permet de rendre un client sélectionné inactif
 
 | V1
 | 13/05/2022
-| Créditer/débiter un compte
+| Créditer/débiter un compte (fenêtre des opérations d'un compte)
 | Ouvre une fenêtre invitant à saisir les informations concernant le crédit ou le débit (en fonction de l'action)
 
 | V1
 | 13/05/2022
-| Créer un compte
+| Créer un compte (fenêtre des comptes d'un client)
 | Ouvre une fenêtre invitant à saisir les informations concernant le nouveau compte
 
 | V1
 | 13/05/2022
-| Effectuer un virement de compte à compte
+| Effectuer un virement de compte à compte (fenêtre des opérations d'un compte)
 | Ouvre la fenêtre invitant à saisir le destinataire et les autres informations concernant le virement
 
 | V1
 | 13/05/2022
-| Clôturer un compte
+| Clôturer un compte (fenêtre des comptes d'un client)
 | Ouvre un menu de validation demandant si la clôture est bel est bien souhaitée
 
 | V1
 | 13/05/2022
-| Gérer les employés (CRUD - Pour Chef d'Agence)
+| Gérer les employés (CRUD - Pour Chef d'Agence, fenêtre de gestion des employés) 
 | Ouvre l'interface permettant de gérer (Créer / Voir / Modifier / Supprimer) les employés (guichetiers et chefs d'agence compris)
 |===
