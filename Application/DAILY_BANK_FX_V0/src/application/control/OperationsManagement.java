@@ -103,6 +103,61 @@ public class OperationsManagement {
 		}
 		return op;
 	}
+	
+	/**
+	 * Permet d'enregistrer un nouveau crédit sur le compte d'un client
+	 * @return : l'opération créé (le nouveau crédit)
+	 */
+	public Operation enregistrerCredit() {
+
+		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dbs);
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT);
+		if (op != null) {
+			try {
+				AccessOperation ao = new AccessOperation();
+				ao.insertCredit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+				ed.doExceptionDialog();
+				this.primaryStage.close();
+				op = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+				ed.doExceptionDialog();
+				op = null;
+			}
+		}
+		return op;
+	}
+	
+	/**
+	 * Permet d'enregistrer un nouveau débit sur le compte d'un client
+	 * @return : l'opération créé (le nouveau débit)
+	 */
+	public Operation enregistrerVirement() {
+
+		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dbs);
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.VIREMENT);
+		if (op != null) {
+			try {
+				AccessOperation ao = new AccessOperation();
+				ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				//ao.insertCredit(0, op.montant, );
+
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+				ed.doExceptionDialog();
+				this.primaryStage.close();
+				op = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+				ed.doExceptionDialog();
+				op = null;
+			}
+		}
+		return op;
+	}
 
 	/**
 	 * Permet d'obtenir la liste des opérations en fonction d'un compte courant

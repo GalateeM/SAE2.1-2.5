@@ -1,15 +1,12 @@
 package application.view;
 
-/**
- * Fenetre de gestion des comptes (première page, liste des clients)
- */
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import application.DailyBankState;
 import application.control.ComptesManagement;
+import application.tools.AlertUtilities;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +15,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
@@ -32,19 +30,11 @@ public class ComptesManagementController implements Initializable {
 	// Fenêtre physique
 	private Stage primaryStage;
 
-	// Données de la fenêtre
+	// Donnéees de la fenêtre
 	private Client clientDesComptes;
 	private ObservableList<CompteCourant> olCompteCourant;
 
 	// Manipulation de la fenêtre
-	/**
-	 * Définit les variables de la fenetre
-	 * 
-	 * @param _primaryStage : scene
-	 * @param _cm : fenetre
-	 * @param _dbstate : données de la session de l'utilisateur
-	 * @param client : client des comptes
-	 */
 	public void initContext(Stage _primaryStage, ComptesManagement _cm, DailyBankState _dbstate, Client client) {
 		this.cm = _cm;
 		this.primaryStage = _primaryStage;
@@ -72,9 +62,6 @@ public class ComptesManagementController implements Initializable {
 		this.validateComponentState();
 	}
 
-	/**
-	 * Affiche la fenetre et attend une action
-	 */
 	public void displayDialog() {
 		this.primaryStage.showAndWait();
 	}
@@ -98,9 +85,6 @@ public class ComptesManagementController implements Initializable {
 	@FXML
 	private Button btnSupprCompte;
 
-	/**
-	 * Redéfinition de la fonction initialize
-	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
@@ -127,6 +111,19 @@ public class ComptesManagementController implements Initializable {
 
 	@FXML
 	private void doSupprimerCompte() {
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
+			boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Clôturer le compte", "Clôture du compte numéro " + cpt.idNumCompte, "êtes-vous sûr de vouloir clôturer le compte ?", AlertType.CONFIRMATION);
+				
+			if(continuer) {
+				this.cm.cloturerCompte(cpt);
+			}
+			this.loadList();
+		}
+		
+		this.validateComponentState();
 	}
 
 	@FXML
@@ -154,9 +151,14 @@ public class ComptesManagementController implements Initializable {
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
-			this.btnVoirOpes.setDisable(false);
+			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
+			boolean estCloture = cpt.estCloture.equals("O");
+			
+			this.btnVoirOpes.setDisable(estCloture);
+			this.btnSupprCompte.setDisable(estCloture);
 		} else {
 			this.btnVoirOpes.setDisable(true);
+			this.btnSupprCompte.setDisable(true);
 		}
 	}
 }

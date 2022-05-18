@@ -56,7 +56,7 @@ public class OperationEditorPane {
 	/**
 	 *  Lance la fonction du controleur de la page d'enregistrement d'un débit ou crédit pour afficher la scene
 	 * @param cpte : le compte sur lequel l'opération sera ajoutée
-	 * @param cm : le type d'operation (débit ou crédit)
+	 * @param cm : le type d'operation (débit, crédit ou virement)
 	 * @return : l'opération après son enregistrement
 	 */
 	public Operation doOperationEditorDialog(CompteCourant cpte, CategorieOperation cm) {
