@@ -115,7 +115,7 @@ public class ComptesManagementController implements Initializable {
 		
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
-			boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Cl�turer le compte", "Cl�ture du compte num�ro " + cpt.idNumCompte, "�tes-vous s�r de vouloir cl�turer le compte ?", AlertType.CONFIRMATION);
+			boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Clôturer le compte", "Clôture du compte numéro " + cpt.idNumCompte, "êtes-vous sûr de vouloir clôturer le compte ?", AlertType.CONFIRMATION);
 				
 			if(continuer) {
 				this.cm.cloturerCompte(cpt);
@@ -145,7 +145,7 @@ public class ComptesManagementController implements Initializable {
 	}
 
 	private void validateComponentState() {
-		// Non impl�ment� => d�sactiv�
+		// Non implémenté => désactivé
 		this.btnModifierCompte.setDisable(true);
 		this.btnSupprCompte.setDisable(true);
 

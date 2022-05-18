@@ -54,7 +54,7 @@ public class AccessCompteCourant {
 			rs.close();
 			pst.close();
 		} catch (SQLException e) {
-			throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur acc�s", e);
+			throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur accès", e);
 		}
 
 		return alResult;
@@ -107,7 +107,7 @@ public class AccessCompteCourant {
 			pst.close();
 			return cc;
 		} catch (SQLException e) {
-			throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur acc�s", e);
+			throw new DataAccessException(Table.CompteCourant, Order.SELECT, "Erreur accès", e);
 		}
 	}
 
@@ -134,7 +134,7 @@ public class AccessCompteCourant {
 			}
 			if (cAvant.solde < cc.debitAutorise) {
 				throw new ManagementRuleViolation(Table.CompteCourant, Order.UPDATE,
-						"Erreur de r�gle de gestion : sole � d�couvert", null);
+						"Erreur de règle de gestion : solde à découvert", null);
 			}
 			Connection con = LogToDatabase.getConnexion();
 
@@ -155,7 +155,7 @@ public class AccessCompteCourant {
 			}
 			con.commit();
 		} catch (SQLException e) {
-			throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur acc�s", e);
+			throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
 		}
 	}
 	
@@ -189,11 +189,11 @@ public class AccessCompteCourant {
 			int res = call.getInt(4);
 			
 			if (res == -1)
-				throw new ManagementRuleViolation(Table.Operation, Order.INSERT, "Erreur : le solde doit �tre sup�rieur � 50", null);
+				throw new ManagementRuleViolation(Table.Operation, Order.INSERT, "Erreur : le solde doit être supérieur à 50", null);
 			
 			compte.idNumCompte = res;
 		} catch (SQLException e) {
-			throw new DataAccessException(Table.Client, Order.INSERT, "Erreur acc�s", e);
+			throw new DataAccessException(Table.Client, Order.INSERT, "Erreur accès", e);
 		}
 	}
 	
@@ -226,7 +226,7 @@ public class AccessCompteCourant {
 			}
 			con.commit();
 		} catch (SQLException e) {
-			throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur acc�s", e);
+			throw new DataAccessException(Table.CompteCourant, Order.UPDATE, "Erreur accès", e);
 		}
 	}
 }
