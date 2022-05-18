@@ -89,31 +89,47 @@ public class ComptesManagement {
 	public CompteCourant creerCompte() {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dbs);
-		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);
+		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);		
+		
 		if (compte != null) {
 			try {
-				// Temporaire jusqu'à implémentation
-				compte = null;
-				AlertUtilities.showAlert(this.primaryStage, "En cours de développement", "Non implémenté",
-						"Enregistrement réel en BDD du compe non effectué\nEn cours de développement", AlertType.ERROR);
-
-				// TODO : enregistrement du nouveau compte en BDD (la BDD donne de nouvel id
-				// dans "compte")
-
-				// if JAMAIS vrai
-				// existe pour compiler les catchs dessous
-				if (Math.random() < -1) {
-					throw new ApplicationException(Table.CompteCourant, Order.INSERT, "todo : test exceptions", null);
-				}
+				AccessCompteCourant acc = new AccessCompteCourant();				
+				acc.insertCompte(compte);
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
 				ed.doExceptionDialog();
 				this.primaryStage.close();
+				return null;
 			} catch (ApplicationException ae) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
 				ed.doExceptionDialog();
+				return null;
 			}
 		}
+		
+		return compte;
+	}
+
+	/**
+	 * Permet de créer un compte (ouvre la scene d'ajout d'un compte)
+	 * @return : le compte courant clôturé
+	 */
+	public CompteCourant cloturerCompte(CompteCourant compte) {
+		if(compte == null)
+			return compte;
+		
+		try {
+			AccessCompteCourant acc = new AccessCompteCourant();				
+			acc.cloturerCompte(compte);
+		} catch (DatabaseConnexionException e) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+			ed.doExceptionDialog();
+			this.primaryStage.close();
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+			ed.doExceptionDialog();
+		}
+		
 		return compte;
 	}
 
