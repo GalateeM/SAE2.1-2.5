@@ -66,7 +66,6 @@ public class OperationsManagementController implements Initializable {
 		this.lvOperations.setItems(this.olOperation);
 		this.lvOperations.setSelectionModel(new NoSelectionModel<Operation>());
 		this.updateInfoCompteClient();
-		this.validateComponentState();
 	}
 
 	/**
@@ -110,26 +109,26 @@ public class OperationsManagementController implements Initializable {
 
 	@FXML
 	private void doDebit() {
-
 		Operation op = this.om.enregistrerDebit();
 		if (op != null) {
 			this.updateInfoCompteClient();
-			this.validateComponentState();
 		}
 	}
 
 	@FXML
 	private void doCredit() {
+		Operation op = this.om.enregistrerCredit();
+		if (op != null) {
+			this.updateInfoCompteClient();
+		}
 	}
 
 	@FXML
 	private void doAutre() {
-	}
-
-	private void validateComponentState() {
-		// Non implémenté => désactivé
-		this.btnCredit.setDisable(true);
-		this.btnDebit.setDisable(false);
+		Operation op = this.om.enregistrerVirement();
+		if (op != null) {
+			this.updateInfoCompteClient();
+		}
 	}
 
 	private void updateInfoCompteClient() {
@@ -157,6 +156,5 @@ public class OperationsManagementController implements Initializable {
 			this.olOperation.add(op);
 		}
 
-		this.validateComponentState();
 	}
 }
