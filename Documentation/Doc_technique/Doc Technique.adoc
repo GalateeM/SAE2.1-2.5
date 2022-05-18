@@ -24,6 +24,14 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 == 2. Architecture
 
+=== Architecture Générale
+
+=== Ressources externes
+
+=== Structuration en packages
+
+=== Élements essentiels
+
 == 3. Fonctionnalités
 
 === a) Version 1
