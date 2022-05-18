@@ -41,6 +41,8 @@ Use case : "Créer un compte"
 Action d'insertion du nouveau compte dans cette table. +
 Fonctionnement dans le code : le contrôleur de vue ComptesManagement transfère l'information de création (pour ouvrir le menu qui affiche les données à saisir) au contrôle ComptesManagement qui va afficher l'interface puis envoyer l'information de création à l'ORM AccesCompteCourant et renvoyer le résultat après tout ça au contrôleur de vue initial. AccesCompteCourant va appeler CreerCompte dans la base de données.
 
+Informations supplémentaires sur la documentation utilisateur.
+
 ==== Clôturer un compte (Hugo Monté)
 
 Use case : "Clôturer un compte"
@@ -49,6 +51,8 @@ Use case : "Clôturer un compte"
 
 Action de modification sur cette table de "solde" et de "estCloture" (respectivement 0 et "O"). +
 Fonctionnement dans le code : le contrôleur de vue ComptesManagement transfère l'information de clôture au contrôle ComptesManagement qui va envoyer l'information de clôture à l'ORM AccesCompteCourant et renvoyer le résultat après tout ça au contrôleur de vue initial. AccesCompteCourant va modifier "estCloture" de ce compte pour mettre "O" (signifiant oui) ainsi que le solde (remis à 0) dans la base de données.
+
+Informations supplémentaires sur la documentation utilisateur.
 
 === b) Version 2
 
