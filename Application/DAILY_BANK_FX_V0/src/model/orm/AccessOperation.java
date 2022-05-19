@@ -121,7 +121,6 @@ public class AccessOperation {
 	 * @param idNumCompte compte débité
 	 * @param montant     montant débité
 	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
-	 * @throws RowNotFoundOrTooManyRowsException
 	 * @throws DataAccessException
 	 * @throws DatabaseConnexionException
 	 * @throws ManagementRuleViolation
@@ -165,7 +164,6 @@ public class AccessOperation {
 	 * @param idNumCompte compte crédité
 	 * @param montant     montant crédité
 	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
-	 * @throws RowNotFoundOrTooManyRowsException
 	 * @throws DataAccessException
 	 * @throws DatabaseConnexionException
 	 * @throws ManagementRuleViolation
