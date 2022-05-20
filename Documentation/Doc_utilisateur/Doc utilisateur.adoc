@@ -36,6 +36,13 @@ Si vous n'avez que la version 1.8 de Java, double cliquez sur le fichier DayliBa
 === a) Explications des rôles
 === b) Guichetier
 
+==== Créditer un compte
+
+Pour créditer un compte, l'utilisateur doit ouvrir le menu des comptes du client, choisir le compte concerné dans la liste (cliquer dessus), cliquer sur "Voir opérations" puis "Enregistrer Crédit". Une nouvelle fenêtre permet à l'utilisateur de choisir le type de paiement (dépôt espèces ou chèque) et d'entrer le montant à créditer. Vous pouvez cliquer sur "Annuler crédit" à tout moment pour annuler l'opération. Une fois l'opération validée (cliquer sur "Effectuer Crédit"), si tout est correct dans la saisie du montant, il n'est pas possible de revenir en arrière l'opération est effectuée.
+
+==== Effectuer un virement
+Pour effectuer un virement entre deux comptes, l'utilisateur doit ouvrir le menu des comptes du client, choisir le compte à débiter dans la liste (cliquer dessus), cliquer sur "Voir opérations" puis "Effectuer un virement". Une nouvelle fenêtre permet à l'utilisateur d'entrer le montant à virer ainsi que le numéro du compte destinataire. Vous pouvez cliquer sur "Annuler virement" à tout moment pour annuler l'opération. Une fois l'opération validée (cliquer sur "Effectuer Virement"), si tout est correct dans la saisie du montant et du numéro de compte, il n'est pas possible de revenir en arrière l'opération est effectuée, le destinataire recevra l'argent immédiatement.
+
 ==== Créer un compte
 
 Pour créer un compte, le guichetier doit ouvrir le menu des comptes du client concerné puis cliquer sur "Nouveau compte" et enfin saisir les informations de ce nouveau compte. Une fois la création effectuée, ce compte apparaît dans la liste immédiatement (à moins qu'une erreur ait été mentionnée à la création).
