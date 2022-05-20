@@ -39,7 +39,7 @@ public class OperationEditorPaneController implements Initializable {
 	// Données de la fenêtre
 	private CategorieOperation categorieOperation;
 	private CompteCourant compteEdite;
-	private Operation operationResultat;
+	private Operation[] operationResultat;
 
 	// Manipulation de la fenêtre
 	/**
@@ -62,9 +62,9 @@ public class OperationEditorPaneController implements Initializable {
 	 * Affiche la fenetre et attend une action, la fenetre change en fonction du type d'opération (débit ou crédit)
 	 * @param cpte : le compte sur lequel l'opération sera ajoutée
 	 * @param mode : le type d'opération (débit ou crédit)
-	 * @return : l'opération créée
+	 * @return : tableau d'opérations : [0] correspond au compte qui fait le virement, et [1] correspond au compte destinataire
 	 */
-	public Operation displayDialog(CompteCourant cpte, CategorieOperation mode) {
+	public Operation[] displayDialog(CompteCourant cpte, CategorieOperation mode) {
 		this.categorieOperation = mode;
 		this.compteEdite = cpte;
 		String info;
@@ -140,7 +140,7 @@ public class OperationEditorPaneController implements Initializable {
 			// rien pour l'instant
 		}
 
-		this.operationResultat = null;
+		this.operationResultat=new Operation[2]; //création du tableau d'opérations
 		this.cbTypeOpe.requestFocus();
 
 		this.primaryStage.showAndWait();
@@ -154,6 +154,9 @@ public class OperationEditorPaneController implements Initializable {
 		return null;
 	}
 	
+	/**
+	 * Rend les champs correspondants au virement visible seulement en mode virement
+	 */
 	private void setVisibleVirement() {
 		//affichage champs
 		this.lblNumCompte.setVisible(true);
@@ -180,19 +183,28 @@ public class OperationEditorPaneController implements Initializable {
 
 	/**
 	 * Redéfinition de la fonction initialize
+	 * Rend invisible les champs correspondants au virement
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		this.lblNumCompte.setVisible(false);
 		this.txtNumCompte.setVisible(false);
 	}
-
+	
+	/**
+	 * Fonction appelée lors du clic sur "annuler"
+	 * Annule l'opération (null) et ferme la fenetre
+	 */
 	@FXML
 	private void doCancel() {
 		this.operationResultat = null;
 		this.primaryStage.close();
 	}
-
+	
+	/** Fonction appelée lorsque l'utilisateur valide l'opération 
+	 * Vérifie notamment les entrées (non vide, formatage, compte existant, etc..)
+	 * Créer les opérations si tout est correct
+	 */
 	@FXML
 	private void doAjouter() {
 		double montant;
@@ -237,7 +249,7 @@ public class OperationEditorPaneController implements Initializable {
 				return;
 			}
 			typeOp = this.cbTypeOpe.getValue();
-			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+			this.operationResultat[0] = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
 			this.primaryStage.close();
 			break;
 			
@@ -265,7 +277,7 @@ public class OperationEditorPaneController implements Initializable {
 				return;
 			}
 			typeOp = this.cbTypeOpe.getValue();
-			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+			this.operationResultat[0] = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
 			this.primaryStage.close();
 			break;
 			
@@ -304,7 +316,7 @@ public class OperationEditorPaneController implements Initializable {
 				return;
 			}
 			typeOp = this.cbTypeOpe.getValue();
-			this.operationResultat = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
+			this.operationResultat[0] = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
 			
 			//partie numéro compte destinataire 
 					
@@ -351,7 +363,9 @@ public class OperationEditorPaneController implements Initializable {
 				return;
 			} 
 			
-			Operation operationDestinataire=new Operation(-1, montant, null, null, numCompteDestinataire,ConstantesIHM.TYPE_OP_7);
+			//opération destinataire
+			this.operationResultat[1]=new Operation(-1, montant, null, null, numCompteDestinataire,ConstantesIHM.TYPE_OP_7);
+			
 			this.primaryStage.close();
 			break;
 		}
