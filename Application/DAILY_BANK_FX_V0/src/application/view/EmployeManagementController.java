@@ -10,6 +10,7 @@ import java.util.ResourceBundle;
 
 import application.DailyBankState;
 import application.control.EmployeManagement;
+import application.tools.AlertUtilities;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,6 +19,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Employe;
@@ -158,11 +160,20 @@ public class EmployeManagementController implements Initializable {
 	}
 
 	@FXML
-	private void doDesactiverClient() {
+	private void doSupprimerEmploye() {
+		int selectedIndice = this.lvEmploye.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			Employe empMod = this.ole.get(selectedIndice);
+			boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Clôturer le compte", "Clôture du compte numéro " + empMod.idEmploye, "êtes-vous sûr de vouloir clôturer le compte ?", AlertType.CONFIRMATION);
+			if(continuer) {
+				this.em.supprimerEmploye(empMod);
+				this.ole.remove(selectedIndice);
+			}
+		}
 	}
 
 	@FXML
-	private void doNouveauClient() {
+	private void doNouvelEmploye() {
 		Employe employe;
 		employe = this.em.nouvelEmploye();
 		if (employe != null) {

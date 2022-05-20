@@ -85,6 +85,7 @@ public class AccessClient {
 
 				alResult.add(
 						new Client(idNumCliTR, nom, prenom, adressePostale, email, telephone, estInactif, idAgCli));
+				System.out.println(alResult);
 			}
 			rs.close();
 			pst.close();

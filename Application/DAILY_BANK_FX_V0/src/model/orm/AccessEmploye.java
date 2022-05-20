@@ -84,7 +84,7 @@ public class AccessEmploye {
 	 * sont des mises à jour. employe.idAg non mis à jour (un employé ne change
 	 * d'agence que par delete/insert)
 	 *
-	 * @param client IN client.idNumCli (clé primaire) doit exister
+	 * @param client IN client.idEmploye (clé primaire) doit exister
 	 * @throws RowNotFoundOrTooManyRowsException
 	 * @throws DataAccessException
 	 * @throws DatabaseConnexionException
@@ -94,15 +94,17 @@ public class AccessEmploye {
 		try {
 			Connection con = LogToDatabase.getConnexion();
 
-			String query = "UPDATE EMPLOYE SET " + "nom = " + "? , " + "prenom = " + "? , " + "droitAccess = "
-					+ "? , " + "login = " + "? ";
+			String query = "UPDATE EMPLOYE SET " + "nom = " + "? , " + "prenom = " + "? , " + "droitsAccess = "
+					+ "? , " + "login = " + "? , " + "motPasse = "+"? "  + "WHERE idEmploye = ? ";
 
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, employe.nom);
 			pst.setString(2, employe.prenom);
 			pst.setString(3, employe.droitsAccess);
 			pst.setString(4, employe.login);
-			pst.setInt(5, employe.idEmploye);
+			pst.setString(5, employe.motPasse);
+			pst.setInt(6, employe.idEmploye);
+			
 
 			System.err.println(query);
 
@@ -133,15 +135,15 @@ public class AccessEmploye {
 
 			Connection con = LogToDatabase.getConnexion();
 
-			String query = "INSERT INTO EMPLOYE VALUES (" + "seq_id_client.NEXTVAL" + ", " + "?" + ", " + "?" + ", "
-					+ "?" + ", " + "?" + ", " + "?" + ", " + "?" + ", " + "?" + ")";
+			String query = "INSERT INTO EMPLOYE VALUES (" + "seq_id_employe.NEXTVAL" + ", " + "?" + ", " + "?" + ", "
+					+ "?" + ", " + "?" + ", " + "?" + ", " + "?" + ")";
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setString(1, employe.nom);
 			pst.setString(2, employe.prenom);
 			pst.setString(3, employe.droitsAccess);
 			pst.setString(4, employe.login);
 			pst.setString(5, employe.motPasse);
-			pst.setString(6, employe.idAg+"");
+			pst.setInt(6, employe.idAg);
 
 
 			System.err.println(query);
@@ -155,7 +157,7 @@ public class AccessEmploye {
 						"Insert anormal (insert de moins ou plus d'une ligne)", null, result);
 			}
 
-			query = "SELECT seq_id_client.CURRVAL from DUAL";
+			query = "SELECT seq_id_employe.CURRVAL from DUAL";
 
 			System.err.println(query);
 			PreparedStatement pst2 = con.prepareStatement(query);
@@ -167,8 +169,50 @@ public class AccessEmploye {
 			con.commit();
 			rs.close();
 			pst2.close();
-
+			
 			employe.idEmploye = numEmplBase;
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Employe, Order.INSERT, "Erreur accès", e);
+		}
+	}
+	
+	/**
+	 * Suppression d'un employé.
+	 *
+	 * @param employe IN/OUT Tous les attributs IN
+	 * @throws RowNotFoundOrTooManyRowsException
+	 * @throws DataAccessException
+	 * @throws DatabaseConnexionException
+	 */
+	public void deleteEmploye(Employe employe)
+			throws RowNotFoundOrTooManyRowsException, DataAccessException, DatabaseConnexionException {
+		try {
+
+			Connection con = LogToDatabase.getConnexion();
+
+			String query = "DELETE FROM EMPLOYE WHERE idEmploye=?";
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, employe.idEmploye);
+
+
+			System.err.println(query);
+
+			int result = pst.executeUpdate();
+			pst.close();
+
+			if (result != 1) {
+				con.rollback();
+				throw new RowNotFoundOrTooManyRowsException(Table.Employe, Order.DELETE,
+						"Delete anormal (delete de moins ou plus d'une ligne)", null, result);
+			}
+
+			query = "SELECT seq_id_employe.CURRVAL from DUAL";
+
+			System.err.println(query);
+			PreparedStatement pst2 = con.prepareStatement(query);
+
+			con.commit();
+			
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.Employe, Order.INSERT, "Erreur accès", e);
 		}
@@ -177,7 +221,7 @@ public class AccessEmploye {
 	/**
 	 * Recherche des employés paramétrée (tous/un seul par id/par nom-prénom).
 	 *
-	 * On recherche : - un employé précis si idNumCli <> -1 - des employé par début
+	 * On recherche : - un employé précis si idEmploye <> -1 - des employés par début
 	 * nom/prénom si debutNom employé - tous les employés de idAg sinon
 	 *
 	 * @param idAg        : id de l'agence dont on cherche les employés
@@ -189,10 +233,9 @@ public class AccessEmploye {
 	 * @throws DataAccessException
 	 * @throws DatabaseConnexionException
 	 */
-	public ArrayList<Employe> getClients(int idAg, int idEmploye, String debutNom, String debutPrenom)
+	public ArrayList<Employe> getEmployes(int idAg, int idEmploye, String debutNom, String debutPrenom)
 			throws DataAccessException, DatabaseConnexionException {
 		ArrayList<Employe> alResult = new ArrayList<>();
-
 		try {
 			Connection con = LogToDatabase.getConnexion();
 
@@ -206,6 +249,7 @@ public class AccessEmploye {
 				pst = con.prepareStatement(query);
 				pst.setInt(1, idAg);
 				pst.setInt(2, idEmploye);
+				
 
 			} else if (!debutNom.equals("")) {
 				debutNom = debutNom.toUpperCase() + "%";
@@ -230,13 +274,14 @@ public class AccessEmploye {
 				int idNumEmpTR = rs.getInt("idEmploye");
 				String nom = rs.getString("nom");
 				String prenom = rs.getString("prenom");
-				String droitAccess = rs.getString("droitAccess");
+				String droitAccess = rs.getString("droitsAccess");
 				String login = rs.getString("login");
 				String motdepasse = rs.getString("motPasse");
 				int idAgEmp = rs.getInt("idAg");
 
 				alResult.add(
-						new Employe(idEmploye, nom, prenom, droitAccess, login, motdepasse, idAgEmp));
+						new Employe(idNumEmpTR, nom, prenom, droitAccess, login, motdepasse, idAgEmp));
+				System.out.println(alResult);
 			}
 			rs.close();
 			pst.close();

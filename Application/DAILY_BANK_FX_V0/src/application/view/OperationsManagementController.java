@@ -101,18 +101,12 @@ public class OperationsManagementController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
-	
-	/** Fonction appelée lors du clic sur "annuler"
-	 *  Elle ferme la fenetre
-	 */
+
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
 	}
-	
-	/** Fonction appelée lors du clic sur "enregistrer débit"
-	 *  Créer une opération de débit sur le compte concerné et actualise les informations
-	 */
+
 	@FXML
 	private void doDebit() {
 		Operation op = this.om.enregistrerDebit();
@@ -120,10 +114,7 @@ public class OperationsManagementController implements Initializable {
 			this.updateInfoCompteClient();
 		}
 	}
-	
-	/** Fonction appelé lors du clic sur "enregistrer crédit"
-	 *  Créer une opération de crédit sur le compte concerné et actualise les informations
-	 */
+
 	@FXML
 	private void doCredit() {
 		Operation op = this.om.enregistrerCredit();
@@ -131,22 +122,15 @@ public class OperationsManagementController implements Initializable {
 			this.updateInfoCompteClient();
 		}
 	}
-	
-	/** Fonction appelé lors du clic sur "effectuer un virement"
-	 *  Créer une opération de virement sur les comptes concernés et actualise les informations
-	 *  Operation [0] correspond à celui qui effectue le virement, Operation [1] correspond au compte destinataire
-	 */
+
 	@FXML
 	private void doAutre() {
-		Operation[] op = this.om.enregistrerVirement();
-		if (op[0] != null) {
+		Operation op = this.om.enregistrerVirement();
+		if (op != null) {
 			this.updateInfoCompteClient();
 		}
 	}
-	
-	/** Mets à jour les informations affichées (infos du clients, des opérations, du solde, débit autorisé, etc...)
-	 * 
-	 */
+
 	private void updateInfoCompteClient() {
 
 		PairsOfValue<CompteCourant, ArrayList<Operation>> opesEtCompte;

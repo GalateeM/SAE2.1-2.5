@@ -85,7 +85,7 @@ public class EmployeEditorPaneController implements Initializable {
 			this.txtLogin.setDisable(false);
 			this.txtPassword1.setDisable(false);
 			this.txtPassword2.setDisable(false);
-			this.txtIdAg.setDisable(false);
+			this.txtIdAg.setDisable(true);
 			
 			
 			this.lblMessage.setText("Informations sur le nouvel employé");
@@ -102,27 +102,14 @@ public class EmployeEditorPaneController implements Initializable {
 			this.txtLogin.setDisable(false);
 			this.txtPassword1.setDisable(false);
 			this.txtPassword2.setDisable(false);
-			this.txtIdAg.setDisable(false);
+			this.txtIdAg.setDisable(true);
 			
-			if (ConstantesIHM.isAdmin(this.dbs.getEmpAct())) {
-				this.rbActif.setDisable(false);
-				this.rbInactif.setDisable(false);
-			} else {
-				this.rbActif.setDisable(true);
-				this.rbInactif.setDisable(true);
-			}
-			this.lblMessage.setText("Informations client");
+			this.lblMessage.setText("Informations employés");
 			this.butOk.setText("Modifier");
 			this.butCancel.setText("Annuler");
 			break;
 		case SUPPRESSION:
-			// ce mode n'est pas utilisé pour les Clients :
-			// la suppression d'un client n'existe pas il faut que le chef d'agence
-			// bascule son état "Actif" à "Inactif"
-			ApplicationException ae = new ApplicationException(Table.NONE, Order.OTHER, "SUPPRESSION CLIENT NON PREVUE",
-					null);
-			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
-			ed.doExceptionDialog();
+			
 
 			break;
 		}
@@ -131,23 +118,26 @@ public class EmployeEditorPaneController implements Initializable {
 			// rien pour l'instant
 		}
 		// initialisation du contenu des champs
-		this.txtIdcli.setText("" + this.clientEdite.idNumCli);
-		this.txtNom.setText(this.clientEdite.nom);
-		this.txtPrenom.setText(this.clientEdite.prenom);
-		this.txtAdr.setText(this.clientEdite.adressePostale);
-		this.txtMail.setText(this.clientEdite.email);
-		this.txtTel.setText(this.clientEdite.telephone);
+		this.txtIdEmp.setText("" + this.employeEdite.idEmploye);
+		this.txtNom.setText(this.employeEdite.nom);
+		this.txtPrenom.setText(this.employeEdite.prenom);
+		this.txtLogin.setText(this.employeEdite.login);
+		this.txtPassword1.setText(this.employeEdite.motPasse);
+		this.txtPassword2.setText(this.employeEdite.motPasse);
+		this.txtIdAg.setText(this.employeEdite.idAg+"");
 
-		if (ConstantesIHM.estInactif(this.clientEdite)) {
-			this.rbInactif.setSelected(true);
+		if (ConstantesIHM.isAdmin(this.employeEdite)) {
+			this.rbChefAg.setSelected(true);
+			this.rbGuichetier.setSelected(false);
 		} else {
-			this.rbInactif.setSelected(false);
+			this.rbChefAg.setSelected(false);
+			this.rbGuichetier.setSelected(true);
 		}
 
-		this.clientResult = null;
+		this.employeResult = null;
 
 		this.primaryStage.showAndWait();
-		return this.clientResult;
+		return this.employeResult;
 	}
 
 	// Gestion du stage
@@ -192,7 +182,7 @@ public class EmployeEditorPaneController implements Initializable {
 
 	@FXML
 	private void doCancel() {
-		this.clientResult = null;
+		this.employeResult = null;
 		this.primaryStage.close();
 	}
 
@@ -201,18 +191,18 @@ public class EmployeEditorPaneController implements Initializable {
 		switch (this.em) {
 		case CREATION:
 			if (this.isSaisieValide()) {
-				this.clientResult = this.clientEdite;
+				this.employeResult = this.employeEdite;
 				this.primaryStage.close();
 			}
 			break;
 		case MODIFICATION:
 			if (this.isSaisieValide()) {
-				this.clientResult = this.clientEdite;
+				this.employeResult = this.employeEdite;
 				this.primaryStage.close();
 			}
 			break;
 		case SUPPRESSION:
-			this.clientResult = this.clientEdite;
+			this.employeResult = this.employeEdite;
 			this.primaryStage.close();
 			break;
 		}
@@ -220,45 +210,52 @@ public class EmployeEditorPaneController implements Initializable {
 	}
 
 	private boolean isSaisieValide() {
-		this.clientEdite.nom = this.txtNom.getText().trim();
-		this.clientEdite.prenom = this.txtPrenom.getText().trim();
-		this.clientEdite.adressePostale = this.txtAdr.getText().trim();
-		this.clientEdite.telephone = this.txtTel.getText().trim();
-		this.clientEdite.email = this.txtMail.getText().trim();
-		if (this.rbActif.isSelected()) {
-			this.clientEdite.estInactif = ConstantesIHM.CLIENT_ACTIF;
+		this.employeEdite.nom = this.txtNom.getText().trim();
+		this.employeEdite.prenom = this.txtPrenom.getText().trim();
+		this.employeEdite.login = this.txtLogin.getText().trim();
+		this.employeEdite.motPasse = this.txtPassword1.getText().trim();
+		this.employeEdite.idAg = Integer.parseInt(this.txtIdAg.getText().trim());
+		if (this.rbGuichetier.isSelected()) {
+			this.employeEdite.droitsAccess = ConstantesIHM.AGENCE_GUICHETIER;
 		} else {
-			this.clientEdite.estInactif = ConstantesIHM.CLIENT_INACTIF;
+			this.employeEdite.droitsAccess = ConstantesIHM.AGENCE_CHEF;
 		}
 
-		if (this.clientEdite.nom.isEmpty()) {
+		if (this.employeEdite.nom.isEmpty()) {
 			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le nom ne doit pas être vide",
 					AlertType.WARNING);
 			this.txtNom.requestFocus();
 			return false;
 		}
-		if (this.clientEdite.prenom.isEmpty()) {
+		if (this.employeEdite.prenom.isEmpty()) {
 			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le prénom ne doit pas être vide",
 					AlertType.WARNING);
 			this.txtPrenom.requestFocus();
 			return false;
 		}
+		
+		if (this.employeEdite.login.isEmpty()) {
+			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le login ne doit pas être vide",
+					AlertType.WARNING);
+			this.txtLogin.requestFocus();
+			return false;
+		}
 
-		String regex = "(0)[1-9][0-9]{8}";
-		if (!Pattern.matches(regex, this.clientEdite.telephone) || this.clientEdite.telephone.length() > 10) {
-			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le téléphone n'est pas valable",
+		if (this.txtPassword1.getText().trim().isEmpty() || this.txtPassword1.getText().trim().isEmpty() || !this.txtPassword1.getText().equals(txtPassword2.getText())) {
+			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Les mots de passe doivent correspondre et ne pas être vides",
 					AlertType.WARNING);
-			this.txtTel.requestFocus();
+			this.txtPassword1.requestFocus();
 			return false;
 		}
-		regex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@"
-				+ "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
-		if (!Pattern.matches(regex, this.clientEdite.email) || this.clientEdite.email.length() > 20) {
-			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "Le mail n'est pas valable",
+		
+		if (this.txtIdAg.getText().trim()=="") {
+			AlertUtilities.showAlert(this.primaryStage, "Erreur de saisie", null, "L'ID Agence ne doit pas être vide",
 					AlertType.WARNING);
-			this.txtMail.requestFocus();
+			this.txtIdAg.requestFocus();
 			return false;
 		}
+
+		
 
 		return true;
 	}

@@ -81,11 +81,13 @@ public class OperationsManagement {
 	 * @return : l'opération créé (le nouveau débit)
 	 */
 	public Operation enregistrerDebit() {
+
 		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dbs);
-		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.DEBIT)[0];
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.DEBIT);
 		if (op != null) {
 			try {
 				AccessOperation ao = new AccessOperation();
+
 				ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
 
 			} catch (DatabaseConnexionException e) {
@@ -109,7 +111,7 @@ public class OperationsManagement {
 	public Operation enregistrerCredit() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dbs);
-		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT)[0];
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.CREDIT);
 		if (op != null) {
 			try {
 				AccessOperation ao = new AccessOperation();
@@ -130,18 +132,18 @@ public class OperationsManagement {
 	}
 	
 	/**
-	 * Permet d'enregistrer un nouveau virement sur le compte d'un client
-	 * @return : tableau d'opérations : [0] correspond au compte qui fait le virement, et [1] correspond au compte destinataire
+	 * Permet d'enregistrer un nouveau débit sur le compte d'un client
+	 * @return : l'opération créé (le nouveau débit)
 	 */
-	public Operation[] enregistrerVirement() {
+	public Operation enregistrerVirement() {
 
 		OperationEditorPane oep = new OperationEditorPane(this.primaryStage, this.dbs);
-		Operation[] op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.VIREMENT);
+		Operation op = oep.doOperationEditorDialog(this.compteConcerne, CategorieOperation.VIREMENT);
 		if (op != null) {
 			try {
 				AccessOperation ao = new AccessOperation();
-				ao.insertDebit(this.compteConcerne.idNumCompte, op[0].montant, op[0].idTypeOp);
-				ao.insertCredit(op[1].idNumCompte, op[1].montant, op[1].idTypeOp);
+				ao.insertDebit(this.compteConcerne.idNumCompte, op.montant, op.idTypeOp);
+				//ao.insertCredit(0, op.montant, );
 
 			} catch (DatabaseConnexionException e) {
 				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
