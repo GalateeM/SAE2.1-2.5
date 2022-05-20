@@ -36,9 +36,25 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 === a) Version 1
 
-==== Fonctionnalité créditer un compte
+==== Créditer un compte (Eva Tubia)
 
-(explications)
+Use case : "Créditer un compte" +
+Accessibilité : Guichetier et Chef d'agence +
+
+Action de création d'une opération crédit sur un compte. +
+Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Enregistrer crédit ", le contrôleur de vue `OperationsManagementController` transfère les informations nécessaires au contrôle `OperationsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer le crédit, la classe contrôle `OperationEditorPane` est utilisée, elle va afficher la page pour créer l'opération et transmettre les informations au controleur de vue `OperationEditorPaneController`. Les entrées de l'utilisateur sont controlées lorsqu'il tente de valider l'opération, si tout est correct l'opération est créée et le contrôle `OperationsManagement` peut enfin se connecter à la base de données et effectuer l'opération si l'opération n'est pas nulle. L'opération dans la base de données est effectué en utilisant la classe ORM `AccessOperation`. +
+
+Conditions de validation de l'opération : Montant entré non null, positif, correspondant à un entier +
+
+==== Virement de compte à compte (Eva Tubia)
+
+Use case : "Effectuer un virement de compte à compte" +
+Accessibilité : Guichetier et Chef d'agence +
+
+Action de création d'une opération virement entre deux comptes. +
+Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Effectuer un virement ", le contrôleur de vue `OperationsManagementController` transfère les informations nécessaires au contrôle `OperationsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer le virement, la classe contrôle `OperationEditorPane` est utilisée, elle va afficher la page pour créer l'opération et transmettre les informations au controleur de vue `OperationEditorPaneController`. Les entrées de l'utilisateur sont controlées lorsqu'il tente de valider l'opération, si tout est correct deux opérations sont crées, l'une correspondant au compte qui effectue le virement (débit) et l'autre correspondant au compte destinataire (crédit). Ces deux opérations sont transmises au controle `OperationsManagement` qui peut enfin se connecter à la base de données et effectuer les opérations en utilisant la classe ORM `AccessOperation`. +
+
+Conditions de validation de l'opération : Montant entré non null, positif, correspondant à un entier, ne dépassant pas le débit autorisé / Numéro de compte entré non null, existant, non cloturé +
 
 ==== Créer un compte (Hugo Monté)
 
