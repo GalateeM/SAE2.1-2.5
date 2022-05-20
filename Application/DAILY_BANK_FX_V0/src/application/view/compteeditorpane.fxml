@@ -77,7 +77,7 @@
    <bottom>
       <HBox alignment="CENTER_RIGHT" BorderPane.alignment="CENTER_RIGHT">
          <children>
-            <Button fx:id="btnOk" mnemonicParsing="false" onAction="#doAjouter" prefHeight="37.0" prefWidth="83.0" text="Valider">
+            <Button fx:id="btnOk" mnemonicParsing="false" onAction="#doAjouter" prefHeight="37.0" text="Valider">
                <HBox.margin>
                   <Insets right="20.0" />
                </HBox.margin>
