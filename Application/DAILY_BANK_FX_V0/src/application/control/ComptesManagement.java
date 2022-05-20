@@ -90,21 +90,28 @@ public class ComptesManagement {
 		CompteCourant compte;
 		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dbs);
 		compte = cep.doCompteEditorDialog(this.clientDesComptes, null, EditionMode.CREATION);		
+
+		if(compte == null)
+			return compte;
 		
-		if (compte != null) {
-			try {
-				AccessCompteCourant acc = new AccessCompteCourant();				
-				acc.insertCompte(compte);
-			} catch (DatabaseConnexionException e) {
-				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
-				ed.doExceptionDialog();
-				this.primaryStage.close();
-				return null;
-			} catch (ApplicationException ae) {
-				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
-				ed.doExceptionDialog();
-				return null;
-			}
+		if(compte.solde < 50)
+			return null;
+		
+		if(compte.debitAutorise < 0)
+			return null;
+		
+		try {
+			AccessCompteCourant acc = new AccessCompteCourant();				
+			acc.insertCompte(compte);
+		} catch (DatabaseConnexionException e) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+			ed.doExceptionDialog();
+			this.primaryStage.close();
+			return null;
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+			ed.doExceptionDialog();
+			return null;
 		}
 		
 		return compte;
@@ -117,6 +124,12 @@ public class ComptesManagement {
 	public CompteCourant cloturerCompte(CompteCourant compte) {
 		if(compte == null)
 			return compte;
+		
+		CompteEditorPane cep = new CompteEditorPane(this.primaryStage, this.dbs);
+		CompteCourant nvCompte = cep.doCompteEditorDialog(this.clientDesComptes, compte, EditionMode.SUPPRESSION);
+		
+		if(nvCompte == null)
+			return null;
 		
 		try {
 			AccessCompteCourant acc = new AccessCompteCourant();				
