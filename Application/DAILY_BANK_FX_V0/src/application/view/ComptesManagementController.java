@@ -115,12 +115,12 @@ public class ComptesManagementController implements Initializable {
 		
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
-			CompteCourant nvCompte = this.cm.cloturerCompte(cpt);
-			
-			if(nvCompte != null)
-				cpt.estCloture = "O";
-
-			this.olCompteCourant.set(selectedIndice, cpt);
+			boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Clôturer le compte", "Clôture du compte numéro " + cpt.idNumCompte, "êtes-vous sûr de vouloir clôturer le compte ?", AlertType.CONFIRMATION);
+				
+			if(continuer) {
+				this.cm.cloturerCompte(cpt);
+			}
+			this.loadList();
 		}
 		
 		this.validateComponentState();
