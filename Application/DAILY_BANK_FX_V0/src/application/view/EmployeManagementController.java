@@ -164,7 +164,7 @@ public class EmployeManagementController implements Initializable {
 		int selectedIndice = this.lvEmploye.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			Employe empMod = this.ole.get(selectedIndice);
-			boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Clôturer le compte", "Clôture du compte numéro " + empMod.idEmploye, "êtes-vous sûr de vouloir clôturer le compte ?", AlertType.CONFIRMATION);
+			boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Supprimer l'employé", "Supprimer l'employé numéro " + empMod.idEmploye, "êtes-vous sûr de vouloir supprimer cet employé ?", AlertType.CONFIRMATION);
 			if(continuer) {
 				this.em.supprimerEmploye(empMod);
 				this.ole.remove(selectedIndice);
