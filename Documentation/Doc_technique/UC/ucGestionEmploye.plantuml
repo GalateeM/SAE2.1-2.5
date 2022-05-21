@@ -1,0 +1,16 @@
+@startuml issue1
+
+usecase a as "Créer un Employé"
+usecase b as "Voir la liste des employés"
+usecase c as "Modifier les informations d'un employé"
+usecase d as "Supprimer un employé"
+
+actor Chef_agence 
+
+
+Chef_agence --> a
+Chef_agence --> b
+Chef_agence --> c
+Chef_agence --> d
+
+@enduml
