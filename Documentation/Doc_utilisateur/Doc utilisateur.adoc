@@ -34,9 +34,12 @@ Si vous n'avez que la version 1.8 de Java, double cliquez sur le fichier DayliBa
 == 3. Utiliser l'application
 
 === a) Explications des rôles
+
+Il existe deux rôles d'utilisateur différents : guichetier et chef d'agence. Les guichetiers ont le rôle le plus basique, alors que les chefs d'agence ont accès aux mêmes fonctionnalités que les guichetiers, avec de nouvelles fonctionnalités en supléments, auxquelles les guichetiers n'ont pas accès. Ainsi dans cette documentation, si vous avez le rôle de chef d'agence, vous pourrez accéder aux fonctionnalités de la partie `b) Guichetier` mais également à celles de la partie `c) Chef d'agence`.
+
 === b) Guichetier
 
-==== Créditer un compte
+==== Créditer un compte (Eva Tubia)
 
 Pour créditer un compte, l'utilisateur doit ouvrir le menu des comptes du client, choisir le compte concerné dans la liste (cliquer dessus), cliquer sur "Voir opérations" puis "Enregistrer Crédit". 
 
@@ -48,7 +51,7 @@ image:img/ihm crédit.png[]
 
 Vous pouvez cliquer sur "Annuler crédit" à tout moment pour annuler l'opération. Une fois l'opération validée (cliquer sur "Effectuer Crédit"), si tout est correct dans la saisie du montant, il n'est pas possible de revenir en arrière l'opération est effectuée.
 
-==== Effectuer un virement
+==== Effectuer un virement (Eva Tubia)
 
 Pour effectuer un virement entre deux comptes, l'utilisateur doit ouvrir le menu des comptes du client, choisir le compte à débiter dans la liste (cliquer dessus), cliquer sur "Voir opérations" puis "Effectuer un virement". 
 
@@ -60,12 +63,63 @@ image:img/ihm virement.png[]
 
 Vous pouvez cliquer sur "Annuler virement" à tout moment pour annuler l'opération. Une fois l'opération validée (cliquer sur "Effectuer Virement"), si tout est correct dans la saisie du montant et du numéro de compte, il n'est pas possible de revenir en arrière l'opération est effectuée, le destinataire recevra l'argent immédiatement.
 
-==== Créer un compte
+==== Créer un compte (Hugo Monté)
 
 Pour créer un compte, le guichetier doit ouvrir le menu des comptes du client concerné puis cliquer sur "Nouveau compte" et enfin saisir les informations de ce nouveau compte. Une fois la création effectuée, ce compte apparaît dans la liste immédiatement (à moins qu'une erreur ait été mentionnée à la création).
 
-==== Clôturer un compte
+==== Clôturer un compte (Hugo Monté)
 
 Pour clôturer un compte, le guichetier doit ouvrir le menu des comptes du client concerné, sélectionner le compte concerné et enfin cliquer sur "Supprimer compte". Le bouton est disponible si un compte est sélectionné et que ce dernier n'est pas déjà clôturé. Cela a pour effet de mettre le solde à 0 et le définiir comme clôturé (ces changements prennent effet immédiatement sur l'interface).
 
 === c) Chef d'agence
+
+Le chef d'agence peut gérer les employés. Pour cela, après vous être connecté, allez dans le menu déroulant "Gestion", puis cliquez sur "Employés".
+
+image:img/AccesGestionEmployes.png[]
+
+==== Voir la liste des employés (Galatée Marcq)
+
+Dans la page principale de gestion des employés, le bouton "Rechercher" permet de rechercher des employés selon certains critères (ou aucun). +
+Si le numéro d'emloyé est précisé et qu'il est correct, alors les champs "Nom" et "Prénom" seront ignorés pour la recherhce. L'employé ayant ce numéro d'identifiant sera alors affiché s'il existe. Cependant, si vous rentrez un numéro d'identifiant négatif, celui-ci ne sera pas pris en compte. +
+Si la recherche s'effectue par Nom et/ou Prénom, alors vous pouvez renseigner seulement le début de ceux-ci, ou la totalité. +
+Enfin, si aucun des champs n'est renseigné, la recherche s'effectuera sur tous les employés de votre agence. +
+Le résultat de la recherche permet d'obtenir le numéro d'identifiant, le nom, le prénom, le rôle, le login et le numéro d'agence des employés. +
+
+image:img/RechercheEmployes.png[]
+
+==== Créer un nouvel employé (Galatée Marcq)
+
+Dans la page principale de gestion des employés, le bouton "Nouvel employé" permet de créer un nouvel employé. Vous obtiendrez ainsi la fenêtre suivante :
+
+image:img/NouvelEmploye.png[]
+
+Dans cette fenêtre, tous les champs doivent être renseignés (nom, prénom, droits d'accès, login, mot de passe (avec confirmation)). Le numéro d'agence est le même que le vôtre (vous ne pouvez ajouter un employé que dans l'agence que vous gérez). +
+Si vous souhaitez annuler l'ajout, cliquez sur le bouton "annuler". Sinon, cliquez sur "Ajouter" pour ajouter l'employé. Vous aurez la confirmation de l'ajout de celui-ci car il apparaîtra dans la fenêtre principale de gestion des employés. Si certaines informations sont incorrectes, vous pourrez les modifier à l'aide du bouton "Modifier les informations" (cf paragraphe suivant).
+
+==== Modifier un employé (Galatée Marcq)
+
+En tant que chef d'agence, vous pouvez également modifier les informations d'un employé. Dans la fenêtre principale de gestion des employés, le bouton "Modifier les informations" est désactivé : vous devez d'abord sélectionner un employé afin de modifier ses informations. Référrez-vous au paragraphe "Voir la liste des employés" afin de rechercher l'employé que vous souhaitez modifier. +
+Une fois l'employé apparu dans la partie centrale de la fenêtre, sélectionner-le en cliquant dessus : le bouton "Modifier les informations" s'activera alors.
+
+image:img/SélectionnerEmploye.png[]
+
+Une fois que vous aurez cliqué sur le bouton "Modifier les informations", la fenêtre suivante apparaîtra :
+
+image:img/ModifierEmploye.png[]
+
+Les anciennes informations de l'employé sont déjà remplies dans les champs, il vous suffit de modifier les attributs que vous souhaitez. Attention, si vous modifiez le mot de passe, n'oubliez pas de changer la confirmation de mot de passe également. Aucun champ ne doit être vide. +
+Si vous souhaitez annuler la modification, cliquez sur le bouton "annuler". Sinon, cliquez sur "Modifier" pour modifier l'employé. Vous aurez la confirmation de la modification de celui-ci car les nouvelles informations sur l'employé seront directement mises à jour dans la fenêtre principale.
+
+
+==== Supprimer un employé (Galatée Marcq)
+
+Vous pouvez également supprimer un employé. Dans la fenêtre principale de gestion des employés, le bouton "Supprimer l'employé" est désactivé : vous devez d'abord sélectionner un employé afin de pouvoir le supprimer. Référrez-vous au paragraphe "Voir la liste des employés" afin de rechercher l'employé que vous souhaitez modifier. +
+Une fois l'employé apparu dans la partie centrale de la fenêtre, sélectionner-le en cliquant dessus : le bouton "Supprimer l'employé" s'activera alors.
+
+image:img/SélectionnerEmploye.png[]
+
+Une fois que vous aurez cliqué sur le bouton "Supprimer l'employé", une fenêtre de confirmation apparaîtra :
+
+image:img/SupprimerEmploye.png[]
+
+Vérifiez bien le numéro du compte de l'employé avant de confirmer, car la suppression est irréversible. Si vous vous êtes trompé d'employé, ou si vous avez des doutes, veuillez cliquer sur "Annuler", et aucun changement ne sera pris en compte. Si vous êtes bien sûr de vouloir supprimer l'employé, cliquer alors sur "OK", et l'employé sera supprimé.
