@@ -19,7 +19,7 @@ public class AccessEmploye {
 	}
 
 	/**
-	 * Recherche d'un employe par son login / mot de passe.
+	 * Recherche d'un employé par son login / mot de passe.
 	 *
 	 * @param login    login de l'employé recherché
 	 * @param password mot de passe donné
@@ -80,11 +80,11 @@ public class AccessEmploye {
 	/**
 	 * Mise à jour d'un Employé.
 	 *
-	 * employe.idEmploye est la clé primaire et doit exister tous les autres champs
+	 * employe.idEmploye est la clé primaire et doit exister, tous les autres champs
 	 * sont des mises à jour. employe.idAg non mis à jour (un employé ne change
 	 * d'agence que par delete/insert)
 	 *
-	 * @param client IN client.idEmploye (clé primaire) doit exister
+	 * @param employe IN employe.idEmploye (clé primaire) doit exister
 	 * @throws RowNotFoundOrTooManyRowsException
 	 * @throws DataAccessException
 	 * @throws DatabaseConnexionException
@@ -281,7 +281,6 @@ public class AccessEmploye {
 
 				alResult.add(
 						new Employe(idNumEmpTR, nom, prenom, droitAccess, login, motdepasse, idAgEmp));
-				System.out.println(alResult);
 			}
 			rs.close();
 			pst.close();

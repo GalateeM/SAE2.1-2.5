@@ -1,7 +1,7 @@
 package application.view;
 
 /**
- * Fenetre de gestion des employés (ajout, modification, suppression)
+ * Fenetre de gestion des employés (ajout ou modification)
  */
 
 import java.net.URL;
@@ -108,15 +108,9 @@ public class EmployeEditorPaneController implements Initializable {
 			this.butOk.setText("Modifier");
 			this.butCancel.setText("Annuler");
 			break;
-		case SUPPRESSION:
-			
 
-			break;
 		}
-		// Paramétrages spécifiques pour les chefs d'agences
-		if (ConstantesIHM.isAdmin(this.dbs.getEmpAct())) {
-			// rien pour l'instant
-		}
+
 		// initialisation du contenu des champs
 		this.txtIdEmp.setText("" + this.employeEdite.idEmploye);
 		this.txtNom.setText(this.employeEdite.nom);

@@ -105,64 +105,64 @@ public class EmployeManagement {
 			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
 			ed.doExceptionDialog();
 		}
-}
+	}
 
-/**
- * Permet de créer un employé en lançant une autre fenêtre de gestion des employés (EmployeEditor)
- * @return : l'employé créé
- */
-public Employe nouvelEmploye() {
-	Employe employe;
-	EmployeEditorPane eep = new EmployeEditorPane(this.primaryStage, this.dbs);
-	employe = eep.doEmployeEditorDialog(null, EditionMode.CREATION);
-	if (employe != null) {
+	/**
+	 * Permet de créer un employé en lançant une autre fenêtre de gestion des employés (EmployeEditor)
+	 * @return : l'employé créé
+	 */
+	public Employe nouvelEmploye() {
+		Employe employe;
+		EmployeEditorPane eep = new EmployeEditorPane(this.primaryStage, this.dbs);
+		employe = eep.doEmployeEditorDialog(null, EditionMode.CREATION);
+		if (employe != null) {
+			try {
+				AccessEmploye ae = new AccessEmploye();
+
+				ae.insertEmploye(employe);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+				ed.doExceptionDialog();
+				this.primaryStage.close();
+				employe = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+				ed.doExceptionDialog();
+				employe = null;
+			}
+		}
+		return employe;
+	}
+
+
+	/**
+	 * Permet de rechercher la liste des employés en fonction du paramètre de recherche utilisé
+	 * @param _numEmploye : numéro du compte recherché
+	 * @param _debutNom : debut (ou totalité) du nom de l'employé
+	 * @param _debutPrenom : debut (ou totalité) du prénom de l'employé
+	 * @return : une liste des employés correspondants à la recherche
+	 */
+	public ArrayList<Employe> getListeEmploye(int _numEmploye, String _debutNom, String _debutPrenom) {
+		ArrayList<Employe> listeEmp = new ArrayList<>();
 		try {
-			AccessEmploye ae = new AccessEmploye();
+			// Recherche des clients en BD. cf. AccessClient > getClients(.)
+			// numCompte != -1 => recherche sur numCompte
+			// numCompte != -1 et debutNom non vide => recherche nom/prenom
+			// numCompte != -1 et debutNom vide => recherche tous les clients
 
-			ae.insertEmploye(employe);
+			AccessEmploye ae = new AccessEmploye();
+			listeEmp = ae.getEmployes(this.dbs.getEmpAct().idAg, _numEmploye, _debutNom, _debutPrenom);
+
 		} catch (DatabaseConnexionException e) {
 			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
 			ed.doExceptionDialog();
 			this.primaryStage.close();
-			employe = null;
+			listeEmp = new ArrayList<>();
 		} catch (ApplicationException ae) {
 			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
 			ed.doExceptionDialog();
-			employe = null;
+			listeEmp = new ArrayList<>();
 		}
+		return listeEmp;
 	}
-	return employe;
-}
-
-
-/**
- * Permet de rechercher la liste des employés en fonction du paramètre de recherche utilisé
- * @param _numEmploye : numéro du compte recherché
- * @param _debutNom : debut (ou totalité) du nom du client auquel appartient le compte
- * @param _debutPrenom : debut (ou totalité) du prénom du client auquel appartient le compte
- * @return : une liste des employés correspondants à la recherche
- */
-public ArrayList<Employe> getListeEmploye(int _numEmploye, String _debutNom, String _debutPrenom) {
-	ArrayList<Employe> listeEmp = new ArrayList<>();
-	try {
-		// Recherche des clients en BD. cf. AccessClient > getClients(.)
-		// numCompte != -1 => recherche sur numCompte
-		// numCompte != -1 et debutNom non vide => recherche nom/prenom
-		// numCompte != -1 et debutNom vide => recherche tous les clients
-
-		AccessEmploye ae = new AccessEmploye();
-		listeEmp = ae.getEmployes(this.dbs.getEmpAct().idAg, _numEmploye, _debutNom, _debutPrenom);
-
-	} catch (DatabaseConnexionException e) {
-		ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
-		ed.doExceptionDialog();
-		this.primaryStage.close();
-		listeEmp = new ArrayList<>();
-	} catch (ApplicationException ae) {
-		ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
-		ed.doExceptionDialog();
-		listeEmp = new ArrayList<>();
-	}
-	return listeEmp;
-}
 }

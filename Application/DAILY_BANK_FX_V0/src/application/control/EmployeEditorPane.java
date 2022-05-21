@@ -1,7 +1,7 @@
 package application.control;
 
 /**
- * Classe qui gère le controleur de la fenetre de gestion des employés (ajout, modification, suppression d'un employé) et la lance
+ * Classe qui gère le controleur de la fenetre de gestion des employés (ajout ou modification d'un employé) et la lance
  */
 
 import application.DailyBankApp;
@@ -53,7 +53,7 @@ public class EmployeEditorPane {
 	}
 
 	/**
-	 * Lance la fonction du controleur de la page d'ajout ou de modification des clients pour afficher la scene
+	 * Lance la fonction du controleur de la page d'ajout ou de modification des employés pour afficher la scene
 	 *
 	 * @param client : le client que l'on modifie
 	 * @param em : precise le mode d'edition (ajout, modification, suppression)
