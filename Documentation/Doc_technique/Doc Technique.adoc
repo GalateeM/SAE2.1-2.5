@@ -78,6 +78,37 @@ Fonctionnement dans le code : le contrôleur de vue ComptesManagement transfère
 
 Informations supplémentaires sur la documentation utilisateur.
 
+==== Gérer (faire le « CRUD ») les employés (guichetier et chef d’agence) (Galatée Marcq)
+
+La fenêtre principale de gestion des employés est gérée par la classe `EmployeManagementController`. Dans celle-ci, plusieurs fonctionnalités sont présentes :
+
+* Create = fonction Nouvel employé +
+
+Dans la page principale de gestion des employés, le bouton "Nouvel employé" permet de créer un nouvel employé. Appelle la fonctionnalité `doNouvelEmploye()`. Une nouvelle fenêtre apparait alors afin de remplir les différents attributs de l'employé, fenêtre qui est gérée par la classe `EmployeEditorPaneController`. Lorsque le bouton "ajouter" est cliqué, une vérification des différents champs est effectuée avec la fonction `isSaisieValide()`, puis une connexion avec la base de données est réalisée afin d'insérer l'employé (classe `AccessEmploye`, fonction `insertEmploye()`).
+Pour qu'une saisie soit valide il faut qu'aucun des champs ne soient vides, et que les deux mots de passe saisis soient équivalents.
+
+* Read = bouton "Rechercher", liste des employés +
+
+Dans la page principale de gestion des employés, le bouton "Rechercher" permet de rechercher des employés selon certains critères (ou aucun). +
+Si le numéro d'emloyé est précisé et qu'il est correct, alors les champs "Nom" et "Prénom" seront ignorés. Aussi, si aucun numéro d'employé n'a été précisé, ou que celui-ci est négatif, la fonction `doRechercher()` considère le numéro d'employé à -1 et la recherche se fera sur le Nom et/ou Prénom s'ils sont renseignés. +
+Si la recherche s'effectue par Nom et/ou Prénom, alors l'utilisateur peut renseigner seulement le début de ceux-ci, ou la totalité. +
+Enfin, si aucun des champs n'est renseigné, la recherche s'effectuera sur tous les employés de l'agence. +
+La classe `EmployeManagementController` appelle la fonction `getListeEmploye` de la classe `EmployeManagement`, celle-ci appelant la fonction `getEmploye` de la classe `AccessEmploye`. Cette dernière fait le lien avec la base de données et renvoie une ArrayList <Employe>.
+
+* Update = modifier un employé +
+
+Dans la page principale de gestion des employés, le bouton "Modifier les informations" permet de modifier un ou plusieurs attributs d'un employé. Ce bouton est désactivé tant qu'aucun employé n'a été sélectionné. +
+Le principe de cette fonctionnalité est le même que celui de "Nouvel employé" : la fenêtre de modification est la même, sauf que les champs sont pré-remplis avec les informations actuelles de l'employé. Les classes concernées sont de nouveau : `EmployeManagementController` (fonction `doModifierEmploye`), `EmployeManagement` (fonction `modifierEmploye`), `EmployeEditorPaneController` pour la saisie des modificiations, `EmployeEditorPane` et `AccessEmploye` qui fait le lien avec la base de données (fonction `updateEmploye`). +
+Les informations ne pouvant être modifiées sont l'ID de l'employé (il s'agit d'un numéro unique permettant de l'identifier) et l'ID de l'agence dans laquelle l'employé travaille (pour le faire changer d'agence, le chef d'agence doit le supprimer, et le chef d'agence de la nouvelle banque doit le créer de nouveau). +
+
+
+* Delete = supprimer un employé +
+
+Dans la page principale de gestion des employés, le bouton "Supprimer l'employé" permet de supprimer un employé. Ce bouton est désactivé tant qu'aucun employé n'a été sélectionné. +
+Une fenêtre d'alerte est déclenchée, demandant la confirmation de la suppression. Si le bouton "OK" est cliqué, la fonction `doSupprimerEmploye` appelle alors la fonction `supprimerEmploye' de la classe `EmployeManagement`. Celle-ci va alors directement appeler la fonction `deleteEmploye` de la classe `AccessEmploye`, qui fait le lien avec la base de données.
+
+
+
 === b) Version 2
 
 === c) Version 3
