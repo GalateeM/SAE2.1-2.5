@@ -35,7 +35,33 @@ image:DC/dc-initialv2.svg[]
 
 === b) Ressources externes
 
+Le fichier .jar permet l'exécution par l'utilisateur de l'application. Réferrez-vous à la documentation utilisateur pour connaître les différentes fonctionnalités du point de vue de l'utilisateur.
+Une base de données Oracle est utilisée par cette application, la connexion est établie dans la classe `LogToDatabase.java`, package "model.orm".
+
 === c) Structuration en packages
+
+Les packages :
+
+* application +
+DailyBank : main() de départ
+
+* application.control + 
+Contrôleurs de dialogue et accès aux données : gestion des fonctions de l’application
+
+* application.view +
+Vues de l’application - fichiers fxml et contrôleurs associés - : gestion des vues uniquement : affichages, contrôle de saisies, …
+
+* application.tools + 
+Utilitaires pour application.view et application.control
+
+* model.data + 
+Classes java mappant les table de la BD. Une table ⇒ 1 classe.
+
+* model.orm +
+Classes d’accès physiques à la BD. Une table ⇒ 1 classe offrant différentes méthodes pour accéder à la table : select, insert, delete, update, appel de procédure stockée.
+
+* model.exception +
+Classes des exceptions spécifiques d’accès à la BD, levées par les classes de model.orm
 
 === d) Élements essentiels
 
