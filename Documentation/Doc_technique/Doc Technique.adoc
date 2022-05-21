@@ -27,11 +27,11 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 === a) Architecture Générale
 
 Architecture de la V0 :
-image:dc-initialv0.svg[]
+image:DC/dc-initialv0.svg[]
 Architecture de la V1 :
-image:dc-initialv1.svg[]
+image:DC/dc-initialv1.svg[]
 Architecture de la V2 :
-image:dc-initialv2.svg[]
+image:DC/dc-initialv2.svg[]
 
 === b) Ressources externes
 
@@ -86,6 +86,9 @@ Fonctionnement dans le code : le contrôleur de vue ComptesManagement transfère
 Informations supplémentaires sur la documentation utilisateur.
 
 ==== Gérer (faire le « CRUD ») les employés (guichetier et chef d’agence) (Galatée Marcq)
+
+Use case :
+image:UC/UC gestion Employe.png[]
 
 La fenêtre principale de gestion des employés est gérée par la classe `EmployeManagementController`. Dans celle-ci, plusieurs fonctionnalités sont présentes :
 
