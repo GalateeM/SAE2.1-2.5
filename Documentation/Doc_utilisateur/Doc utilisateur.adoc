@@ -120,6 +120,6 @@ image:img/SélectionnerEmploye.png[]
 
 Une fois que vous aurez cliqué sur le bouton "Supprimer l'employé", une fenêtre de confirmation apparaîtra :
 
-image:img/SupprimerEmploye.png[]
+image:img/SupprimerEmploye.png[] 
 
 Vérifiez bien le numéro du compte de l'employé avant de confirmer, car la suppression est irréversible. Si vous vous êtes trompé d'employé, ou si vous avez des doutes, veuillez cliquer sur "Annuler", et aucun changement ne sera pris en compte. Si vous êtes bien sûr de vouloir supprimer l'employé, cliquer alors sur "OK", et l'employé sera supprimé.
