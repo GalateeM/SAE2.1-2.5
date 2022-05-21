@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="345px" preserveAspectRatio="none" style="width:1192px;height:345px;background:#FFFFFF;" version="1.1" viewBox="0 0 1192 345" width="1192px" zoomAndPan="magnify"><defs/><g><g id="elem_a"><ellipse cx="190.6285" cy="180.8257" fill="#F1F1F1" rx="184.6285" ry="39.3257" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="342" x="19.6285" y="183.6724">Générer un relevé mensuel d’un compte en PDF</text></g><g id="elem_b"><ellipse cx="560.7292" cy="181.0458" fill="#F1F1F1" rx="150.7292" ry="32.5458" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="272" x="424.7292" y="183.8925">Gérer les prélèvements automatiques</text></g><g id="elem_c"><ellipse cx="535.5975" cy="309.8195" fill="#F1F1F1" rx="132.0975" ry="28.8195" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="233" x="419.0975" y="312.6662">Effectuer un Débit exceptionnel</text></g><g id="elem_d"><ellipse cx="792.6144" cy="309.9229" fill="#F1F1F1" rx="90.1144" ry="20.4229" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="142" x="721.6144" y="312.7696">Simuler un emprunt</text></g><g id="elem_e"><ellipse cx="1052.4721" cy="309.7944" fill="#F1F1F1" rx="134.4721" ry="29.2944" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="238" x="933.4721" y="312.6411">Simuler une assurance d’emprunt</text></g><!--MD5=[34413ead84916979ab18eea1b2c854c1]
+entity Guichetier--><g id="elem_Guichetier"><ellipse cx="560.5" cy="14" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M560.5,22 L560.5,49 M547.5,30 L573.5,30 M560.5,49 L547.5,64 M560.5,49 L573.5,64 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="523" y="78.4951">Guichetier</text></g><!--MD5=[6e53e4912c308b5abf33c4da5f75d75e]
+entity Chef_agence--><g id="elem_Chef_agence"><ellipse cx="792.5" cy="151.5" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M792.5,159.5 L792.5,186.5 M779.5,167.5 L805.5,167.5 M792.5,186.5 L779.5,201.5 M792.5,186.5 L805.5,201.5 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="746" y="215.9951">Chef_agence</text></g><!--MD5=[d09773056799cfcd355772dbafc0f5c1]
+reverse link Guichetier to Chef_agence--><g id="link_Guichetier_Chef_agence"><path d="M615.945,76.18 C648.76,95.013 691.096,119.454 728.5,141.5 C734.085,144.792 739.93,148.267 745.72,151.727 " fill="none" id="Guichetier-backto-Chef_agence" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="612.182,82.092,598.311,66.074,619.144,69.946,612.182,82.092" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bb53160d542fefe9f41bbae1f5a77c48]
+link Guichetier to a--><g id="link_Guichetier_a"><path d="M522.986,58.238 C468.066,78.351 363.935,116.485 286.779,144.741 " fill="none" id="Guichetier-to-a" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="281.737,146.587,291.5638,147.2465,286.4318,144.8668,288.8115,139.7348,281.737,146.587" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e9de48d3c45d2536eba920565706cd08]
+link Guichetier to b--><g id="link_Guichetier_b"><path d="M560.5,81.526 C560.5,100.578 560.5,123.742 560.5,142.817 " fill="none" id="Guichetier-to-b" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="560.5,148.081,564.5,139.081,560.5,143.081,556.5,139.081,560.5,148.081" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[77b9eda0ac2811488967a4ce7ae5fbfc]
+link Chef_agence to c--><g id="link_Chef_agence_c"><path d="M745.657,210.99 C739.931,214.292 734.119,217.534 728.5,220.5 C686.212,242.8257 637.222,265.2505 599.182,281.9409 " fill="none" id="Chef_agence-to-c" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="594.598,283.9475,604.4467,284.0016,599.1781,281.9419,601.2378,276.6733,594.598,283.9475" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[3bc992c193e1cca1f5c603eab97c951d]
+link Chef_agence to d--><g id="link_Chef_agence_d"><path d="M792.5,219.075 C792.5,240.0888 792.5,265.8015 792.5,284.3414 " fill="none" id="Chef_agence-to-d" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="792.5,289.3706,796.5,280.3706,792.5,284.3706,788.5,280.3706,792.5,289.3706" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b1b77d31ecd9ae14562bd50f4e977f82]
+link Chef_agence to e--><g id="link_Chef_agence_e"><path d="M839.283,204.852 C882.677,226.048 947.412,257.6686 994.163,280.5045 " fill="none" id="Chef_agence-to-e" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="998.914,282.8254,992.5844,275.2798,994.4218,280.6299,989.0717,282.4673,998.914,282.8254" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[02a5498fcc5fe6b50e765bfb8965c212]
+@startuml
+usecase a as "Générer un relevé mensuel d’un compte en PDF"
+usecase b as "Gérer les prélèvements automatiques"
+usecase c as "Effectuer un Débit exceptionnel"
+usecase d as "Simuler un emprunt"
+usecase e as "Simuler une assurance d’emprunt"
+
+actor Guichetier 
+actor Chef_agence 
+
+Guichetier <|- - Chef_agence
+
+Guichetier - -> a
+Guichetier - -> b
+Chef_agence - -> c
+Chef_agence - -> d
+Chef_agence - -> e
+@enduml
+
+PlantUML version 1.2022.4beta2(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
