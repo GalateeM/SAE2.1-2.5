@@ -26,6 +26,13 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 === a) Architecture Générale
 
+Architecture de la V0 :
+image:dc-initialv0.svg[]
+Architecture de la V1 :
+image:dc-initialv1.svg[]
+Architecture de la V2 :
+image:dc-initialv2.svg[]
+
 === b) Ressources externes
 
 === c) Structuration en packages
