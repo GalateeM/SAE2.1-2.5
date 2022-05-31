@@ -63,7 +63,6 @@ Classes d’accès physiques à la BD. Une table ⇒ 1 classe offrant différent
 * model.exception +
 Classes des exceptions spécifiques d’accès à la BD, levées par les classes de model.orm
 
-=== d) Élements essentiels
 
 == 3. Fonctionnalités
 
