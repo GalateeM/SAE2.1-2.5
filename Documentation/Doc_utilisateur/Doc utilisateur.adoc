@@ -69,13 +69,19 @@ Pour que l'opération soit validée, le montant à virer doit être positif, le 
 
 ==== Créer un compte (Hugo Monté)
 
-Pour créer un compte, le guichetier doit ouvrir le menu des comptes du client concerné puis cliquer sur "Nouveau compte" et enfin saisir les informations de ce nouveau compte. Une fois la création effectuée, ce compte apparaît dans la liste immédiatement (à moins qu'une erreur ait été mentionnée à la création).
-
-Pour que ce compte soit valide, il faut que son solde de départ soit supérieur à 50€ et que son découvert soit positif ou nul. Dans le cas échéant, un message d'erreur personnalisé apparaîtra à l'écran.
+Pour créer un compte, le guichetier doit ouvrir le menu des comptes du client concerné.
 
 image:img/Gestion Clients.png[]
+
+Ensuite, il faut cliquer sur "Nouveau compte"
+
 image:img/Gestion Comptes Client.png[]
+
+Enfin, il faut saisir les informations de ce nouveau compte. Une fois la création effectuée, ce compte apparaît dans la liste immédiatement (à moins qu'une erreur ait été mentionnée à la création).
+
 image:img/Creation Compte Client.png[]
+
+Pour que ce compte soit valide, il faut que son solde de départ soit supérieur à 50€ et que son découvert soit positif ou nul. Dans le cas échéant, un message d'erreur personnalisé apparaîtra à l'écran.
 
 ==== Clôturer un compte (Hugo Monté)
 
