@@ -52,7 +52,7 @@ public class DailyBankMainFrame extends Application {
 			
 			// En mise au point :
 			// Forcer une connexion existante pour rentrer dans l'appli en mode connecté
-
+/*
 			try {
 				Employe e;
 				AccessEmploye ae = new AccessEmploye();
@@ -89,7 +89,7 @@ public class DailyBankMainFrame extends Application {
 				}
 			}
 			
-
+*/
 			DailyBankMainFrameController dbmc = loader.getController();
 			dbmc.initContext(primaryStage, this, this.dbs);
 
