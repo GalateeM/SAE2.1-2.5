@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="222px" preserveAspectRatio="none" style="width:484px;height:222px;background:#FFFFFF;" version="1.1" viewBox="0 0 484 222" width="484px" zoomAndPan="magnify"><defs/><g><g id="elem_a"><ellipse cx="177.4998" cy="179.7" fill="#F1F1F1" rx="171.4998" ry="36.7" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="315" x="19.9998" y="182.5466">Effectuer un virement de compte à compte</text></g><!--MD5=[34413ead84916979ab18eea1b2c854c1]
+entity Guichetier--><g id="elem_Guichetier"><ellipse cx="303.5" cy="14" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M303.5,22 L303.5,49 M290.5,30 L316.5,30 M303.5,49 L290.5,64 M303.5,49 L316.5,64 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="266" y="78.4951">Guichetier</text></g><!--MD5=[6e53e4912c308b5abf33c4da5f75d75e]
+entity Chef_agence--><g id="elem_Chef_agence"><ellipse cx="430.5" cy="150" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M430.5,158 L430.5,185 M417.5,166 L443.5,166 M430.5,185 L417.5,200 M430.5,185 L443.5,200 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="384" y="214.4951">Chef_agence</text></g><!--MD5=[d09773056799cfcd355772dbafc0f5c1]
+reverse link Guichetier to Chef_agence--><g id="link_Guichetier_Chef_agence"><path d="M352.653,96.362 C366.88,111.374 382.122,127.4551 395.313,141.3737 " fill="none" id="Guichetier-backto-Chef_agence" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="347.554,101.158,338.877,81.826,357.715,91.527,347.554,101.158" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bb53160d542fefe9f41bbae1f5a77c48]
+link Guichetier to a--><g id="link_Guichetier_a"><path d="M268.402,81.826 C251.613,99.681 231.511,121.0595 214.485,139.167 " fill="none" id="Guichetier-to-a" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="210.677,143.2164,219.7562,139.3995,214.102,139.5737,213.9278,133.9195,210.677,143.2164" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[6dcac085a012e6fbb617efe09584eef3]
+@startuml
+usecase a as "Effectuer un virement de compte à compte"
+
+actor Guichetier 
+actor Chef_agence 
+
+Guichetier <|- - Chef_agence
+
+Guichetier - -> a
+@enduml
+
+PlantUML version 1.2022.6beta4(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
