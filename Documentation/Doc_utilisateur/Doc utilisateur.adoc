@@ -53,7 +53,7 @@ Vous pouvez cliquer sur "Annuler crédit" à tout moment pour annuler l'opérati
 
 ==== Effectuer un virement (Eva Tubia)
 
-Pour effectuer un virement entre deux comptes, l'utilisateur doit ouvrir le menu des comptes du client, choisir le compte à débiter dans la liste (cliquer dessus), cliquer sur "Voir opérations" puis "Effectuer un virement". 
+Les virements de compte à compte se font pour des comptes d'une même agence. Pour effectuer un virement entre deux comptes, l'utilisateur doit ouvrir le menu des comptes du client, choisir le compte à débiter dans la liste (cliquer dessus), cliquer sur "Voir opérations" puis "Effectuer un virement". 
 
 image:img/bouton virement.png[]
 
