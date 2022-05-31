@@ -71,6 +71,12 @@ Pour que l'opération soit validée, le montant à virer doit être positif, le 
 
 Pour créer un compte, le guichetier doit ouvrir le menu des comptes du client concerné puis cliquer sur "Nouveau compte" et enfin saisir les informations de ce nouveau compte. Une fois la création effectuée, ce compte apparaît dans la liste immédiatement (à moins qu'une erreur ait été mentionnée à la création).
 
+Pour que ce compte soit valide, il faut que son solde de départ soit supérieur à 50€ et que son découvert soit positif ou nul. Dans le cas échéant, un message d'erreur personnalisé apparaîtra à l'écran.
+
+image:img/Gestion Clients.png[]
+image:img/Gestion Comptes Client.png[]
+image:img/Creation Compte Client.png[]
+
 ==== Clôturer un compte (Hugo Monté)
 
 Pour clôturer un compte, le guichetier doit ouvrir le menu des comptes du client concerné, sélectionner le compte concerné et enfin cliquer sur "Supprimer compte". Le bouton est disponible si un compte est sélectionné et que ce dernier n'est pas déjà clôturé. Cela a pour effet de mettre le solde à 0 et le définiir comme clôturé (ces changements prennent effet immédiatement sur l'interface).
