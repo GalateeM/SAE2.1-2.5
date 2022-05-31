@@ -76,6 +76,8 @@ image:UC/use case v1.svg[]
 
 Use case : 
 
+image:UC/crediter.svg[]
+
 Accessibilité : Guichetier et Chef d'agence +
 
 Action de création d'une opération crédit sur un compte. +
@@ -85,7 +87,10 @@ Conditions de validation de l'opération : Montant entré non null, positif, cor
 
 ==== Virement de compte à compte (Eva Tubia)
 
-Use case : "Effectuer un virement de compte à compte" +
+Use case : 
+
+image:UC/virement.svg[]
+
 Accessibilité : Guichetier et Chef d'agence +
 
 Action de création d'une opération virement entre deux comptes. +
