@@ -29,33 +29,34 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 | 01
 | Se connecter (page d'accueil) 
-| Ouvre une fenêtre invitant la personne à saisir son login et son mot de passe
-|
+| Connexion possible à la base de données, l'identifiant et le mot de passe doivent correspondre à un employé existant.
+| Application lancée, bouton "se connecter" cliqué
 
 | 02
 | Quitter l'application (entièreté de l'application)
-| Ouvre une demande de validation de fermeture
+| Confirmer "êtes vous sur de vouloir quitter l'appli ?".
 |
 
 | 03
-| Modifier les informations d'un client (fenêtre de gestion des clients)
-| Ouvre une fenêtre invitant la personne à changer les informations existantes concernant le client
-|
+| Créer un nouveau client (fenêtre de gestion des clients)
+| Le format de l'adresse mail doit être valide, les champs doivent être tous remplis (sauf l'adresse). Pour le rendre inactif, vous devez être connecté en tant que chef d'agence.
+| Etre connecté en tant qu'employé
+
 
 | 04
-| Créer un nouveau client (fenêtre de gestion des clients)
-| Ouvre une fenêtre invitant la personne à saisir les informations du nouveau client
-|
+| Modifier les informations d'un client (fenêtre de gestion des clients)
+| Le format de l'adresse mail doit être valide, les champs doivent être tous remplis (sauf l'adresse). Pour le rendre inactif, vous devez être connecté en tant que chef d'agence.
+| Etre connecté en tant qu'employé, avoir selectionné un client existant.
 
 | 05
-| Consulter un compte (fenêtre des comptes d'un client)
-| Ouvre une fenêtre avec toutes les opérations du compte concerné et ses informations
-|
+| Consulter un compte (fenêtre de gestion des comptes d'un client)
+| Aucune condition, c'est juste de la visualisation.
+| Avoir sélectionnié un compte non cloturé, avoir cliqué sur "Voir opérations"
 
 | 06
-| Débiter un compte (fenêtre des comptes d'un client)
-| Ouvre une fenêtre invitant à saisir les données du retrait (type: espèce ou carte bleue) ainsi que le montant tout en indiquant le solde et le découvert autorisé
-|
+| Débiter un compte (fenêtre de gestion des opérations d'un compte)
+| Le montant doit être positif, et ne doit pas dépasser le solde autorisé.
+| Avoir cliqué sur "Enregistrer débit"
 
 | 07 (indiqué mais pas réalisé)
 | Rendre inactif un client (chef d'agence seulement,  fenêtre de gestion des comptes)
