@@ -188,8 +188,11 @@ public class ClientsManagementController implements Initializable {
 		this.btnDesactClient.setDisable(true);
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
+			Client cli = this.olc.get(selectedIndice);
+			
+			boolean inactif = cli.estInactif == "O";
 			this.btnModifClient.setDisable(false);
-			this.btnComptesClient.setDisable(false);
+			this.btnComptesClient.setDisable(inactif);
 		} else {
 			this.btnModifClient.setDisable(true);
 			this.btnComptesClient.setDisable(true);
