@@ -51,6 +51,8 @@ image:img/ihm crédit.png[]
 
 Vous pouvez cliquer sur "Annuler crédit" à tout moment pour annuler l'opération. Une fois l'opération validée (cliquer sur "Effectuer Crédit"), si tout est correct dans la saisie du montant, il n'est pas possible de revenir en arrière l'opération est effectuée.
 
+Pour que l'opération soit validée, le montant à créditer doit être posiitif.
+
 ==== Effectuer un virement (Eva Tubia)
 
 Les virements de compte à compte se font pour des comptes d'une même agence. Pour effectuer un virement entre deux comptes, l'utilisateur doit ouvrir le menu des comptes du client, choisir le compte à débiter dans la liste (cliquer dessus), cliquer sur "Voir opérations" puis "Effectuer un virement". 
@@ -62,6 +64,8 @@ Une nouvelle fenêtre permet à l'utilisateur d'entrer le montant à virer ainsi
 image:img/ihm virement.png[]
 
 Vous pouvez cliquer sur "Annuler virement" à tout moment pour annuler l'opération. Une fois l'opération validée (cliquer sur "Effectuer Virement"), si tout est correct dans la saisie du montant et du numéro de compte, il n'est pas possible de revenir en arrière l'opération est effectuée, le destinataire recevra l'argent immédiatement.
+
+Pour que l'opération soit validée, le montant à virer doit être positif, le compte destinataire doit exister et ne doit pas être cloturé, et le compte qui effectue le virement doit être suffisamment approvisionné.
 
 ==== Créer un compte (Hugo Monté)
 
