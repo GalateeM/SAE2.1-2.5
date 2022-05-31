@@ -1,0 +1,12 @@
+@startuml issue1
+
+usecase a as "Créer un compte"
+
+actor Chef_agence 
+actor Guichetier
+
+Chef_agence -|> Guichetier
+
+Guichetier --> a
+
+@enduml
