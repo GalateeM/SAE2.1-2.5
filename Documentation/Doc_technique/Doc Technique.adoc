@@ -68,9 +68,14 @@ Classes des exceptions spécifiques d’accès à la BD, levées par les classes
 
 === a) Version 1
 
+Voici le Use Case général de la version 1 :
+
+image:UC/use case v1.svg[]
+
 ==== Créditer un compte (Eva Tubia)
 
-Use case : "Créditer un compte" +
+Use case : 
+
 Accessibilité : Guichetier et Chef d'agence +
 
 Action de création d'une opération crédit sur un compte. +
