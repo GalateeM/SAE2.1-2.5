@@ -14,6 +14,36 @@ Projet : Daily Bank +
 
 Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
 
+.Répartition des tâches et état d'avancement
+[options="header,footer"]
+|=======================
+|version|user     |use case   |fonctionnalité              |   Galatée | Hugo  |   Eva 
+|0    |Chef d'Agence    |Client        |Rendre inactif un Client | |F |
+|1    |Chef d'Agence    |CRUD employé  |C|F | | 
+|1    |Chef d'Agence    |CRUD employé  |R|F | | 
+|1    |Chef d'Agence    |CRUD employé  |U|F | | 
+|1    |Chef d'Agence    |CRUD employé  |D|F | | 
+|1    |Guichetier     | Compte | Créer||F | 
+|1    |Guichetier     | Compte | Créditer/Débiter|| |F
+|1    |Guichetier     | Compte | Effectuer un virement|| |F 
+|1    |Guichetier     | Compte | Clôturer||F | 
+|2    |Chef d'Agence     | Compte | Débit exceptionnel|| | 
+|2    |Chef d'Agence     | Emprunt | Simuler emprunt|| | 
+|2    |Chef d'Agence     | Emprunt | Simuler assurance|| | 
+|2    |Guichetier     | Compte | Relevé PDF|| | 
+|2    |Guichetier     | CRUD Prélèvement | C|| | 
+|2    |Guichetier     | CRUD Prélèvement | R|| | 
+|2    |Guichetier     | CRUD Prélèvement | U|| | 
+|2    |Guichetier     | CRUD Prélèvement | D|| | 
+|2    |Bach     | Prélèvements automatiques | || | 
+|2    |Bach     | Relevés mensuels | || | 
+
+|=======================
+
+F pour fonctionnel ou
+D pour en Développement
+
+
 === b) Contexte du projet
 
 Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s’intégrer dans une stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d’application qui nécessite une refonte. Les besoins de la banque ont évolués, tout comme ceux de leurs clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces nouveaux besoins.
