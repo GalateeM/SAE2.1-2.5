@@ -39,8 +39,8 @@ public class ClientsManagementController implements Initializable {
 	 * Définit les variables de la fenetre
 	 * 
 	 * @param _primaryStage : scene
-	 * @param _cm : fenetre
-	 * @param _dbstate : données de la session de l'utilisateur
+	 * @param _cm           : fenetre
+	 * @param _dbstate      : données de la session de l'utilisateur
 	 */
 	public void initContext(Stage _primaryStage, ClientsManagement _cm, DailyBankState _dbstate) {
 		this.cm = _cm;
@@ -193,13 +193,13 @@ public class ClientsManagementController implements Initializable {
 
 	private void validateComponentState() {
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
-		
+
 		if (selectedIndice >= 0) {
 			Client cli = this.olc.get(selectedIndice);
 
 			boolean estChefDagence = this.dbs.isChefDAgence();
 			boolean inactif = cli.estInactif.equals("O");
-			
+
 			this.btnModifClient.setDisable(false);
 			this.btnComptesClient.setDisable(inactif || !estChefDagence);
 			this.btnDesactClient.setDisable(inactif || !estChefDagence);

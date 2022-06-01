@@ -84,7 +84,11 @@ public class ComptesManagementController implements Initializable {
 	private Button btnModifierCompte;
 	@FXML
 	private Button btnSupprCompte;
-
+	@FXML
+	private Button btnVoirPrelevements;
+	@FXML
+	private Button btnGenererReleve;
+	
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 	}
@@ -107,6 +111,16 @@ public class ComptesManagementController implements Initializable {
 
 	@FXML
 	private void doModifierCompte() {
+	}
+	
+	@FXML
+	private void doVoirPrelevements() {
+		
+	}
+	
+	@FXML
+	private void doGenererRelever() {
+		
 	}
 
 	@FXML
