@@ -119,8 +119,12 @@ public class ComptesManagementController implements Initializable {
 	}
 	
 	@FXML
-	private void doGenererRelever() {
-		
+	private void doGenererReleve() {		
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
+			this.cm.genererReleve(cpt);
+		}
 	}
 
 	@FXML
@@ -174,9 +178,11 @@ public class ComptesManagementController implements Initializable {
 			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
 			boolean estCloture = cpt.estCloture.equals("O");
 
+			this.btnGenererReleve.setDisable(false);
 			this.btnVoirOpes.setDisable(estCloture);
 			this.btnSupprCompte.setDisable(estCloture);
 		} else {
+			this.btnGenererReleve.setDisable(true);
 			this.btnVoirOpes.setDisable(true);
 			this.btnSupprCompte.setDisable(true);
 		}

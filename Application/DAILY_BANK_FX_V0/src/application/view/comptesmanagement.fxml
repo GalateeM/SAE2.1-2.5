@@ -58,7 +58,7 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnGenererReleve" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doGenererRelever" text="Générer relevé mensuel" GridPane.rowIndex="2" />
+                        <Button fx:id="btnGenererReleve" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doGenererReleve" text="Générer relevé mensuel" GridPane.rowIndex="2" />
                      </children>
                   </GridPane>
                </children>

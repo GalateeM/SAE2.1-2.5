@@ -20,7 +20,9 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.data.Operation;
 import model.orm.AccessCompteCourant;
+import model.orm.AccessOperation;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 import model.orm.exception.Order;
@@ -144,6 +146,37 @@ public class ComptesManagement {
 		}
 		
 		return compte;
+	}
+
+	/**
+	 * Permet de générer le relevé d'un compte (ouvre la scene de choix du mois et de l'année)
+	 * @return : le compte courant clôturé
+	 */
+	public void genererReleve(CompteCourant compte) {
+		if(compte == null)
+			return;
+		
+		GenererRelevePane cep = new GenererRelevePane(this.primaryStage, this.dbs);
+		int[] date = cep.doGenererDialog();
+		
+		if(date[0] == -1 || date[1] == -1)
+			return;
+		
+		try {
+			AccessOperation acc = new AccessOperation();				
+			ArrayList<Operation> operations = acc.getOperations(compte.idNumCompte, date[0], date[1]);
+			
+			System.out.println("opérations à utiliser : " + operations.size());
+		} catch (DatabaseConnexionException e) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+			ed.doExceptionDialog();
+			this.primaryStage.close();
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+			ed.doExceptionDialog();
+		}
+		
+		return;
 	}
 
 	/**
