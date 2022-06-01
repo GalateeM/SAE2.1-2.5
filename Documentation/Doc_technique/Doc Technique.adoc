@@ -152,6 +152,33 @@ Informations supplémentaires sur la documentation utilisateur.
 Use case :
 image:UC/UC gestion Employe.png[]
 
+Répartitions des fonctions dans les packages :
+
+* application.control, classe  `EmployeManagement` : + 
+** `NouvelEmploye()`
+** `supprimerEmploye()`
+** `getListeEmploye()` +
+
+* application.control, classe `EmployeEditorPane`:
+** `doEmployeEditorDialog()`
+
+* application.view, classe `EmployeManagementController` :
+** `doRechercher()`
+** `doModifierEmploye()`
+** `doSupprimerEmploye()`
+** `doNouvelEmploye()`
+
+* application.view, classe `EmployeEditorPaneController` :
+** `doAjouter()`
+** `isSaisieValide()`
+
+* model.orm, classe AccessEmploye
+** `getEmploye()`
+** `updateEmploye()`
+** `insertEmploye()`
+** `deleteEmploye()`
+
+
 La fenêtre principale de gestion des employés est gérée par la classe `EmployeManagementController`. Dans celle-ci, plusieurs fonctionnalités sont présentes :
 
 * Create = fonction Nouvel employé +
