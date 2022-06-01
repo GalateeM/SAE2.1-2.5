@@ -40,7 +40,7 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 | 03
 | Créer un nouveau client (fenêtre de gestion des clients)
 | Le format de l'adresse mail doit être valide, les champs doivent être tous remplis (sauf l'adresse). Pour le rendre inactif, vous devez être connecté en tant que chef d'agence.
-| Etre connecté en tant qu'employé
+| Etre connecté en tant qu'employé.
 
 
 | 04
@@ -51,17 +51,17 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 | 05
 | Consulter un compte (fenêtre de gestion des comptes d'un client)
 | Aucune condition, c'est juste de la visualisation.
-| Avoir sélectionnié un compte non cloturé, avoir cliqué sur "Voir opérations"
+| Avoir sélectionnié un compte non cloturé, avoir cliqué sur "Voir opérations".
 
 | 06
 | Débiter un compte (fenêtre de gestion des opérations d'un compte)
 | Le montant doit être positif, et ne doit pas dépasser le solde autorisé.
-| Avoir cliqué sur "Enregistrer débit"
+| Avoir cliqué sur "Enregistrer débit".
 
-| 07 (indiqué mais pas réalisé)
+| 07
 | Rendre inactif un client (chef d'agence seulement,  fenêtre de gestion des comptes)
-| Permet de rendre un client sélectionné inactif
-|
+| Pas de condition.
+| Etre connecté en tant que chef d'agence, avoir sélectionné un client existant. Il y a 2 moyens possible : cliquez sur "Modifier client" et sélectionnez "inactif" ou cliquez sur "Désactiver client".
 |===
 
 == Version 1
@@ -70,29 +70,45 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 | Id Test | Nom test | Conditions de satisfaction | Préconditions
 
 | 08
-| Créditer/débiter un compte (fenêtre des opérations d'un compte)
-| Ouvre une fenêtre invitant à saisir les informations concernant le crédit ou le débit (en fonction de l'action)
-|
+| Créditer un compte (fenêtre des opérations d'un compte)
+| Le montant à créditer ne doit pas être négatif.
+| Avoir cliqué sur "Enregistrer crédit".
 
 | 09
 | Créer un compte (fenêtre des comptes d'un client)
-| Ouvre une fenêtre invitant à saisir les informations concernant le nouveau compte
-|
+| Le solde doit être supérieur à 50€ et le découvert ne doit pas être négatif.
+| Avoir cliqué sur "Nouveau compte".
 
 | 10
 | Effectuer un virement de compte à compte (fenêtre des opérations d'un compte)
-| Ouvre la fenêtre invitant à saisir le destinataire et les autres informations concernant le virement
-|
+| Le montant doit être positif, il ne doit pas dépasser le solde autorisé du compte débiteur, le numéro de compte destinataire doit exister dans l'agence et ne doit pas être cloturé.
+| Avoir cliqué sur "Effectuer un virement".
 
 | 11
 | Clôturer un compte (fenêtre des comptes d'un client)
-| Ouvre un menu de validation demandant si la clôture est bel est bien souhaitée
-|
+| Pas de condition.
+| Le compte ne doit pas être déjà clôturé.
 
 | 12
-| Gérer les employés (CRUD - Pour Chef d'Agence, fenêtre de gestion des employés) 
-| Ouvre l'interface permettant de gérer (Créer / Voir / Modifier / Supprimer) les employés (guichetiers et chefs d'agence compris)
-|
+| Créer un employé (CREATE) (fenêtre de gestion des employés)
+| Tous les champs doivent être remplis, le mot de passe et sa confirmation doivent être identiques.
+| Etre connecté en tant que chef d'agence.
+
+| 13
+| Afficher la liste des employés (READ) (fenêtre de gestion des employés)
+| Pas de condition.
+| Etre connecté en tant que chef d'agence.
+
+| 14
+| Modifier un employé (UPDATE) (fenêtre de gestion des employés)
+| Tous les champs doivent être remplis, le mot de passe et sa confirmation doivent être identiques.
+| Etre connecté en tant que chef d'agence, avoir selectionné un employé existant.
+
+| 14
+| Supprimer un employé (DELETE) (fenêtre de gestion des employés)
+| Pas de condition.
+| Etre connecté en tant que chef d'agence, avoir selectionné un employé existant.
+
 |===
 
 == Version 2
