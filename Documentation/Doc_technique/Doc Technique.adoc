@@ -93,7 +93,6 @@ A chaque page est associée une vue FXML, un controleur de vue et une classe qui
 
 
 == 3. Fonctionnalités
-ajout des packages
 === a) Version 1
 
 Voici le Use Case général de la version 1 :
