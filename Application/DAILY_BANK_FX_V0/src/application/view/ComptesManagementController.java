@@ -103,7 +103,7 @@ public class ComptesManagementController implements Initializable {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
-			this.cm.gererOperations(cpt);
+			this.cm.gererPrelevements(cpt);
 		}
 		this.loadList();
 		this.validateComponentState();
@@ -115,7 +115,13 @@ public class ComptesManagementController implements Initializable {
 	
 	@FXML
 	private void doVoirPrelevements() {
-		
+		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
+			this.cm.gererPrelevements(cpt);
+		}
+		this.loadList();
+		this.validateComponentState();
 	}
 	
 	@FXML

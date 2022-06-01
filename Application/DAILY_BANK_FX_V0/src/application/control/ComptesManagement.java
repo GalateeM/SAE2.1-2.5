@@ -83,6 +83,15 @@ public class ComptesManagement {
 		OperationsManagement om = new OperationsManagement(this.primaryStage, this.dbs, this.clientDesComptes, cpt);
 		om.doOperationsManagementDialog();
 	}
+	
+	/**
+	 * Permet de gérer les prélèvements d'un compte (affiche la scene correspondante)
+	 * @param cpt : le compte dont on souhaite gérer les prélèvements
+	 */
+	public void gererPrelevements(CompteCourant cpt) {
+		PrelevementsManagement pm = new PrelevementsManagement(this.primaryStage, this.dbs, this.clientDesComptes, cpt);
+		pm.doPrelevementsManagementDialog();
+	}
 
 	/**
 	 * Permet de créer un compte (ouvre la scene d'ajout d'un compte)
