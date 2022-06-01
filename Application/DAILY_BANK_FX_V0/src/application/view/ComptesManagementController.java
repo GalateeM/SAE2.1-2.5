@@ -103,7 +103,7 @@ public class ComptesManagementController implements Initializable {
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
-			this.cm.gererPrelevements(cpt);
+			this.cm.gererOperations(cpt);
 		}
 		this.loadList();
 		this.validateComponentState();
