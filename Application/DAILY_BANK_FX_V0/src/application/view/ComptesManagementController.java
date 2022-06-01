@@ -115,6 +115,12 @@ public class ComptesManagementController implements Initializable {
 		
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
+			
+			if(cpt.solde != 0) {
+				AlertUtilities.showAlert(primaryStage, "Impossible", "Suppression du compte impossible", "Le solde du compte doit être à 0€", AlertType.ERROR);
+				return;
+			}
+			
 			CompteCourant nvCompte = this.cm.cloturerCompte(cpt);
 			
 			if(nvCompte != null)
@@ -135,7 +141,7 @@ public class ComptesManagementController implements Initializable {
 		}
 	}
 
-	private void loadList () {
+	private void loadList() {
 		ArrayList<CompteCourant> listeCpt;
 		listeCpt = this.cm.getComptesDunClient();
 		this.olCompteCourant.clear();
@@ -153,7 +159,7 @@ public class ComptesManagementController implements Initializable {
 		if (selectedIndice >= 0) {
 			CompteCourant cpt = this.olCompteCourant.get(selectedIndice);
 			boolean estCloture = cpt.estCloture.equals("O");
-			
+
 			this.btnVoirOpes.setDisable(estCloture);
 			this.btnSupprCompte.setDisable(estCloture);
 		} else {

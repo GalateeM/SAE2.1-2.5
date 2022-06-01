@@ -210,7 +210,7 @@ public class AccessCompteCourant {
 		try {
 			Connection con = LogToDatabase.getConnexion();
 		
-			String query = "UPDATE CompteCourant SET estCloture = 'O', solde = 0 WHERE idNumCompte = ?";
+			String query = "UPDATE CompteCourant SET estCloture = 'O' WHERE solde = 0 AND idNumCompte = ?";
 		
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, compte.idNumCompte);
