@@ -159,7 +159,6 @@ public class ClientsManagementController implements Initializable {
 
 	@FXML
 	private void doModifierClient() {
-
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
 			Client cliMod = this.olc.get(selectedIndice);
@@ -172,6 +171,15 @@ public class ClientsManagementController implements Initializable {
 
 	@FXML
 	private void doDesactiverClient() {
+		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			Client cliMod = this.olc.get(selectedIndice);
+			Client result = this.cm.desactiverClient(cliMod);
+			if (result != null) {
+				this.olc.set(selectedIndice, result);
+				this.validateComponentState();
+			}
+		}
 	}
 
 	@FXML
@@ -184,18 +192,21 @@ public class ClientsManagementController implements Initializable {
 	}
 
 	private void validateComponentState() {
-		// Non implémenté => désactivé
-		this.btnDesactClient.setDisable(true);
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
+		
 		if (selectedIndice >= 0) {
 			Client cli = this.olc.get(selectedIndice);
+
+			boolean estChefDagence = this.dbs.isChefDAgence();
+			boolean inactif = cli.estInactif.equals("O");
 			
-			boolean inactif = cli.estInactif == "O";
 			this.btnModifClient.setDisable(false);
-			this.btnComptesClient.setDisable(inactif);
+			this.btnComptesClient.setDisable(inactif || !estChefDagence);
+			this.btnDesactClient.setDisable(inactif || !estChefDagence);
 		} else {
 			this.btnModifClient.setDisable(true);
 			this.btnComptesClient.setDisable(true);
+			this.btnDesactClient.setDisable(true);
 		}
 	}
 }

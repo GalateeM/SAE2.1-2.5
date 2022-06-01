@@ -91,6 +91,33 @@ public class ClientsManagement {
 	}
 
 	/**
+	 * Permet de modifier un client en lançant une autre fenêtre de gestion des clients (ClientEditor)
+	 * @param c : le client sélectionné à modifier
+	 * @return : le client avec les informations modifiées
+	 */
+	public Client desactiverClient(Client c) {
+		if(c == null)
+			return null;
+		
+		try {
+			c.estInactif = "O";
+			
+			AccessClient ac = new AccessClient();
+			ac.updateClient(c);
+		} catch (DatabaseConnexionException e) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+			ed.doExceptionDialog();
+			return null;
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+			ed.doExceptionDialog();
+			return null;
+		}
+		
+		return c;
+	}
+
+	/**
 	 * Permet de créer un client en lançant une autre fenêtre de gestion des clients (ClientEditor)
 	 * @return : le client créé
 	 */
