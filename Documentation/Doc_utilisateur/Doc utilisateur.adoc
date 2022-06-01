@@ -21,7 +21,7 @@ L'entreprise Daily Bank a besoin de restructurer leur réseau afin de s’intég
 
 === c) Objectifs du projet
 
-Le but est de partir d’une application existante et d’y rajouter des fonctionnalités. Il y a deux types d’utilisateurs de l’application : le guichetier et le chef d’agence. Les guichetiers pourront créer de nouveaux clients et faire les opérations courantes (Create Read Update Delete). Les chefs d’agences pourront gérer les employés et les opérations exeptionnelles. L’application sera découpée en plusieurs versions (3) à la demande du client.
+Le but est de générer le fichier executable de l'application (jar), la documentation technique, la documentation utilisateur ainsi que le cahier de tests correpondants à la version de l'application développée. Il y a deux types d’utilisateurs de l’application : le guichetier et le chef d’agence. Les guichetiers pourront créer de nouveaux clients et faire les opérations courantes (Create Read Update Delete). Les chefs d’agences pourront gérer les employés et les opérations exeptionnelles. L’application et les documentations seront découpées en plusieurs versions (3).
 
 == 2. Lancer l'application
 === a) Prérequis
