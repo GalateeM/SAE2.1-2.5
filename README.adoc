@@ -85,16 +85,15 @@ D pour en Développement
 |         | Gantt V2    |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v2.pdf                             |     
 |         | Gantt V3 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v3.pdf        |     
 |         | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20Technique.adoc       |    
-|         | Doc User V1    | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20utilisateur.adoc        |lien ne marche pas
+|         | Doc User V1    | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc        |lien ne marche pas
 |         | Recette V1  | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc                     | 
 |         | Suivi projet| Pour les docs utilisateur et technique et pour le gantt, nous (Galatée et Eva) avons travaillé sur la même machine donc il y a écrit que seul Eva a commit, mais Galatée a participé à la rédaction aussi. | 
-| 22/05   | Gantt V2  à jour    |       | 
-|         | Doc. Util. V1 |         |         
-|         | Doc. Tec. V1 |                |     
-|         | Code V1     |                     | 
-|         | Recette V1 |                      | 
-|         | Gantt V3 à jour   |                      | 
-|         | `jar` projet |    | 
+| 22/05   | Gantt V1  à jour    |       | 
+|         | Doc. Util. V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc        |         
+|         | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20Technique.adoc             |     
+|         | Code V1     | https://github.com/IUT-Blagnac/sae2022-bank-2B1/tree/main/Application/DAILY_BANK_FX_V0                 | 
+|         | Recette V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc           | 
+|         | `jar` projet | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Application/DailyBankV1.jar   | 
 | 05/06   | Gantt V3 à Jour  |    |  
 |         | Doc. Util. V2 |         |           
 |         | Doc. Tec. V2 |    |     
