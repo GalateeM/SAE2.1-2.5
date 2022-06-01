@@ -46,22 +46,18 @@ D pour en Développement
 
 === b) Contexte du projet
 
-Daily Bank est un réseau français de 100 agences bancaires. Il est nécessaire pour eux de restructurer leur réseau afin de s’intégrer dans une stratégie de différenciation. Ils possèdent plusieurs outils qui deviennent obsolètes et une première version d’application qui nécessite une refonte. Les besoins de la banque ont évolués, tout comme ceux de leurs clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces nouveaux besoins.
+L'entreprise Daily Bank a besoin de restructurer leur réseau afin de s’intégrer dans une stratégie de différenciation. Elle possède plusieurs outils qui deviennent obsolètes et une première version d’application qui nécessite une refonte. Les besoins de la banque ont évolués, tout comme ceux de leurs clients, il faut donc développer plusieurs fonctinnalités pour répondre à ces nouveaux besoins.
 
 === c) Objectifs du projet
 
-Le but est de partir d’une application existante et d’y rajouter des fonctionnalités. Il y a deux types d’utilisateurs de l’application : le guichetier et le chef d’agence. Les guichetiers pourront créer de nouveaux clients et faire les opérations courantes (Create Read Update Delete). Les chefs d’agences pourront gérer les employés et les opérations exeptionnelles. L’application sera découpée en plusieurs versions (3) à la demande du client.
+Le but est de générer le fichier executable de l'application (jar), la documentation technique, la documentation utilisateur ainsi que le cahier de tests correpondants à la version de l'application développée. Il y a deux types d’utilisateurs de l’application : le guichetier et le chef d’agence. Les guichetiers pourront créer de nouveaux clients et faire les opérations courantes (Create Read Update Delete). Les chefs d’agences pourront gérer les employés et les opérations exeptionnelles. L’application et les documentations seront découpées en plusieurs versions (3).
 
 == 2. Architecture
 
 === a) Architecture Générale
 
-Architecture de la V0 :
-image:DC/dc-initialv0.svg[]
-Architecture de la V1 :
-image:DC/dc-initialv1.svg[]
-Architecture de la V2 :
-image:DC/dc-initialv2.svg[]
+L'application sera déployée sur toutes les machines des employés (guichetiers et chefs d'agences) dans toutes les agences.
+L'application utilise Java 1.8, JavaFX pour l'interface et se connecte à une base de données Oracle.
 
 === b) Ressources externes
 
@@ -93,9 +89,10 @@ Classes d’accès physiques à la BD. Une table ⇒ 1 classe offrant différent
 * model.exception +
 Classes des exceptions spécifiques d’accès à la BD, levées par les classes de model.orm
 
+A chaque page est associée une vue FXML, un controleur de vue et une classe qui lance la page.
+
 
 == 3. Fonctionnalités
-
 === a) Version 1
 
 Voici le Use Case général de la version 1 :
@@ -187,4 +184,3 @@ Une fenêtre d'alerte est déclenchée, demandant la confirmation de la suppress
 === b) Version 2
 
 === c) Version 3
-
