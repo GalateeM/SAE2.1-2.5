@@ -178,6 +178,7 @@ public class ComptesManagementController implements Initializable {
 		// Non implémenté => désactivé
 		this.btnModifierCompte.setDisable(true);
 		this.btnSupprCompte.setDisable(true);
+		this.btnVoirPrelevements.setDisable(true);
 
 		int selectedIndice = this.lvComptes.getSelectionModel().getSelectedIndex();
 		if (selectedIndice >= 0) {
@@ -187,10 +188,12 @@ public class ComptesManagementController implements Initializable {
 			this.btnGenererReleve.setDisable(false);
 			this.btnVoirOpes.setDisable(estCloture);
 			this.btnSupprCompte.setDisable(estCloture);
+			this.btnVoirPrelevements.setDisable(estCloture);
 		} else {
 			this.btnGenererReleve.setDisable(true);
 			this.btnVoirOpes.setDisable(true);
 			this.btnSupprCompte.setDisable(true);
+			this.btnVoirPrelevements.setDisable(true);
 		}
 	}
 }

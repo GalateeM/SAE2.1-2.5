@@ -20,10 +20,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.SelectionMode;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
+import model.data.Operation;
 import model.data.Prelevement;
 
 public class PrelevementsManagementController implements Initializable {
@@ -64,8 +66,11 @@ public class PrelevementsManagementController implements Initializable {
 
 		this.olPrelevement = FXCollections.observableArrayList();
 		this.lvPrelevements.setItems(this.olPrelevement);
-		this.lvPrelevements.setSelectionModel(new NoSelectionModel<Prelevement>());
-		//this.updateInfoCompteClient();
+		this.lvPrelevements.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+		this.lvPrelevements.getFocusModel().focus(-1);
+		this.lvPrelevements.getSelectionModel().selectedItemProperty().addListener(e -> this.validateComponentState());
+		this.validateComponentState();
+		this.updateInfoPrelevementsCompte();
 	}
 
 	/**
@@ -155,5 +160,15 @@ public class PrelevementsManagementController implements Initializable {
 			this.olPrelevement.add(p);
 		}
 
+	}
+	
+	private void validateComponentState() {
+		this.btnModifierPrel.setDisable(true);
+		this.btnSupprimerPrel.setDisable(true);
+		int selectedIndice = this.lvPrelevements.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			this.btnModifierPrel.setDisable(false);
+			this.btnSupprimerPrel.setDisable(false);
+		}
 	}
 }

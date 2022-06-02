@@ -16,6 +16,10 @@ public class Prelevement {
 		this.idNumCompte=pfIdNumCompte;
 	}
 	
+	public Prelevement(Prelevement p) {
+		this(p.idPrelev,p.montant,p.jour,p.beneficiaire,p.idNumCompte);
+	}
+	
 	@Override
 	public String toString() {
 		return "" + String.format("%05d", this.idPrelev) + " : Montant=" + String.format("%12.02f", this.montant)

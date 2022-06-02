@@ -200,7 +200,6 @@ public class EmployeEditorPaneController implements Initializable {
 			this.primaryStage.close();
 			break;
 		}
-
 	}
 
 	private boolean isSaisieValide() {
@@ -248,9 +247,6 @@ public class EmployeEditorPaneController implements Initializable {
 			this.txtIdAg.requestFocus();
 			return false;
 		}
-
-		
-
 		return true;
 	}
 }

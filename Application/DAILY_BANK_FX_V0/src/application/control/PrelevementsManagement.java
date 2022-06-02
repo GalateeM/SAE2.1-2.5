@@ -7,6 +7,7 @@ import application.DailyBankState;
 import application.tools.PairsOfValue;
 import application.tools.StageManagement;
 import application.view.PrelevementsManagementController;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -38,6 +39,7 @@ public class PrelevementsManagement {
 		this.compteConcerne = compte;
 		this.dbs = _dbstate;
 		try {
+			System.out.println("ici");
 			FXMLLoader loader = new FXMLLoader(
 					PrelevementsManagementController.class.getResource("prelevementsmanagement.fxml"));
 			BorderPane root = loader.load();
@@ -89,5 +91,20 @@ public class PrelevementsManagement {
 	
 	public void doPrelevementsManagementDialog() {
 		this.pmc.displayDialog();
+	}
+	
+	@FXML
+	private void doNouveauPrel() {
+		
+	}
+	
+	@FXML
+	private void doModifierPrel() {
+		
+	}
+	
+	@FXML
+	private void doSupprimerPrel() {
+		
 	}
 }
