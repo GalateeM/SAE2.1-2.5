@@ -70,7 +70,7 @@ public class AccessOperation {
 	 * @throws DataAccessException
 	 * @throws DatabaseConnexionException
 	 */
-	public ArrayList<Operation> getOperations(int idNumCompte, int mois, int annee) throws DataAccessException, DatabaseConnexionException {
+	public ArrayList<Operation> getOperations(int idNumCompte, String mois, String annee) throws DataAccessException, DatabaseConnexionException {
 		ArrayList<Operation> alResult = new ArrayList<>();
 
 		try {
@@ -79,7 +79,7 @@ public class AccessOperation {
 			
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, idNumCompte);
-			pst.setString(2, String.format("%02d", mois) + "/" + annee);
+			pst.setString(2, mois + "/" + annee);
 
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {

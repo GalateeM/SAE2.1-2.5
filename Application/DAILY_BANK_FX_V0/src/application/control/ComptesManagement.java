@@ -182,6 +182,9 @@ public class ComptesManagement {
 		GenererRelevePane cep = new GenererRelevePane(this.primaryStage, this.dbs);
 		String[] data = cep.doGenererDialog();
 		
+		if(data[0] == null || data[1] == null || data[2] == null)
+			return;
+		
 		try {
 			AccessOperation acc = new AccessOperation();				
 			

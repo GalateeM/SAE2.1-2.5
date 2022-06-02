@@ -74,8 +74,8 @@ public class GenererRelevePaneController implements Initializable {
 		this.primaryStage.showAndWait();
 		
 		String[] resultat = new String[3];
-		resultat[0] = String.valueOf(this.mois);
-		resultat[1] = String.valueOf(this.annee);
+		resultat[0] = this.mois == -1 ? null : String.valueOf(this.mois);
+		resultat[1] = this.annee == -1 ? null : String.valueOf(this.annee);
 		resultat[2] = this.destination;
 		
 		return resultat;
@@ -111,6 +111,7 @@ public class GenererRelevePaneController implements Initializable {
 	private void doCancel() {
 		this.mois = -1;
 		this.annee = -1;
+		this.destination = null;
 		this.primaryStage.close();
 	}
 
