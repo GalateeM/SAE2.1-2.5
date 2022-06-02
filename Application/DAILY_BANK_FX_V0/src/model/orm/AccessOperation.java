@@ -61,6 +61,46 @@ public class AccessOperation {
 	}
 
 	/**
+	 * Recherche de toutes les opérations d'un compte d'un mois donné (d'une année donnée).
+	 *
+	 * @param idNumCompte id du compte dont on cherche toutes les opérations
+	 * @param mois le mois concerné
+	 * @param annee l'année concernée
+	 * @return Toutes les opérations du compte, liste vide si pas d'opération
+	 * @throws DataAccessException
+	 * @throws DatabaseConnexionException
+	 */
+	public ArrayList<Operation> getOperations(int idNumCompte, int mois, int annee) throws DataAccessException, DatabaseConnexionException {
+		ArrayList<Operation> alResult = new ArrayList<>();
+
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			String query = "SELECT * FROM Operation where idNumCompte = ? AND TO_CHAR(dateOp, 'MM/YYYY') = ? ORDER BY dateOp";
+			
+			PreparedStatement pst = con.prepareStatement(query);
+			pst.setInt(1, idNumCompte);
+			pst.setString(2, String.format("%02d", mois) + "/" + annee);
+
+			ResultSet rs = pst.executeQuery();
+			while (rs.next()) {
+				int idOperation = rs.getInt("idOperation");
+				double montant = rs.getDouble("montant");
+				Date dateOp = rs.getDate("dateOp");
+				Date dateValeur = rs.getDate("dateValeur");
+				int idNumCompteTrouve = rs.getInt("idNumCompte");
+				String idTypeOp = rs.getString("idTypeOp");
+
+				alResult.add(new Operation(idOperation, montant, dateOp, dateValeur, idNumCompteTrouve, idTypeOp));
+			}
+			rs.close();
+			pst.close();
+			return alResult;
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Operation, Order.SELECT, "Erreur accès", e);
+		}
+	}
+
+	/**
 	 * Recherche d'une opération par son id.
 	 *
 	 * @param idOperation id de l'opération recherchée (clé primaire)
