@@ -48,14 +48,14 @@ En cours de développement, sera disponible très bientôt
 |1    |Guichetier     | Compte | Créditer/Débiter|| |F
 |1    |Guichetier     | Compte | Effectuer un virement|| |F 
 |1    |Guichetier     | Compte | Clôturer||F | 
-|2    |Chef d'Agence     | Compte | Débit exceptionnel|| | 
+|2    |Chef d'Agence     | Compte | Débit exceptionnel|F| | 
 |2    |Chef d'Agence     | Emprunt | Simuler emprunt|| | 
 |2    |Chef d'Agence     | Emprunt | Simuler assurance|| | 
-|2    |Guichetier     | Compte | Relevé PDF|| | 
-|2    |Guichetier     | CRUD Prélèvement | C|| | 
-|2    |Guichetier     | CRUD Prélèvement | R|| | 
-|2    |Guichetier     | CRUD Prélèvement | U|| | 
-|2    |Guichetier     | CRUD Prélèvement | D|| | 
+|2    |Guichetier     | Compte | Relevé PDF||F | 
+|2    |Guichetier     | CRUD Prélèvement | C|| | D
+|2    |Guichetier     | CRUD Prélèvement | R|| | F
+|2    |Guichetier     | CRUD Prélèvement | U|| | D
+|2    |Guichetier     | CRUD Prélèvement | D|| | D
 |2    |Bach     | Prélèvements automatiques | || | 
 |2    |Bach     | Relevés mensuels | || | 
 
@@ -95,10 +95,10 @@ D pour en Développement
 |         | Recette V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc           | 
 |         | `jar` projet | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Application/DailyBankV1.jar   | 
 | 05/06   | Gantt V3 à Jour  |    |  
-|         | Doc. Util. V2 |         |           
-|         | Doc. Tec. V2 |    |     
+|         | Doc. Util. V2 |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc       |           
+|         | Doc. Tec. V2 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20Technique.adoc    |     
 |         | Code V2     |                       |
-|         | Recette V2  |   |
+|         | Recette V2  |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc  |
 |         | `jar` projet |     |
 |12/06   | Gantt V3 à Jour  |    |  
 |         | Doc. Util. V3 |         |           
