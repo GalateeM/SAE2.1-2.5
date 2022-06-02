@@ -1,0 +1,10 @@
+@startuml debitexceptionnel
+
+usecase a as "Effectuer un Débit exceptionnel"
+
+actor Chef_agence 
+
+
+Chef_agence --> a
+
+@enduml

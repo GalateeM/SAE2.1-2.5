@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="205px" preserveAspectRatio="none" style="width:276px;height:205px;background:#FFFFFF;" version="1.1" viewBox="0 0 276 205" width="276px" zoomAndPan="magnify"><defs/><g><g id="elem_a"><ellipse cx="138.0975" cy="170.3195" fill="#F1F1F1" rx="132.0975" ry="28.8195" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="233" x="21.5975" y="173.1662">Effectuer un Débit exceptionnel</text></g><!--MD5=[6e53e4912c308b5abf33c4da5f75d75e]
+entity Chef_agence--><g id="elem_Chef_agence"><ellipse cx="138" cy="14" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M138,22 L138,49 M125,30 L151,30 M138,49 L125,64 M138,49 L151,64 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="91.5" y="78.4951">Chef_agence</text></g><!--MD5=[3d2839dee7bd3d6d020f2d93ea234908]
+link Chef_agence to a--><g id="link_Chef_agence_a"><path d="M138,81.666 C138,99.014 138,119.497 138,136.3173 " fill="none" id="Chef_agence-to-a" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="138,141.4123,142,132.4123,138,136.4123,134,132.4123,138,141.4123" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[4b0b37a6d18edd729e7f6ed0762d2a30]
+@startuml
+usecase a as "Effectuer un Débit exceptionnel"
+
+actor Chef_agence 
+
+
+Chef_agence - -> a
+@enduml
+
+PlantUML version 1.2022.6beta5(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

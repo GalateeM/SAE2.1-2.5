@@ -27,7 +27,7 @@ Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
 |1    |Guichetier     | Compte | Créditer/Débiter|| |F
 |1    |Guichetier     | Compte | Effectuer un virement|| |F 
 |1    |Guichetier     | Compte | Clôturer||F | 
-|2    |Chef d'Agence     | Compte | Débit exceptionnel|| | 
+|2    |Chef d'Agence     | Compte | Débit exceptionnel|D| | 
 |2    |Chef d'Agence     | Emprunt | Simuler emprunt|| | 
 |2    |Chef d'Agence     | Emprunt | Simuler assurance|| | 
 |2    |Guichetier     | Compte | Relevé PDF|| | 
@@ -154,7 +154,7 @@ image:UC/UC gestion Employe.png[]
 
 Répartitions des fonctions dans les packages :
 
-* application.control, classe  `EmployeManagement` : + 
+* application.control, classe  `EmployeManagement` : 
 ** `NouvelEmploye()`
 ** `supprimerEmploye()`
 ** `getListeEmploye()` +
@@ -172,7 +172,7 @@ Répartitions des fonctions dans les packages :
 ** `doAjouter()`
 ** `isSaisieValide()`
 
-* model.orm, classe AccessEmploye
+* model.orm, classe `AccessEmploye` :
 ** `getEmploye()`
 ** `updateEmploye()`
 ** `insertEmploye()`
@@ -209,5 +209,37 @@ Une fenêtre d'alerte est déclenchée, demandant la confirmation de la suppress
 
 
 === b) Version 2
+
+Voici le Use Case général de la version 2 :
+
+image:UC/use case v2.svg[]
+
+==== Debit exceptionnel (Galatée Marcq)
+
+Use case : +
+image:UC/ucDebitExceptionnel.svg[]
+
+Répartitions des fonctions dans les packages :
+
+* application.control, classe  `OperationsManagement` :
+** `enregistrerDebit()` +
+
+* application.control, classe `OperationEditorPane`:
+** `doOperationEditorDialog()`
+
+* application.view, classe `OperationsManagementController` :
+** `doDebitExceptionnel()`
+** `validateComponentState()`
+
+* application.view, classe `OperationEditorPaneController` :
+** `displayDialog()`
+** `doAjouter()`
+
+* model.orm, classe `AccessOperation` :
+** `insertDebitExceptionnel()`
+
+La création d'un débit exceptionnel se fait dans la page `Gestion des opérations`, avec le bouton "Enregistrer un débit exceptionnel". Ce bouton est activé seulement si un chef d'agence est connecté (fonction `validateComponentState()`, en fonction de `this.dbs.isChefDAgence()`). 
+Une fois le bouton cliqué, l'attribut `debitExceptionnel` prend la valeur true. Ainsi, les mêmes fonctions sont appelées que dans le cas d'un débit (`enregistrerDebit()` dans `OperationsMangement`, `doOperationEditorDialog()` dans `OperationEditorPane`, `displayDialog()` dans `OperationEditorPaneController` et `doAjouter()` dans `OperationEditorPaneController`). Le changement se fait au niveau de la fonction `doAjouter()` qui ne vérifie pas le dépassement de découvert autorisé (au moment où les champs sont remplis), et avec l'appel de la fonction `insertDebitExceptionnel()` qui n'utilise pas la procédure en base de données "Débiter" mais "Débiterexceptionnel". Cette procédure ne vérifie donc pas le dépassement du découvert autorisé.
+
 
 === c) Version 3
