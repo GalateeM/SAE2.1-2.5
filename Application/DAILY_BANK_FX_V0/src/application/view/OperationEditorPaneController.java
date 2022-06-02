@@ -82,9 +82,15 @@ public class OperationEditorPaneController implements Initializable {
 					+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
 					+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
 			this.lblMessage.setText(info);
-
-			this.btnOk.setText("Effectuer Débit");
-			this.btnCancel.setText("Annuler débit");
+			
+			if(this.isDebitExceptionnel== false) {
+				this.btnOk.setText("Effectuer Débit");
+				this.btnCancel.setText("Annuler débit");
+			} else {
+				this.btnOk.setText("Effectuer Débit Exceptionnel");
+				this.btnCancel.setText("Annuler débit exceptionnel");
+			}
+			
 
 			list = FXCollections.observableArrayList();
 
