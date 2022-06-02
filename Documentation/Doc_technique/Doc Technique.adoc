@@ -241,5 +241,13 @@ Répartitions des fonctions dans les packages :
 La création d'un débit exceptionnel se fait dans la page `Gestion des opérations`, avec le bouton "Enregistrer un débit exceptionnel". Ce bouton est activé seulement si un chef d'agence est connecté (fonction `validateComponentState()`, en fonction de `this.dbs.isChefDAgence()`). 
 Une fois le bouton cliqué, l'attribut `debitExceptionnel` prend la valeur true. Ainsi, les mêmes fonctions sont appelées que dans le cas d'un débit (`enregistrerDebit()` dans `OperationsMangement`, `doOperationEditorDialog()` dans `OperationEditorPane`, `displayDialog()` dans `OperationEditorPaneController` et `doAjouter()` dans `OperationEditorPaneController`). Le changement se fait au niveau de la fonction `doAjouter()` qui ne vérifie pas le dépassement de découvert autorisé (au moment où les champs sont remplis), et avec l'appel de la fonction `insertDebitExceptionnel()` qui n'utilise pas la procédure en base de données "Débiter" mais "Débiterexceptionnel". Cette procédure ne vérifie donc pas le dépassement du découvert autorisé.
 
+Use case :
+
+image:UC/ucGenererReleveMensuel.png[]
+
+Aucune action de modification des données en base de données, seulement une sélection des opérations correspondant au mois et au compte concernés. +
+Fonctionnement dans le code : le contrôleur de vue `ComptesManagementController` transfère l'information d'ouvrir le menu pour choisir les options de la génération au contrôle `ComptesManagement`. Ce contrôle va obtenir les informations depuis son appel au contrôle `GenererRelevePane` qui va lui utiliser le contrôleur de vue `GenererRelevePaneController` afin d'ouvrir le menu. Une fois toutes les informations nécessaires remontées au contrôle `CompteManagement`, ce-dernier va appeler l'ORM `AccesOperation` pour récupérer les opérations du compte du mois concerné. Enfin, tout cela sera transmis à l'outil `PdfUtilities` qui se charge de générer le fichier PDF en lui-même.
+
+Informations supplémentaires sur la documentation utilisateur.
 
 === c) Version 3
