@@ -70,7 +70,7 @@ public class AccessOperation {
 	 * @throws DataAccessException
 	 * @throws DatabaseConnexionException
 	 */
-	public ArrayList<Operation> getOperations(int idNumCompte, int mois, int annee) throws DataAccessException, DatabaseConnexionException {
+	public ArrayList<Operation> getOperations(int idNumCompte, String mois, String annee) throws DataAccessException, DatabaseConnexionException {
 		ArrayList<Operation> alResult = new ArrayList<>();
 
 		try {
@@ -79,7 +79,7 @@ public class AccessOperation {
 			
 			PreparedStatement pst = con.prepareStatement(query);
 			pst.setInt(1, idNumCompte);
-			pst.setString(2, String.format("%02d", mois) + "/" + annee);
+			pst.setString(2, mois + "/" + annee);
 
 			ResultSet rs = pst.executeQuery();
 			while (rs.next()) {
@@ -195,7 +195,45 @@ public class AccessOperation {
 			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
 		}
 	}
-	
+
+	/**
+	 * Enregistrement d'un débit exceptionnel
+	 *
+	 * - Enregistre l'opération - Met à jour le solde du compte.
+	 *
+	 * @param idNumCompte compte débité
+	 * @param montant     montant débité
+	 * @param typeOp      libellé de l'opération effectuée (cf TypeOperation)
+	 * @throws DataAccessException
+	 * @throws DatabaseConnexionException
+	 */
+	public void insertDebitExceptionnel(int idNumCompte, double montant, String typeOp)
+			throws DatabaseConnexionException, DataAccessException {
+		try {
+			Connection con = LogToDatabase.getConnexion();
+			CallableStatement call;
+
+			String q = "{call Debiterexceptionnel (?, ?, ?, ?)}";
+			// les ? correspondent aux paramètres : cf. déf procédure (4 paramètres)
+			call = con.prepareCall(q);
+			// Paramètres in
+			call.setInt(1, idNumCompte);
+			// 1 -> valeur du premier paramètre, cf. déf procédure
+			call.setDouble(2, montant);
+			call.setString(3, typeOp);
+			// Paramètres out
+			call.registerOutParameter(4, java.sql.Types.INTEGER);
+			// 4 type du quatrième paramètre qui est déclaré en OUT, cf. déf procédure
+
+			call.execute();
+
+			int res = call.getInt(4);
+
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.Operation, Order.INSERT, "Erreur accès", e);
+		}
+	}
+
 	/**
 	 * Enregistrement d'un crédit.
 	 *

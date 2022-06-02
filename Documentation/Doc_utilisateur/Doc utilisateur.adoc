@@ -95,6 +95,22 @@ image:img/Gestion Comptes Client Supprimer.png[]
 
 Le bouton est disponible si un compte est sélectionné, que ce dernier n'est pas déjà clôturé et que son solde est de 0€. Cela a pour effet de le définir comme clôturé (ces changements prennent effet immédiatement sur l'interface).
 
+==== Générer un Relevé Mensuel (Hugo Monté)
+
+Pour générer un relevé mensuel, le guichetier doit ouvrir le menu des comptes du client concerné.
+
+image:img/Gestion Clients.png[]
+
+Ensuite, il doit sélectionner le compte concerné et enfin cliquer sur "Générer relevé mensuel".
+
+Le bouton est disponible si un compte est sélectionné.
+
+image:img/Bouton Generer Releve.png[]
+
+Enfin, un menu s'ouvre, invitant à saisir la destination du relevé mensuel, le mois ainsi que l'année. Une fois ceci fait, il n'y a plus qu'à cliquer sur générer et le relevé aura été généré à l'endroit souahité.
+
+image:img/Menu Generer Releve.png[]
+
 === c) Chef d'agence
 
 Le chef d'agence peut gérer les employés. Pour cela, après vous être connecté, allez dans le menu déroulant "Gestion", puis cliquez sur "Employés".
@@ -147,3 +163,17 @@ Une fois que vous aurez cliqué sur le bouton "Supprimer l'employé", une fenêt
 image:img/SupprimerEmploye.png[] 
 
 Vérifiez bien le numéro du compte de l'employé avant de confirmer, car la suppression est irréversible. Si vous vous êtes trompé d'employé, ou si vous avez des doutes, veuillez cliquer sur "Annuler", et aucun changement ne sera pris en compte. Si vous êtes bien sûr de vouloir supprimer l'employé, cliquer alors sur "OK", et l'employé sera supprimé.
+
+==== Réaliser un débit exceptionnel (Galatée Marcq)
+
+Dans la fenêtre de gestion des opérations d'un compte, vous trouverez le bouton "Enregistrer Débit Exceptionnel". Ce bouton sera grisé si vous êtes connecté en temps que guichetier.
+
+image:img/boutonDebitExceptionnel.png[]
+
+Une fois le bouton cliqué, une nouvelle fenêtre apparait. Vous devez remplir le montant, ainsi que choisir le type d'opération (Retrait Espèces ou Retrait Carte Bleue).
+
+image:img/debitExceptionnel.png[]
+
+Si le montant indiqué est inférieur à 0 ou ne contient pas des chiffres, alors il sera indiqué en rouge et vous ne pourrez pas valider le débit exceptionnel. 
+
+Pour valider le débit exceptionnel, cliquez sur le bouton "Effectuer Débit Exceptionnel", sinon cliquez sur "Annuler débit exceptionnel" pour annuler.

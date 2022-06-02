@@ -60,7 +60,7 @@ public class GenererRelevePane {
 	 * @param em : precise le mode d'edition (ajout, modification, suppression)
 	 * @return le client modifié ou non
 	 */
-	public int[] doGenererDialog() {
+	public String[] doGenererDialog() {
 		return this.controller.displayDialog();
 	}
 }

@@ -59,7 +59,7 @@ public class OperationEditorPane {
 	 * @param cm : le type d'operation (débit, crédit ou virement)
 	 * @return : tableau d'opérations : [0] correspond au compte qui fait le virement, et [1] correspond au compte destinataire
 	 */
-	public Operation[] doOperationEditorDialog(CompteCourant cpte, CategorieOperation cm) {
-		return this.oepc.displayDialog(cpte, cm);
+	public Operation[] doOperationEditorDialog(CompteCourant cpte, CategorieOperation cm, boolean isDebitExceptionnel) {
+		return this.oepc.displayDialog(cpte, cm, isDebitExceptionnel);
 	}
 }

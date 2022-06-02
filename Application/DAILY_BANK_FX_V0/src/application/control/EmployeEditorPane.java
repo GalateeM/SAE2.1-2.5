@@ -9,7 +9,6 @@ import application.DailyBankState;
 import application.tools.EditionMode;
 import application.tools.StageManagement;
 import application.view.EmployeEditorPaneController;
-import application.view.EmployeManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -30,7 +29,7 @@ public class EmployeEditorPane {
 	public EmployeEditorPane(Stage _parentStage, DailyBankState _dbstate) {
 
 		try {
-			FXMLLoader loader = new FXMLLoader(EmployeManagementController.class.getResource("employeeditorpane.fxml"));
+			FXMLLoader loader = new FXMLLoader(EmployeEditorPaneController.class.getResource("employeeditorpane.fxml"));
 			BorderPane root = loader.load();
 
 			Scene scene = new Scene(root, root.getPrefWidth()+20, root.getPrefHeight()+10);

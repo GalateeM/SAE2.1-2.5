@@ -113,4 +113,14 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 == Version 2
 
+|===
+| Id Test | Nom test | Conditions de satisfaction | Préconditions
+
+| 15
+| Réaliser un débit exceptionnel (page de gestion des opérations d'un compte) 
+| Le montant doit être positif.
+| Etre chef d'agence, et avoir cliqué sur "Enregistrer débit exceptionnel"
+
+|===
+
 == Version 3
