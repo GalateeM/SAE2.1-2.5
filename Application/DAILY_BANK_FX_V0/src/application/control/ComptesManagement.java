@@ -1,15 +1,29 @@
 package application.control;
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.nio.file.Paths;
+
 /**
  * Classe qui gère le controleur de la fenetre de gestion des comptes (premiere page, liste de comptes) et la lance
  */
 
 import java.util.ArrayList;
 
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Element;
+import com.itextpdf.text.PageSize;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPTable;
+import com.itextpdf.text.pdf.PdfWriter;
+
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.AlertUtilities;
 import application.tools.EditionMode;
+import application.tools.PdfUtilities;
 import application.tools.StageManagement;
 import application.view.ComptesManagementController;
 import javafx.fxml.FXMLLoader;
@@ -166,16 +180,24 @@ public class ComptesManagement {
 			return;
 		
 		GenererRelevePane cep = new GenererRelevePane(this.primaryStage, this.dbs);
-		int[] date = cep.doGenererDialog();
-		
-		if(date[0] == -1 || date[1] == -1)
-			return;
+		String[] data = cep.doGenererDialog();
 		
 		try {
 			AccessOperation acc = new AccessOperation();				
-			ArrayList<Operation> operations = acc.getOperations(compte.idNumCompte, date[0], date[1]);
 			
-			System.out.println("opérations à utiliser : " + operations.size());
+			String mois = String.format("%02d", Integer.valueOf(data[0]));
+			String annee = data[1];
+			String dest = data[2];
+			
+			ArrayList<Operation> operations = acc.getOperations(compte.idNumCompte, mois, annee);
+		
+			String chemin = Paths.get(dest, "releve_" + compte.idNumCompte + "_" + mois + "_" + annee + ".pdf").toString();
+			
+			try {
+				PdfUtilities.genererReleve(chemin, compte, operations);
+			} catch (FileNotFoundException | DocumentException e) {
+				AlertUtilities.showAlert(primaryStage, "Erreur", "Impossible de sauvegarder", "Une erreur est survenue lors de la sauvegarde du relevé mensuel", AlertType.ERROR);
+			}
 		} catch (DatabaseConnexionException e) {
 			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
 			ed.doExceptionDialog();

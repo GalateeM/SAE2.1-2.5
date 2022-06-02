@@ -1,5 +1,6 @@
 package application.view;
 
+import java.io.File;
 import java.lang.reflect.Array;
 
 /**
@@ -19,6 +20,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Alert.AlertType;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -36,6 +38,7 @@ public class GenererRelevePaneController implements Initializable {
 	// Données de la fenêtre
 	private int mois;
 	private int annee;
+	private String destination = null;
 
 	// Manipulation de la fenêtre
 	/**
@@ -58,7 +61,7 @@ public class GenererRelevePaneController implements Initializable {
 	 * Affiche la fenetre et attend une action
 	 * @return : le mois et l'année
 	 */
-	public int[] displayDialog() {	
+	public String[] displayDialog() {	
 		int anneeActuelle = Calendar.getInstance().get(Calendar.YEAR);
 		this.mois = -1;
 		this.annee = -1;
@@ -70,9 +73,10 @@ public class GenererRelevePaneController implements Initializable {
 		
 		this.primaryStage.showAndWait();
 		
-		int[] resultat = new int[2];
-		resultat[0] = this.mois;
-		resultat[1] = this.annee;
+		String[] resultat = new String[3];
+		resultat[0] = String.valueOf(this.mois);
+		resultat[1] = String.valueOf(this.annee);
+		resultat[2] = this.destination;
 		
 		return resultat;
 	}
@@ -89,6 +93,8 @@ public class GenererRelevePaneController implements Initializable {
 	private Button btnGenerer;
 	@FXML
 	private Button btnAnnuler;
+	@FXML
+	private Button btnDestination;
 	@FXML
 	private ComboBox<String> selectMois;
 	@FXML
@@ -110,8 +116,8 @@ public class GenererRelevePaneController implements Initializable {
 
 	@FXML
 	private void doGenerer() {
-		if(this.mois == -1 || this.annee == -1) {
-			AlertUtilities.showAlert(primaryStage, "Impossible", "Saisie invalide", "Vous devez sélectionner un mois et une année", AlertType.ERROR);
+		if(this.mois == -1 || this.annee == -1 || this.destination == null) {
+			AlertUtilities.showAlert(primaryStage, "Impossible", "Saisie invalide", "Vous devez sélectionner un mois, une année et une destination", AlertType.ERROR);
 			return;
 		}
 		
@@ -127,5 +133,15 @@ public class GenererRelevePaneController implements Initializable {
 	@FXML
 	private void doSelectAnnee() {
 		this.annee = selectAnnee.getValue();
+	}
+	
+	@FXML
+	private void doDestination() {
+		DirectoryChooser chooser = new DirectoryChooser();
+		File chemin = chooser.showDialog(primaryStage);
+		
+		this.destination = chemin.getAbsolutePath();
+		
+		btnDestination.setText(this.destination);
 	}
 }
