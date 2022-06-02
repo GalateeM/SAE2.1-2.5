@@ -95,6 +95,22 @@ image:img/Gestion Comptes Client Supprimer.png[]
 
 Le bouton est disponible si un compte est sélectionné, que ce dernier n'est pas déjà clôturé et que son solde est de 0€. Cela a pour effet de le définir comme clôturé (ces changements prennent effet immédiatement sur l'interface).
 
+==== Générer un Relevé Mensuel (Hugo Monté)
+
+Pour générer un relevé mensuel, le guichetier doit ouvrir le menu des comptes du client concerné.
+
+image:img/Gestion Clients.png[]
+
+Ensuite, il doit sélectionner le compte concerné et enfin cliquer sur "Générer relevé mensuel".
+
+Le bouton est disponible si un compte est sélectionné.
+
+image:img/Bouton Generer Releve.png[]
+
+Enfin, un menu s'ouvre, invitant à saisir la destination du relevé mensuel, le mois ainsi que l'année. Une fois ceci fait, il n'y a plus qu'à cliquer sur générer et le relevé aura été généré à l'endroit souahité.
+
+image:img/Menu Generer Releve.png[]
+
 === c) Chef d'agence
 
 Le chef d'agence peut gérer les employés. Pour cela, après vous être connecté, allez dans le menu déroulant "Gestion", puis cliquez sur "Employés".
