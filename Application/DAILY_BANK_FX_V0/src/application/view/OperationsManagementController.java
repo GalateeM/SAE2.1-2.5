@@ -39,6 +39,8 @@ public class OperationsManagementController implements Initializable {
 	private Client clientDuCompte;
 	private CompteCourant compteConcerne;
 	private ObservableList<Operation> olOperation;
+	
+	private boolean debitExceptionnel;
 
 	// Manipulation de la fenêtre
 	/**
@@ -56,6 +58,7 @@ public class OperationsManagementController implements Initializable {
 		this.om = _om;
 		this.clientDuCompte = client;
 		this.compteConcerne = compte;
+		this.debitExceptionnel = false;
 		this.configure();
 	}
 
@@ -65,9 +68,18 @@ public class OperationsManagementController implements Initializable {
 		this.olOperation = FXCollections.observableArrayList();
 		this.lvOperations.setItems(this.olOperation);
 		this.lvOperations.setSelectionModel(new NoSelectionModel<Operation>());
+		this.lvOperations.getSelectionModel().selectedItemProperty().addListener(e -> this.validateComponentState());
+		this.validateComponentState();
 		this.updateInfoCompteClient();
 	}
+	
+	
 
+	private void validateComponentState() {
+		if(this.dbs.isChefDAgence()) {
+			this.btnDebitExceptionnel.setDisable(false);
+		} 	
+	}
 	/**
 	 * Affiche la fenetre et attend une action
 	 */
@@ -93,6 +105,8 @@ public class OperationsManagementController implements Initializable {
 	private Button btnDebit;
 	@FXML
 	private Button btnCredit;
+	@FXML
+	private Button btnDebitExceptionnel;
 
 	
 	/**
@@ -100,6 +114,7 @@ public class OperationsManagementController implements Initializable {
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
+		
 	}
 	
 	/** Fonction appelée lors du clic sur "annuler"
@@ -115,7 +130,18 @@ public class OperationsManagementController implements Initializable {
 	 */
 	@FXML
 	private void doDebit() {
-		Operation op = this.om.enregistrerDebit();
+		this.debitExceptionnel = false;
+		Operation op = this.om.enregistrerDebit(this.debitExceptionnel);
+		if (op != null) {
+			this.updateInfoCompteClient();
+		}
+	}
+	
+
+	@FXML
+	private void doDebitExceptionnel() {
+		this.debitExceptionnel = true;
+		Operation op = this.om.enregistrerDebit(this.debitExceptionnel);
 		if (op != null) {
 			this.updateInfoCompteClient();
 		}

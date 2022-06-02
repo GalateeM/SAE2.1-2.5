@@ -201,7 +201,7 @@ public class ClientsManagementController implements Initializable {
 			boolean inactif = cli.estInactif.equals("O");
 
 			this.btnModifClient.setDisable(false);
-			this.btnComptesClient.setDisable(inactif || !estChefDagence);
+			this.btnComptesClient.setDisable(inactif);
 			this.btnDesactClient.setDisable(inactif || !estChefDagence);
 		} else {
 			this.btnModifClient.setDisable(true);

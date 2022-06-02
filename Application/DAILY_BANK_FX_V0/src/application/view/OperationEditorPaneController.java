@@ -40,6 +40,9 @@ public class OperationEditorPaneController implements Initializable {
 	private CategorieOperation categorieOperation;
 	private CompteCourant compteEdite;
 	private Operation[] operationResultat;
+	
+	//indique si l'operation est un debit exceptionnel (pas de vérification de dépassement de découvert)
+	private boolean isDebitExceptionnel;
 
 	// Manipulation de la fenêtre
 	/**
@@ -64,9 +67,10 @@ public class OperationEditorPaneController implements Initializable {
 	 * @param mode : le type d'opération (débit ou crédit)
 	 * @return : tableau d'opérations : [0] correspond au compte qui fait le virement, et [1] correspond au compte destinataire
 	 */
-	public Operation[] displayDialog(CompteCourant cpte, CategorieOperation mode) {
+	public Operation[] displayDialog(CompteCourant cpte, CategorieOperation mode, boolean isDebitExceptionnel) {
 		this.categorieOperation = mode;
 		this.compteEdite = cpte;
+		this.isDebitExceptionnel = isDebitExceptionnel;
 		String info;
 		ObservableList<String> list;
 		
@@ -197,7 +201,8 @@ public class OperationEditorPaneController implements Initializable {
 	 */
 	@FXML
 	private void doCancel() {
-		this.operationResultat = null;
+		this.operationResultat[0] = null;
+		this.operationResultat[1] = null;
 		this.primaryStage.close();
 	}
 	
@@ -213,10 +218,6 @@ public class OperationEditorPaneController implements Initializable {
 		
 		switch (this.categorieOperation) {
 		case DEBIT :
-			// règles de validation d'un débit :
-			// - le montant doit être un nombre valide
-			// - et si l'utilisateur n'est pas chef d'agence,
-			// - le débit ne doit pas amener le compte en dessous de son découvert autorisé
 			
 
 			this.txtMontant.getStyleClass().remove("borderred");
@@ -237,17 +238,27 @@ public class OperationEditorPaneController implements Initializable {
 				this.txtMontant.requestFocus();
 				return;
 			}
-			if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
-				info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
-						+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
-						+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
-				this.lblMessage.setText(info);
-				this.txtMontant.getStyleClass().add("borderred");
-				this.lblMontant.getStyleClass().add("borderred");
-				this.lblMessage.getStyleClass().add("borderred");
-				this.txtMontant.requestFocus();
-				return;
+			
+			if(this.isDebitExceptionnel== false) {
+				// règles de validation d'un débit "normal" (pas exceptionnel) :
+				// - le montant doit être un nombre valide
+				// - et si l'utilisateur n'est pas chef d'agence,
+				// - le débit ne doit pas amener le compte en dessous de son découvert autorisé
+				if (this.compteEdite.solde - montant < this.compteEdite.debitAutorise) {
+					info = "Dépassement du découvert ! - Cpt. : " + this.compteEdite.idNumCompte + "  "
+							+ String.format(Locale.ENGLISH, "%12.02f", this.compteEdite.solde) + "  /  "
+							+ String.format(Locale.ENGLISH, "%8d", this.compteEdite.debitAutorise);
+					this.lblMessage.setText(info);
+					this.txtMontant.getStyleClass().add("borderred");
+					this.lblMontant.getStyleClass().add("borderred");
+					this.lblMessage.getStyleClass().add("borderred");
+					this.txtMontant.requestFocus();
+					return;
+				}
+
 			}
+			
+			
 			typeOp = this.cbTypeOpe.getValue();
 			this.operationResultat[0] = new Operation(-1, montant, null, null, this.compteEdite.idNumCli, typeOp);
 			this.primaryStage.close();
