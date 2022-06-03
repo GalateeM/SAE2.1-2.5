@@ -27,14 +27,14 @@ Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
 |1    |Guichetier     | Compte | Créditer/Débiter|| |F
 |1    |Guichetier     | Compte | Effectuer un virement|| |F 
 |1    |Guichetier     | Compte | Clôturer||F | 
-|2    |Chef d'Agence     | Compte | Débit exceptionnel|D| | 
+|2    |Chef d'Agence     | Compte | Débit exceptionnel|F| | 
 |2    |Chef d'Agence     | Emprunt | Simuler emprunt|| | 
 |2    |Chef d'Agence     | Emprunt | Simuler assurance|| | 
-|2    |Guichetier     | Compte | Relevé PDF|| | 
-|2    |Guichetier     | CRUD Prélèvement | C|| | 
-|2    |Guichetier     | CRUD Prélèvement | R|| | 
-|2    |Guichetier     | CRUD Prélèvement | U|| | 
-|2    |Guichetier     | CRUD Prélèvement | D|| | 
+|2    |Guichetier     | Compte | Relevé PDF|| F| 
+|2    |Guichetier     | CRUD Prélèvement | C|| | F
+|2    |Guichetier     | CRUD Prélèvement | R|| | F
+|2    |Guichetier     | CRUD Prélèvement | U|| | F
+|2    |Guichetier     | CRUD Prélèvement | D|| | F
 |2    |Bach     | Prélèvements automatiques | || | 
 |2    |Bach     | Relevés mensuels | || | 
 
@@ -105,6 +105,19 @@ Use case :
 
 image:UC/crediter.svg[]
 
+Répartitions des classes utilisées dans les packages :
+
+* application.control :  
+** `OperationsManagement`
+** `OperationEditorPane`
+
+* application.view :
+** `OperationsManagementController`
+** `OperationEditorPaneController`
+
+* model.orm :
+** `AccessOperation`
+
 Accessibilité : Guichetier et Chef d'agence +
 
 Action de création d'une opération crédit sur un compte. +
@@ -117,6 +130,19 @@ Conditions de validation de l'opération : Montant entré non null, positif, cor
 Use case : 
 
 image:UC/virement.svg[]
+
+Répartitions des classes utilisées dans les packages :
+
+* application.control :  
+** `OperationsManagement`
+** `OperationEditorPane`
+
+* application.view :
+** `OperationsManagementController`
+** `OperationEditorPaneController`
+
+* model.orm :
+** `AccessOperation`
 
 Accessibilité : Guichetier et Chef d'agence +
 
@@ -252,11 +278,26 @@ Fonctionnement dans le code : le contrôleur de vue `ComptesManagementController
 
 Informations supplémentaires sur la documentation utilisateur.
 
-==== Fonctionnalités CRUD des prélèvements automatiques(Create Read Update Delete) (Eva Tubia)
+==== Fonctionnalités CRUD des prélèvements automatiques (Create Read Update Delete) (Eva Tubia)
 
 Use case général du CRUD: 
 
 image:UC/ucCRUDPrelevements.svg[]
+
+Répartitions des classes utilisées dans les packages :
+
+* application.control : 
+** `ComptesManagement` 
+** `PrelevementsManagement`
+** `PrelevementEditorPane`
+
+* application.view :
+** `ComptesManagementController`
+** `PrelevementsManagementController`
+** `PrelevementEditorPaneController`
+
+* model.orm :
+** `AccessPrelevement`
 
 ===== Créer un nouveau prélèvement automatique
 
