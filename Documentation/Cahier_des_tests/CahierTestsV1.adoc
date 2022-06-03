@@ -121,6 +121,26 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 | Le montant doit être positif.
 | Etre chef d'agence, et avoir cliqué sur "Enregistrer débit exceptionnel"
 
+| 16
+| Voir les prélèvements automatiques d'un compte (READ) (page de gestion des prélèvements d'un compte) 
+| Pas de condition.
+| Avoir selectionné un compte non clôturé existant et cliqué sur "Voir prélèvements".
+
+| 17
+| Créer un nouveau prélèvement automatique (CREATE) (page d'édition des prélèvements d'un compte) 
+| Tous les champs doivent être remplis, le jour de prélèvement doit être compris entre 1 et 28 et le montant à prélever doit être positif.
+| Avoir cliqué sur "Nouveau prélèvement".
+
+| 18
+| Modifier un prélèvement automatique (UPDATE) (page d'édition des prélèvements d'un compte) 
+| Tous les champs doivent être remplis, le jour de prélèvement doit être compris entre 1 et 28 et le montant à prélever doit être positif.
+| Avoir sélectionné un prélèvement et cliqué sur "Modifier prélèvement".
+
+| 19
+| Supprimer un prélèvement automatique (DELETE) (page d'édition des prélèvements d'un compte) 
+| Pas de condition.
+| Avoir sélectionné un prélèvement et cliqué sur "Supprimer prélèvement".
+
 |===
 
 == Version 3
