@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="222px" preserveAspectRatio="none" style="width:1495px;height:222px;background:#FFFFFF;" version="1.1" viewBox="0 0 1495 222" width="1495px" zoomAndPan="magnify"><defs/><g><g id="elem_a"><ellipse cx="177.985" cy="179.297" fill="#F1F1F1" rx="171.985" ry="36.797" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="316" x="19.985" y="182.1437">Voir la liste des prélèvements automatiques</text></g><g id="elem_b"><ellipse cx="527.1004" cy="179.3201" fill="#F1F1F1" rx="142.1004" ry="30.8201" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="254" x="400.1004" y="182.1668">Créer un prélèvement automatique</text></g><g id="elem_c"><ellipse cx="855.2099" cy="179.642" fill="#F1F1F1" rx="151.2099" ry="32.642" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="273" x="718.7099" y="182.4887">Modifier un prélèvement automatique</text></g><g id="elem_d"><ellipse cx="1200.8999" cy="179.28" fill="#F1F1F1" rx="159.3999" ry="34.28" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="290" x="1055.8999" y="182.1267">Supprimer un prélèvement automatique</text></g><!--MD5=[34413ead84916979ab18eea1b2c854c1]
+entity Guichetier--><g id="elem_Guichetier"><ellipse cx="855" cy="14" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M855,22 L855,49 M842,30 L868,30 M855,49 L842,64 M855,49 L868,64 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="75" x="817.5" y="78.4951">Guichetier</text></g><!--MD5=[6e53e4912c308b5abf33c4da5f75d75e]
+entity Chef_agence--><g id="elem_Chef_agence"><ellipse cx="1442" cy="150" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M1442,158 L1442,185 M1429,166 L1455,166 M1442,185 L1429,200 M1442,185 L1455,200 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="1395.5" y="214.4951">Chef_agence</text></g><!--MD5=[d09773056799cfcd355772dbafc0f5c1]
+reverse link Guichetier to Chef_agence--><g id="link_Guichetier_Chef_agence"><path d="M912.73,48.762 C1010.96,57.415 1215.75,81.577 1378,141.5 C1383.78,143.6343 1389.64,146.269 1395.35,149.1414 " fill="none" id="Guichetier-backto-Chef_agence" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="none" points="911.957,55.721,892.61,47.077,913.125,41.77,911.957,55.721" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[bb53160d542fefe9f41bbae1f5a77c48]
+link Guichetier to a--><g id="link_Guichetier_a"><path d="M817.151,51.992 C721.218,70.98 465.008,121.6918 307.646,152.8388 " fill="none" id="Guichetier-to-a" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="302.555,153.8465,312.1606,156.0218,307.4597,152.8751,310.6064,148.1742,302.555,153.8465" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[e9de48d3c45d2536eba920565706cd08]
+link Guichetier to b--><g id="link_Guichetier_b"><path d="M817.374,59.872 C763.721,81.791 664.281,122.4157 596.889,149.9478 " fill="none" id="Guichetier-to-b" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="592.093,151.907,601.9373,152.2053,596.7215,150.0156,598.9111,144.7997,592.093,151.907" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[8ec233627b6e207ab77767b01cddbd94]
+link Guichetier to c--><g id="link_Guichetier_c"><path d="M855,81.826 C855,100.514 855,123.0607 855,141.6778 " fill="none" id="Guichetier-to-c" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="855,146.8181,859,137.8181,855,141.8181,851,137.8181,855,146.8181" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[b0dc9b87453cd3dc1c23d1a4629f9dd2]
+link Guichetier to d--><g id="link_Guichetier_d"><path d="M892.687,59.095 C947.016,80.136 1048.68,119.5086 1120.38,147.2779 " fill="none" id="Guichetier-to-d" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="1125.06,149.0899,1118.1045,142.117,1120.3955,147.2892,1115.2234,149.5802,1125.06,149.0899" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5ede9375ace2372f02f96dcafd0f9384]
+@startuml
+usecase a as "Voir la liste des prélèvements automatiques"
+usecase b as "Créer un prélèvement automatique"
+usecase c as "Modifier un prélèvement automatique"
+usecase d as "Supprimer un prélèvement automatique"
+
+actor Guichetier 
+actor Chef_agence 
+
+Guichetier <|- - Chef_agence
+
+Guichetier - -> a
+Guichetier - -> b
+Guichetier - -> c
+Guichetier - -> d
+@enduml
+
+PlantUML version 1.2022.6beta5(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>
