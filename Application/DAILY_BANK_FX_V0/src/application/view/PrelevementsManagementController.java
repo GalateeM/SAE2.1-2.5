@@ -1,7 +1,7 @@
 package application.view;
 
 /**
- * Fenetre de gestion des clients (première page, liste des opérations)
+ * Fenetre de gestion des prélèvements (première page, liste des prélèvements)
  */
 
 import java.net.URL;
@@ -11,7 +11,7 @@ import java.util.ResourceBundle;
 
 import application.DailyBankState;
 import application.control.PrelevementsManagement;
-import application.tools.NoSelectionModel;
+import application.tools.AlertUtilities;
 import application.tools.PairsOfValue;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -21,11 +21,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
 import model.data.CompteCourant;
-import model.data.Operation;
 import model.data.Prelevement;
 
 public class PrelevementsManagementController implements Initializable {
@@ -119,16 +119,38 @@ public class PrelevementsManagementController implements Initializable {
 	
 	@FXML
 	private void doNouveauPrel() {
+		Prelevement prelevement;
+		prelevement = this.pm.nouveauPrelevement(this.compteConcerne.idNumCompte);
+		if (prelevement != null) {
+			this.olPrelevement.add(prelevement);
+		}
 		this.updateInfoPrelevementsCompte();
 	}
 	
 	@FXML
 	private void doModifierPrel() {
+		int selectedIndice = this.lvPrelevements.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			Prelevement prelEdite = this.olPrelevement.get(selectedIndice);
+			Prelevement prelResult = this.pm.modifierPrelevement(prelEdite);
+			if (prelResult != null) {
+				this.olPrelevement.set(selectedIndice, prelResult);
+			}
+		}
 		this.updateInfoPrelevementsCompte();
 	}
 	
 	@FXML
 	private void doSupprimerPrel() {
+		int selectedIndice = this.lvPrelevements.getSelectionModel().getSelectedIndex();
+		if (selectedIndice >= 0) {
+			Prelevement prelEdite = this.olPrelevement.get(selectedIndice);
+			boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Supprimer le prélèvement", "Supprimer le prélèvement numéro " + prelEdite.idPrelev, "êtes-vous sûr de vouloir supprimer ce prélèvement ?", AlertType.CONFIRMATION);
+			if(continuer) {
+				this.pm.supprimerPrelevement(prelEdite);
+				this.olPrelevement.remove(selectedIndice);
+			}
+		}
 		this.updateInfoPrelevementsCompte();
 	}
 	

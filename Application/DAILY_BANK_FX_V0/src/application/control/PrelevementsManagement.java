@@ -1,13 +1,17 @@
 package application.control;
 
+/**
+ *  Classe qui gère le controleur de la fenetre de gestion des prélèvements (premiere page, liste des prélèvements) et la lance
+ */
+
 import java.util.ArrayList;
 
 import application.DailyBankApp;
 import application.DailyBankState;
+import application.tools.EditionMode;
 import application.tools.PairsOfValue;
 import application.tools.StageManagement;
 import application.view.PrelevementsManagementController;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -32,14 +36,13 @@ public class PrelevementsManagement {
 	 * Constructeur de la classe (permet de paramétrer la fenetre)
 	 * @param _parentStage : la scene qui appelle cette scene
 	 * @param _dbstate : la session de l'utilisateur connecté
-	 * @param client : le client auquel appartient le compte dont on gère les opérations
-	 * @param compte : le compte dont on gère les modifications
+	 * @param client : le client auquel appartient le compte dont on gère les prélèvements
+	 * @param compte : le compte dont on gère les prélèvements
 	 */
 	public PrelevementsManagement(Stage _parentStage, DailyBankState _dbstate, Client client, CompteCourant compte) {
 		this.compteConcerne = compte;
 		this.dbs = _dbstate;
 		try {
-			System.out.println("ici");
 			FXMLLoader loader = new FXMLLoader(
 					PrelevementsManagementController.class.getResource("prelevementsmanagement.fxml"));
 			BorderPane root = loader.load();
@@ -89,22 +92,86 @@ public class PrelevementsManagement {
 		return new PairsOfValue<>(this.compteConcerne, listeP);
 	}
 	
+	/**
+	 * Appel la fonction d'affichage de la fenetre
+	 */
 	public void doPrelevementsManagementDialog() {
 		this.pmc.displayDialog();
 	}
 	
-	@FXML
-	private void doNouveauPrel() {
-		
+	/** 
+	 * Récupère les modifications et se connecte à la base de données pour modifier le prélèvement
+	 * 
+	 * @param p : le prélèvement à modifier
+	 * @return le prélèvement modifié ou non, null si echec
+	 */
+	public Prelevement modifierPrelevement(Prelevement p) {
+		PrelevementEditorPane pep = new PrelevementEditorPane(this.primaryStage, this.dbs);
+		Prelevement prelResult = pep.doPrelevementEditorDialog(p, EditionMode.MODIFICATION);
+		if (prelResult != null) {
+			try {
+				AccessPrelevement ap = new AccessPrelevement();
+				ap.updatePrelevement(prelResult);
+			} catch (DatabaseConnexionException exc) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, exc);
+				ed.doExceptionDialog();
+				prelResult = null;
+				this.primaryStage.close();
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+				ed.doExceptionDialog();
+				prelResult = null;
+			}
+		}
+		return prelResult;
 	}
 	
-	@FXML
-	private void doModifierPrel() {
-		
+	/** 
+	 * Se connecte à la base de données pour supprimer un prélèvement
+	 * 
+	 * @param p : le prélèvement à supprimer
+	 */
+	public void supprimerPrelevement(Prelevement p) {
+		try {
+			AccessPrelevement ap = new AccessPrelevement();
+			ap.deletePrelevement(p);
+		} catch (DatabaseConnexionException exc) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, exc);
+			ed.doExceptionDialog();
+			this.primaryStage.close();
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+			ed.doExceptionDialog();
+		}
 	}
 	
-	@FXML
-	private void doSupprimerPrel() {
-		
+	/**
+	 * Récupère les informations de création d'un prélèvement et se connecte à la base de données
+	 * 
+	 * @param numCompteConcerne : numéro du compte dont on veut créer un prélèvement
+	 * @return : le nouveau prélèvement, null si echec
+	 */
+	public Prelevement nouveauPrelevement(int numCompteConcerne) {
+		Prelevement prelevement;
+		PrelevementEditorPane pep = new PrelevementEditorPane(this.primaryStage, this.dbs);
+		prelevement = pep.doPrelevementEditorDialog(null, EditionMode.CREATION);
+		if (prelevement != null) {
+			try {
+				prelevement.setIdNumCompte(numCompteConcerne);
+				AccessPrelevement ap = new AccessPrelevement();
+				ap.insertPrelevement(prelevement);
+			} catch (DatabaseConnexionException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+				ed.doExceptionDialog();
+				this.primaryStage.close();
+				prelevement = null;
+			} catch (ApplicationException ae) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+				ed.doExceptionDialog();
+				prelevement = null;
+			}
+		}
+		return prelevement;
 	}
+
 }

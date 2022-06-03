@@ -1,7 +1,7 @@
 package application.view;
 
 /**
- * Fenetre de gestion des opérations (enregistrement débit ou crédit)
+ * Fenetre d'édition des prélèvements (création ou modification)
  */
 
 import java.net.URL;
@@ -47,7 +47,13 @@ public class PrelevementEditorPaneController implements Initializable {
 		this.primaryStage.setOnCloseRequest(e -> this.closeWindow(e));
 	}
 
-	
+	/**
+	 * Affiche les informations du prélèvement dans la nouvelle fenetre d'édition
+	 * 
+	 * @param prelevement : le prélèvement concerné
+	 * @param mode : mode d'édition (création ou modification)
+	 * @return le prélèvement 
+	 */
 	public Prelevement displayDialog(Prelevement prelevement, EditionMode mode) {
 		this.em = mode;
 		if (prelevement == null) {
@@ -59,53 +65,25 @@ public class PrelevementEditorPaneController implements Initializable {
 		this.prelevementResult = null;
 		switch (mode) {
 		case CREATION:
-			this.txtId.setDisable(true);
-			/*this.txtNom.setDisable(false);
-			this.txtPrenom.setDisable(false);
-			this.rbGuichetier.setSelected(true);
-			this.rbChefAg.setSelected(false);
-			this.txtLogin.setDisable(false);
-			this.txtPassword1.setDisable(false);
-			this.txtPassword2.setDisable(false);
-			this.txtIdAg.setDisable(true);*/
-			
+			this.txtBeneficiaire.setEditable(true);
+			this.txtBeneficiaire.setDisable(false);
 			this.lblMessage.setText("Création d'un nouveau prélèvement");
 			this.btnOk.setText("Créer");
 			this.btnCancel.setText("Annuler");
 			break;
 			
 		case MODIFICATION:
-			/*this.txtIdEmp.setDisable(true);
-			this.txtNom.setDisable(false);
-			this.txtPrenom.setDisable(false);
-			this.rbGuichetier.setSelected(true);
-			this.rbChefAg.setSelected(false);
-			this.txtLogin.setDisable(false);
-			this.txtPassword1.setDisable(false);
-			this.txtPassword2.setDisable(false);
-			this.txtIdAg.setDisable(true);*/
-			
+			this.txtBeneficiaire.setEditable(false);
+			this.txtBeneficiaire.setDisable(true);
 			this.lblMessage.setText("Modification d'un prélèvement");
 			this.btnOk.setText("Modifier");
 			this.btnCancel.setText("Annuler");
 			break;
 		}
 		// initialisation du contenu des champs
-		/*this.txtIdEmp.setText("" + this.employeEdite.idEmploye);
-		this.txtNom.setText(this.employeEdite.nom);
-		this.txtPrenom.setText(this.employeEdite.prenom);
-		this.txtLogin.setText(this.employeEdite.login);
-		this.txtPassword1.setText(this.employeEdite.motPasse);
-		this.txtPassword2.setText(this.employeEdite.motPasse);
-		this.txtIdAg.setText(this.employeEdite.idAg+"");
-
-		if (ConstantesIHM.isAdmin(this.employeEdite)) {
-			this.rbChefAg.setSelected(true);
-			this.rbGuichetier.setSelected(false);
-		} else {
-			this.rbChefAg.setSelected(false);
-			this.rbGuichetier.setSelected(true);
-		}*/
+		this.txtBeneficiaire.setText(this.prelevementEdite.beneficiaire);
+		this.txtJour.setText(""+this.prelevementEdite.jour);
+		this.txtMontant.setText(""+this.prelevementEdite.montant);
 
 		this.prelevementResult = null;
 		this.primaryStage.showAndWait();
@@ -121,15 +99,11 @@ public class PrelevementEditorPaneController implements Initializable {
 
 	/**
 	 * Redéfinition de la fonction initialize
-	 * Rend invisible les champs correspondants au virement
 	 */
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
-		
 	}
 	
-	@FXML
-	private TextField txtId;
 	@FXML
 	private TextField txtBeneficiaire;
 	@FXML
@@ -140,8 +114,6 @@ public class PrelevementEditorPaneController implements Initializable {
 	private Button btnOk;
 	@FXML
 	private Button btnCancel;
-	@FXML
-	private Label lblId;
 	@FXML
 	private Label lblBeneficiaire;
 	@FXML

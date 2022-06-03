@@ -1,5 +1,9 @@
 package application.control;
 
+/**
+ * Classe qui gère le controleur de la fenetre de gestion des prélèvements (ajout ou modification d'un prélèvement) et la lance
+ */
+
 import application.DailyBankApp;
 import application.DailyBankState;
 import application.tools.EditionMode;
@@ -22,7 +26,6 @@ public class PrelevementEditorPane {
 	 * @param _dbstate : la session de l'utilisateur connecté
 	 */
 	public PrelevementEditorPane(Stage _parentStage, DailyBankState _dbstate) {
-
 		try {
 			FXMLLoader loader = new FXMLLoader(PrelevementEditorPaneController.class.getResource("prelevementeditorpane.fxml"));
 			BorderPane root = loader.load();
@@ -47,13 +50,13 @@ public class PrelevementEditorPane {
 	}
 
 	/**
-	 * Lance la fonction du controleur de la page d'ajout ou de modification des employés pour afficher la scene
+	 * Lance la fonction du controleur de la page d'ajout ou de modification des prélèvements pour afficher la scene
 	 *
 	 * @param prélèvement : le prélèvement que l'on modifie
 	 * @param em : precise le mode d'edition (ajout, modification, suppression)
-	 * @return le client modifié ou non
+	 * @return le prélèvement modifié ou non
 	 */
-	public Prelevement doEmployeEditorDialog(Prelevement prelevement, EditionMode em) {
+	public Prelevement doPrelevementEditorDialog(Prelevement prelevement, EditionMode em) {
 		return this.pepc.displayDialog(prelevement, em);
 	}
 }
