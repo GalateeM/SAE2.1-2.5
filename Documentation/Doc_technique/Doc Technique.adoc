@@ -110,7 +110,7 @@ Accessibilité : Guichetier et Chef d'agence +
 Action de création d'une opération crédit sur un compte. +
 Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Enregistrer crédit ", le contrôleur de vue `OperationsManagementController` transfère les informations nécessaires au contrôle `OperationsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer le crédit, la classe contrôle `OperationEditorPane` est utilisée, elle va afficher la page pour créer l'opération et transmettre les informations au controleur de vue `OperationEditorPaneController`. Les entrées de l'utilisateur sont controlées lorsqu'il tente de valider l'opération, si tout est correct l'opération est créée et le contrôle `OperationsManagement` peut enfin se connecter à la base de données et effectuer l'opération si l'opération n'est pas nulle. L'opération dans la base de données est effectué en utilisant la classe ORM `AccessOperation`. +
 
-Conditions de validation de l'opération : Montant entré non null, positif, correspondant à un entier +
+Conditions de validation de l'opération : Montant entré non null, positif, correspondant à un décimal +
 
 ==== Virement de compte à compte (Eva Tubia)
 
@@ -123,7 +123,7 @@ Accessibilité : Guichetier et Chef d'agence +
 Action de création d'une opération virement entre deux comptes. +
 Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Effectuer un virement ", le contrôleur de vue `OperationsManagementController` transfère les informations nécessaires au contrôle `OperationsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer le virement, la classe contrôle `OperationEditorPane` est utilisée, elle va afficher la page pour créer l'opération et transmettre les informations au controleur de vue `OperationEditorPaneController`. Les entrées de l'utilisateur sont controlées lorsqu'il tente de valider l'opération, si tout est correct deux opérations sont crées, l'une correspondant au compte qui effectue le virement (débit) et l'autre correspondant au compte destinataire (crédit). Ces deux opérations sont transmises au controle `OperationsManagement` qui peut enfin se connecter à la base de données et effectuer les opérations en utilisant la classe ORM `AccessOperation`. +
 
-Conditions de validation de l'opération : Montant entré non null, positif, correspondant à un entier, ne dépassant pas le débit autorisé / Numéro de compte entré non null, existant, non cloturé +
+Conditions de validation de l'opération : Montant entré non null, positif, correspondant à un décimal, ne dépassant pas le débit autorisé / Numéro de compte entré non null, existant, non cloturé +
 
 ==== Créer un compte (Hugo Monté)
 
@@ -251,5 +251,61 @@ Aucune action de modification des données en base de données, seulement une s�
 Fonctionnement dans le code : le contrôleur de vue `ComptesManagementController` transfère l'information d'ouvrir le menu pour choisir les options de la génération au contrôle `ComptesManagement`. Ce contrôle va obtenir les informations depuis son appel au contrôle `GenererRelevePane` qui va lui utiliser le contrôleur de vue `GenererRelevePaneController` afin d'ouvrir le menu. Une fois toutes les informations nécessaires remontées au contrôle `CompteManagement`, ce-dernier va appeler l'ORM `AccesOperation` pour récupérer les opérations du compte du mois concerné. Enfin, tout cela sera transmis à l'outil `PdfUtilities` qui se charge de générer le fichier PDF en lui-même.
 
 Informations supplémentaires sur la documentation utilisateur.
+
+==== Fonctionnalités CRUD des prélèvements automatiques(Create Read Update Delete) (Eva Tubia)
+
+Use case général du CRUD: 
+
+image:UC/ucCRUDPrelevements.svg[]
+
+===== Créer un nouveau prélèvement automatique
+
+Use case : 
+
+image:UC/ucCREATEPrelevement.svg[]
+
+Accessibilité : Guichetier et Chef d'agence +
+
+Action de création d'un prélèvement automatique sur un compte. +
+Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Nouveau prélèvement", le contrôleur de vue `PrelevementsManagementController` transfère les informations nécessaires au contrôle `PrelevementsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer la création, la classe contrôle `PrelevementEditorPane` est utilisée, elle va afficher la page pour créer le prélèvement et transmettre les informations au controleur de vue `PrelevementEditorPaneController`. Les entrées de l'utilisateur sont controlées lorsqu'il tente de créer le prélèvement, si tout est correct le prélèvement est créé. Le prélèvement est ensuite transmis à la classe `PrelevementsManagement` qui peut enfin se connecter à la base de données et effectuer l'insert correspondant en utilisant la classe ORM `AccessPrelevement`. +
+
+Conditions de validation de l'opération : Bénéficiaire entré non null / Jour de prélèvement entré compris entre 1 et 28, non null, correspondant à un entier / Montant entré non null, positif, correspondant à un décimal +
+
+===== Voir la liste des prélèvements automatiques d'un compte
+
+Use case : 
+
+image:UC/ucREADPrelevement.svg[]
+
+Accessibilité : Guichetier et Chef d'agence +
+
+Action de visualisation des prélèvements automatiques d'un compte. +
+Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Voir prélèvements", le contrôleur de vue `ComptesManagementController` transfère les informations nécessaires (compte à prélever) au contrôle `ComtpesManagement` puis à `PrelevementsManagement` qui charge le contrôleur de vue `PrelevementsManagementController` pour l'affichage de la page et attente d'une action de l'utilisateur. La classe controle `PrelevementsManagement` va aussi se connecter à la base de données pour afficher la liste des prélèvements automatiques existants sur le compte, grâce à la classe ORM `AccessPrelevement` qui effectuera le Select correspondant. +
+
+===== Modifier un prélèvement automatique
+
+Use case : 
+
+image:UC/ucUPDATEPrel.svg[]
+
+Accessibilité : Guichetier et Chef d'agence +
+
+Action de modification d'un prélèvement automatique sur un compte. +
+Fonctionnement dans le code : après avoir sélectionné un prélèvement dans la liste, lorsque l'utilisateur clique sur le bouton "Modifier prélèvement", le contrôleur de vue `PrelevementsManagementController` transfère les informations nécessaires (le prélèvement à éditer) au contrôle `PrelevementsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer la modification, la classe contrôle `PrelevementEditorPane` est utilisée, elle va afficher la page pour modifier le prélèvement et transmettre les informations au controleur de vue `PrelevementEditorPaneController`. Le choix d'implémentation pour cette fonctionnalité était de modifier seulement le montant ou le jour de prélèvement, étant donné que changer un bénéficiaire reviendrai à créer un nouveau prélèvement. Les entrées de l'utilisateur sont controlées lorsqu'il tente de modifier le prélèvement, si tout est correct le prélèvement est modifié. Le prélèvement édité est ensuite transmis à la classe `PrelevementsManagement` qui peut enfin se connecter à la base de données et effectuer l'update correspondant en utilisant la classe ORM `AccessPrelevement`. +
+
+Conditions de validation de l'opération : Jour de prélèvement entré compris entre 1 et 28, non null, correspondant à un entier / Montant entré non null, positif, correspondant à un décimal +
+
+===== Supprimer un prélèvement automatique
+
+Use case : 
+
+image:UC/ucDELETEPrel.svg[]
+
+Accessibilité : Guichetier et Chef d'agence +
+
+Action de suppression d'un prélèvement automatique sur un compte. +
+Fonctionnement dans le code : après avoir sélectionné un prélèvement dans la liste, lorsque l'utilisateur clique sur le bouton "Supprimer prélèvement", le contrôleur de vue `PrelevementsManagementController` affiche une boîte de dialogue pour confirmer la suppression. Si l'utilisateur confirme, la classe transfère les informations nécessaires (le prélèvement à supprimer) au contrôle `PrelevementsManagement` qui va se connecter à la base de données en utilisant la classe ORM `AccessPrelevement` qui effectue le Delete correspondant. +
+
+Conditions de validation de l'opération : L'utilisateur a validé la suppression +
 
 === c) Version 3
