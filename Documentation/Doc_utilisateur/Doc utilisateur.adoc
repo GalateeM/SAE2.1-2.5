@@ -111,6 +111,55 @@ Enfin, un menu s'ouvre, invitant à saisir la destination du relevé mensuel, le
 
 image:img/Menu Generer Releve.png[]
 
+==== Voir la liste des prélèvements automatiques (Eva Tubia)
+
+Pour voir la liste des prélèvements l'utilisateur doit, à partir de la fenêtre de visualisation des comptes d'un client, sélectionner un compte non clôturé et cliquer sur "Voir prélèvements". 
+
+image:img/boutonVoirPrel.PNG[]
+
+La liste s'affiche directement et s'il n'y a pas de prélèvements enregistrés pour ce compte, la liste est vide.
+
+image:img/listePrel.PNG[]
+
+==== Créer un nouveau prélèvement automatique (Eva Tubia)
+
+Pour créer un nouveau prélèvement, une fois sur la page de visualisation des prélèvements d'un compte, il faut cliquer sur "Nouveau prélèvement". 
+
+image:img/boutonNouveauPrel.PNG[]
+
+Une nouvelle page s'affiche où l'utilisateur peut remplir le bénéficiaire, c'est à dire celui qui prélève, le jour de prélèvement ainsi que le montant à prélever.
+
+image:img/pageNouveauPrel.png[]
+
+Vous pouvez cliquer sur "Annuler" à tout moment pour annuler la création. Une fois la création validée (cliquer sur "Créer"), si tout est correct dans la saisie des informations, le prélèvement est créé et sera visible dans la liste.
+
+Pour que la création soit validée, aucun champ ne doit être vide, le montant à prélever doit être positif et le jour de prélèvement doit être compris entre 1 et 28.
+
+==== Modifier un nouveau prélèvement automatique (Eva Tubia)
+
+Pour modifier un prélèvement, une fois sur la page de visualisation des prélèvements d'un compte, il faut sélectionner un prélèvement dans la liste (cliquer dessus) puis cliquer sur "Modifier prélèvement". 
+
+image:img/boutonModifierPrel.png[]
+
+Une nouvelle page s'affiche où l'utilisateur peut modifier le jour de prélèvement ainsi que le montant à prélever.
+
+image:img/pageModifierPrel.png[]
+
+Vous pouvez cliquer sur "Annuler" à tout moment pour annuler la modification. Une fois la modification validée (cliquer sur "Modifier"), si tout est correct dans la saisie des informations, le prélèvement est modifié et les changement seront visibles dans la liste.
+
+Pour que la modification soit validée, aucun champ ne doit être vide, le montant à prélever doit être positif et le jour de prélèvement doit être compris entre 1 et 28.
+
+==== Supprimer un prélèvement automatique (Eva Tubia)
+
+Pour supprimer un prélèvement, une fois sur la page de visualisation des prélèvements d'un compte, il faut sélectionner un prélèvement dans la liste (cliquer dessus) puis cliquer sur "Supprimer prélèvement". 
+
+image:img/boutonSupprimerPrel.png[]
+
+Une page de confirmation s'affiche, vous pouvez cliquer sur "Annuler" pour annuler la suppression, ou cliquer sur "Ok" pour valider la suppression.
+
+image:img/pageSupprimerPrel.png[]
+
+
 === c) Chef d'agence
 
 Le chef d'agence peut gérer les employés. Pour cela, après vous être connecté, allez dans le menu déroulant "Gestion", puis cliquez sur "Employés".
