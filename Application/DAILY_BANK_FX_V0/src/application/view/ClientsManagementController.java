@@ -89,7 +89,11 @@ public class ClientsManagementController implements Initializable {
 	private Button btnModifClient;
 	@FXML
 	private Button btnComptesClient;
-
+	@FXML
+	private Button btnGenererReleves;
+	@FXML
+	private Button btnExecPrelevements;
+	
 	/**
 	 * Redéfinition de la fonction initialize
 	 */
@@ -100,6 +104,16 @@ public class ClientsManagementController implements Initializable {
 	@FXML
 	private void doCancel() {
 		this.primaryStage.close();
+	}
+	
+	@FXML
+	private void doGenererReleves() {
+		
+	}
+	
+	@FXML
+	private void doExecPrelevements() {
+		
 	}
 
 	@FXML
