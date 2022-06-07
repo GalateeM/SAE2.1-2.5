@@ -197,7 +197,7 @@ public class ComptesManagement {
 			String chemin = Paths.get(dest, "releve_" + compte.idNumCompte + "_" + mois + "_" + annee + ".pdf").toString();
 			
 			try {
-				PdfUtilities.genererReleve(chemin, compte, operations);
+				PdfUtilities.genererReleve(chemin, compte.idNumCompte, operations);
 			} catch (FileNotFoundException | DocumentException e) {
 				AlertUtilities.showAlert(primaryStage, "Erreur", "Impossible de sauvegarder", "Une erreur est survenue lors de la sauvegarde du relevé mensuel", AlertType.ERROR);
 			}

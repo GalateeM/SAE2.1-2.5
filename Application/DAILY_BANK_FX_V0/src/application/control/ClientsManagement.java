@@ -1,23 +1,34 @@
 package application.control;
 
+import java.io.FileNotFoundException;
+import java.nio.file.Paths;
+
 /**
  * Classe qui gère le controleur de la fenetre de gestion des clients (premiere page, liste de clients) et la lance
  */
 
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import com.itextpdf.text.DocumentException;
 
 import application.DailyBankApp;
 import application.DailyBankState;
+import application.tools.AlertUtilities;
 import application.tools.EditionMode;
+import application.tools.PdfUtilities;
 import application.tools.StageManagement;
 import application.view.ClientsManagementController;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.data.Client;
+import model.data.Operation;
 import model.orm.AccessClient;
+import model.orm.AccessOperation;
 import model.orm.exception.ApplicationException;
 import model.orm.exception.DatabaseConnexionException;
 
@@ -151,6 +162,53 @@ public class ClientsManagement {
 	public void gererComptesClient(Client c) {
 		ComptesManagement cm = new ComptesManagement(this.primaryStage, this.dbs, c);
 		cm.doComptesManagementDialog();
+	}
+	
+	public void genererReleves() {		
+		GenererRelevePane cep = new GenererRelevePane(this.primaryStage, this.dbs);
+		String[] data = cep.doGenererDialog();
+		
+		if(data[0] == null || data[1] == null || data[2] == null)
+			return;
+		
+		try {
+			AccessOperation acc = new AccessOperation();				
+			
+			String mois = String.format("%02d", Integer.valueOf(data[0]));
+			String annee = data[1];
+			String dest = data[2];
+			
+			ArrayList<Operation> operations = acc.getOperations(mois, annee);
+		
+			HashMap<Integer, ArrayList<Operation>> liste = new HashMap<Integer, ArrayList<Operation>>();
+			
+			for(Operation o : operations) {
+				if(liste.get(o.idNumCompte) == null)
+					liste.put(o.idNumCompte, new ArrayList<Operation>());
+
+				liste.get(o.idNumCompte).add(o);
+			}
+
+			for(int id : liste.keySet()) {							
+				String chemin = Paths.get(dest, "releve_" + id + "_" + mois + "_" + annee + ".pdf").toString();
+			
+				try {
+					PdfUtilities.genererReleve(chemin, id, liste.get(id));
+				} catch (FileNotFoundException | DocumentException e) {
+					AlertUtilities.showAlert(primaryStage, "Erreur", "Impossible de sauvegarder", "Une erreur est survenue lors de la sauvegarde du relevé mensuel", AlertType.ERROR);
+				}
+			}
+			
+		} catch (DatabaseConnexionException e) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+			ed.doExceptionDialog();
+			this.primaryStage.close();
+		} catch (ApplicationException ae) {
+			ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, ae);
+			ed.doExceptionDialog();
+		}
+		
+		return;
 	}
 
 	/**

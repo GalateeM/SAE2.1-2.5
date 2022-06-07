@@ -108,7 +108,7 @@ public class ClientsManagementController implements Initializable {
 	
 	@FXML
 	private void doGenererReleves() {
-		
+		this.cm.genererReleves();
 	}
 	
 	@FXML
