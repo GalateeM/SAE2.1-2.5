@@ -36,7 +36,7 @@ Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
 |2    |Guichetier     | CRUD Prélèvement | U|| | F
 |2    |Guichetier     | CRUD Prélèvement | D|| | F
 |2    |Bach     | Prélèvements automatiques | || | 
-|2    |Bach     | Relevés mensuels | || | 
+|2    |Bach     | Relevés mensuels | || | F
 
 |=======================
 
@@ -350,3 +350,16 @@ Fonctionnement dans le code : après avoir sélectionné un prélèvement dans l
 Conditions de validation de l'opération : L'utilisateur a validé la suppression +
 
 === c) Version 3
+
+===== Générer les relevés mensuels
+
+Use case : 
+
+image:UC/ucGenererRelevesClients.svg[]
+
+Accessibilité : Chef d'agence +
+
+Aucune action de modification des données en base de données, seulement une sélection des opérations correspondant au mois. +
+Fonctionnement dans le code : le contrôleur de vue `ClientsManagementController` transfère l'information d'ouvrir le menu pour choisir les options de la génération au contrôle `ClientsManagement`. Ce contrôle va obtenir les informations depuis son appel au contrôle `GenererRelevePane` qui va lui utiliser le contrôleur de vue `GenererRelevePaneController` afin d'ouvrir le menu. Une fois toutes les informations nécessaires remontées au contrôle `ClientsManagement`, ce-dernier va appeler l'ORM `AccesOperation` pour récupérer les opérations du mois concerné (de tous les comptes). Enfin, le contrôle, après avoir isoler chaque compte avec ses opérations, fait appel pour chaque compte à l'outil `PdfUtilities` qui se charge de générer le fichier PDF en lui-même. +
+
+Conditions de validation de l'opération : L'utilisateur a choisi une destination ainsi qu'un mois et une année +
