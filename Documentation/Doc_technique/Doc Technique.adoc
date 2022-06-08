@@ -36,7 +36,7 @@ Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
 |2    |Guichetier     | CRUD Prélèvement | U|| | F
 |2    |Guichetier     | CRUD Prélèvement | D|| | F
 |2    |Bach     | Prélèvements automatiques | || | 
-|2    |Bach     | Relevés mensuels | || | F
+|2    |Bach     | Relevés mensuels | || F| 
 
 |=======================
 
