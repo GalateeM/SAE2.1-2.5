@@ -150,6 +150,9 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 == Version 3
 
+|===
+| Id Test | Nom test | Conditions de satisfaction | Préconditions
+
 | 21
 | Générer les relevés mensuels
 | Il faut sélectionner un chemin, un mois et une année existant
