@@ -355,7 +355,7 @@ Conditions de validation de l'opération : L'utilisateur a validé la suppressio
 
 Use case : 
 
-image:UC/ucGenererRelevesClients.svg[]
+image:UC/ucGenererRelevesClients.png[]
 
 Accessibilité : Chef d'agence +
 
