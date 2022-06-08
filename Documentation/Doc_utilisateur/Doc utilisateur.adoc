@@ -252,3 +252,16 @@ Une fois l'opération confirmée, si certains compte ne sont pas assez approvisi
 image:img/erreurExecPrel.png[]
 
 Pour que l'opération soit validée, les comptes à prélever doivent être suffisamment approvisionnés et seul le Chef d'agence peut faire cette action.
+
+==== Simuler un emprunt et une assurance d'emprunt (Galatée Marcq)
+
+Pour simuler un emprunt et son assurance, il faut être connecté en tant que Chef d'agence et cliquer sur "Simuler un emprunt" dans le menu déroulant "Gestion".
+
+image:img/.png[]
+
+Une fenêtre s'affiche où l'utilisateur doit rentrer le capital emprunté, durée de l'emprunt en années, le taux annuel en pourcentage, la périodicité (mensuel ou annuel) et la mensualité d'assurance (en pourcentage). Si l'utilisateur ne souhaite pas utiliser d'assurance, il faut laisser le champ mensualité d'assurance à 0%.
+L'utilisateur peut ensuite valider l'emprunt. 
+
+image:img/.png[]
+
+Pour que l'opération soit validée, tous les champs doivent être remplis et positifs.
