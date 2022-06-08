@@ -157,3 +157,10 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 | Générer les relevés mensuels
 | Il faut sélectionner un chemin, un mois et une année existant
 | Avoir cliqué sur "Générer Relevés".
+
+| 22
+| Exécuter les prélèvements automatiques de tous les comptes
+| S'il n'y a pas de prélèvements en ce jour alors il n'y aura pas de changements, les comptes doivent être suffisamment réapprovisionnés pour pouvoir effectuer l'opération de prélèvement sans dépasser le solde autorisé. 
+| Etre connecté en tant que chef d'agence et avoir cliqué sur "Exécuter prélèvements".
+
+|===

@@ -215,7 +215,7 @@ Vérifiez bien le numéro du compte de l'employé avant de confirmer, car la sup
 
 ==== Réaliser un débit exceptionnel (Galatée Marcq)
 
-Dans la fenêtre de gestion des opérations d'un compte, vous trouverez le bouton "Enregistrer Débit Exceptionnel". Ce bouton sera grisé si vous êtes connecté en temps que guichetier.
+Dans la fenêtre de gestion des opérations d'un compte, vous trouverez le bouton "Débit Exceptionnel". Ce bouton sera grisé si vous êtes connecté en temps que guichetier.
 
 image:img/boutonDebitExceptionnel.png[]
 
