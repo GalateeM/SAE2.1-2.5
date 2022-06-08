@@ -42,7 +42,7 @@ public class GenererRelevePane {
 			this.primaryStage.initOwner(_parentStage);
 			StageManagement.manageCenteringStage(_parentStage, this.primaryStage);
 			this.primaryStage.setScene(scene);
-			this.primaryStage.setTitle("Génération d'un relev& mensuel");
+			this.primaryStage.setTitle("Génération d'un relevé mensuel");
 			this.primaryStage.setResizable(false);
 
 			this.controller = loader.getController();
