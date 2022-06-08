@@ -112,7 +112,7 @@ public class CompteEditorPaneController implements Initializable {
 		this.txtIdNumCompte.setText("" + this.compteEdite.idNumCompte);
 		this.txtIdAgence.setText("" + this.dbs.getEmpAct().idAg);
 		this.txtDecAutorise.setText("" + this.compteEdite.debitAutorise);
-		this.txtSolde.setText(String.format(Locale.ENGLISH, "%10.02f", this.compteEdite.solde));
+		this.txtSolde.setText(String.format(Locale.ENGLISH, "%10.02f", this.compteEdite.solde).trim());
 
 		this.compteResult = null;
 
@@ -155,10 +155,10 @@ public class CompteEditorPaneController implements Initializable {
 				}
 				this.compteEdite.solde = val;
 			} catch (NumberFormatException nfe) {
-				this.txtSolde.setText(String.format(Locale.ENGLISH, "%10.02f", this.compteEdite.solde));
+				this.txtSolde.setText(String.format(Locale.ENGLISH, "%10.02f", this.compteEdite.solde).trim());
 			}
 		}
-		this.txtSolde.setText(String.format(Locale.ENGLISH, "%10.02f", this.compteEdite.solde));
+		this.txtSolde.setText(String.format(Locale.ENGLISH, "%10.02f", this.compteEdite.solde).trim());
 		return null;
 	}
 
