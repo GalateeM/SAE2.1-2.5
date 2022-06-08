@@ -363,3 +363,24 @@ Aucune action de modification des données en base de données, seulement une s�
 Fonctionnement dans le code : le contrôleur de vue `ClientsManagementController` transfère l'information d'ouvrir le menu pour choisir les options de la génération au contrôle `ClientsManagement`. Ce contrôle va obtenir les informations depuis son appel au contrôle `GenererRelevePane` qui va lui utiliser le contrôleur de vue `GenererRelevePaneController` afin d'ouvrir le menu. Une fois toutes les informations nécessaires remontées au contrôle `ClientsManagement`, ce-dernier va appeler l'ORM `AccesOperation` pour récupérer les opérations du mois concerné (de tous les comptes). Enfin, le contrôle, après avoir isoler chaque compte avec ses opérations, fait appel pour chaque compte à l'outil `PdfUtilities` qui se charge de générer le fichier PDF en lui-même. +
 
 Conditions de validation de l'opération : L'utilisateur a choisi une destination ainsi qu'un mois et une année +
+
+===== Executer tous les prélèvements automatiques (Eva Tubia)
+
+Use case : 
+
+image:UC/ucExecuterPrelevements.svg[]
+
+Répartitions des classes utilisées dans les packages :
+
+* application.view :
+** `ClientsManagementController`
+
+* model.orm :
+** `AccessPrelevement`
+
+Accessibilité : Chef d'agence +
+
+Action d'éxécution des prélèvements automatiques sur tous les comptes. +
+Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Exécuter prélèvements", le contrôleur de vue `ClientsManagementController` affiche une boît de dialogue qui demande la confirmation de l'éxécution des prélèvements automatiques pour ce jour. Si l'utilisateur confirme, la focntion se connecte a la base de données et effectue la procédure correspondante en utilisant la classe ORM `AccessPrelevement`. Si certains comptes ne sont pas assez approvisionés pour effectuer le prélèvement, la procédure renvoie un message en retour qui est affiché dans une boîte de dialogue par `ClientsManagementController`. +
+
+Conditions de validation de l'opération : Les comptes à prélever sont suffisamment approvisionnés. +
