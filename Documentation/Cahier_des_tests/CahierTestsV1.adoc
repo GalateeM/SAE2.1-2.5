@@ -143,9 +143,14 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 
 | 20
 | Générer un relevé mensuel au format PDF
-| Il faut sélectionner un mois et une année existant
+| Il faut sélectionner un chemin, un mois et une année existant
 | Avoir sélectionné un client et cliqué sur "Générer Relevé Mensuel".
 
 |===
 
 == Version 3
+
+| 21
+| Générer les relevés mensuels
+| Il faut sélectionner un chemin, un mois et une année existant
+| Avoir cliqué sur "Générer Relevés".
