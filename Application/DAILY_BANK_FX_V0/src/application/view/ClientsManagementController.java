@@ -10,6 +10,8 @@ import java.util.ResourceBundle;
 
 import application.DailyBankState;
 import application.control.ClientsManagement;
+import application.control.ExceptionDialog;
+import application.tools.AlertUtilities;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,9 +20,16 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.Region;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Client;
+import model.orm.AccessPrelevement;
+import model.orm.exception.ApplicationException;
+import model.orm.exception.DataAccessException;
+import model.orm.exception.DatabaseConnexionException;
 
 public class ClientsManagementController implements Initializable {
 
@@ -113,6 +122,32 @@ public class ClientsManagementController implements Initializable {
 	
 	@FXML
 	private void doExecPrelevements() {
+		String result=null;
+		boolean continuer = AlertUtilities.confirmYesCancel(primaryStage, "Exécuter les prélèvements", "Exécuter les prélèvements automatiques aujourd'hui ", "êtes-vous sûr de vouloir exécuter tous les prélèvements \nautomatiques de ce jour ?", AlertType.CONFIRMATION);
+		if(continuer) {
+			try {
+				AccessPrelevement ap=new AccessPrelevement();
+				result=ap.executePrelevement();
+			} catch (DatabaseConnexionException exc) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, exc);
+				ed.doExceptionDialog();
+				this.primaryStage.close();
+			} catch (DataAccessException e) {
+				ExceptionDialog ed = new ExceptionDialog(this.primaryStage, this.dbs, e);
+				ed.doExceptionDialog();
+				this.primaryStage.close();
+			}
+			if (result!=null) {
+				result="   "+result.replaceAll(" - ", "\n");
+				Alert alert = new Alert(AlertType.WARNING);
+				alert.setTitle("Erreur d'exécution des prélèvements automatiques");
+				alert.setHeaderText("Certains compte ne sont pas assez approvisionnés pour éxécuter les prélèvements");
+				alert.setContentText(result);
+				System.out.println(result);
+				alert.getDialogPane().setMinHeight(Region.USE_PREF_SIZE);
+				alert.show();
+			}
+		}
 		
 	}
 
@@ -207,13 +242,12 @@ public class ClientsManagementController implements Initializable {
 
 	private void validateComponentState() {
 		int selectedIndice = this.lvClients.getSelectionModel().getSelectedIndex();
-
+		boolean estChefDagence = this.dbs.isChefDAgence();
+		
 		if (selectedIndice >= 0) {
 			Client cli = this.olc.get(selectedIndice);
-
-			boolean estChefDagence = this.dbs.isChefDAgence();
 			boolean inactif = cli.estInactif.equals("O");
-
+			
 			this.btnModifClient.setDisable(false);
 			this.btnComptesClient.setDisable(inactif);
 			this.btnDesactClient.setDisable(inactif || !estChefDagence);
@@ -222,5 +256,6 @@ public class ClientsManagementController implements Initializable {
 			this.btnComptesClient.setDisable(true);
 			this.btnDesactClient.setDisable(true);
 		}
+		this.btnExecPrelevements.setDisable(!estChefDagence);
 	}
 }

@@ -1,5 +1,6 @@
 package model.orm;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 import model.data.Prelevement;
 import model.orm.exception.DataAccessException;
 import model.orm.exception.DatabaseConnexionException;
+import model.orm.exception.ManagementRuleViolation;
 import model.orm.exception.Order;
 import model.orm.exception.RowNotFoundOrTooManyRowsException;
 import model.orm.exception.Table;
@@ -51,6 +53,32 @@ public class AccessPrelevement {
 			return alResult;
 		} catch (SQLException e) {
 			throw new DataAccessException(Table.PrelevementAutomatique, Order.SELECT, "Erreur accès", e);
+		}
+	}
+	
+	/**
+	 */
+	public String executePrelevement()
+			throws DataAccessException, DatabaseConnexionException {
+		try {
+
+			Connection con = LogToDatabase.getConnexion();
+			CallableStatement call;
+
+			String q = "{call ExecuterPrelevAuto (?)}";
+			call = con.prepareCall(q);
+			// Paramètres out
+			call.registerOutParameter(1, java.sql.Types.VARCHAR);
+
+			call.execute();
+
+			if (call.getString(1)!=null) { 
+				return call.getString(1);
+			}
+			return null;
+			
+		} catch (SQLException e) {
+			throw new DataAccessException(Table.PrelevementAutomatique, Order.INSERT, "Erreur accès", e);
 		}
 	}
 	
