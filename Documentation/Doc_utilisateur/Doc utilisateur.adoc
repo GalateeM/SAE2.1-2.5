@@ -226,3 +226,13 @@ image:img/debitExceptionnel.png[]
 Si le montant indiqué est inférieur à 0 ou ne contient pas des chiffres, alors il sera indiqué en rouge et vous ne pourrez pas valider le débit exceptionnel. 
 
 Pour valider le débit exceptionnel, cliquez sur le bouton "Effectuer Débit Exceptionnel", sinon cliquez sur "Annuler débit exceptionnel" pour annuler.
+
+==== Générer les Relevés Mensuels (Hugo Monté)
+
+Pour générer les relevés mensuels d'un mois d'une année donnée, le chef d'agence doit ouvrir le menu de la liste des clients et cliquer sur "Générer Relevés".
+
+image:img/Bouton Generer Releves Clients.png[]
+
+Ensuite, un menu s'ouvre, invitant à saisir la destination des relevés mensuels, le mois ainsi que l'année. Une fois ceci fait, il n'y a plus qu'à cliquer sur générer et les relevé auront été générés à l'endroit souahité.
+
+image:img/Menu Generer Releve.png[]
