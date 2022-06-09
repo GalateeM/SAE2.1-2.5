@@ -1,7 +1,7 @@
 package application.view;
 
 /**
- * Fenetre de gestion des clients (première page, liste des opérations)
+ * Fenetre de gestion des opérations d'un compte (première page, liste des opérations)
  */
 
 import java.net.URL;

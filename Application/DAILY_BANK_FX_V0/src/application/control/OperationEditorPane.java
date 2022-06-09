@@ -57,6 +57,7 @@ public class OperationEditorPane {
 	 *  Lance la fonction du controleur de la page d'enregistrement d'un débit ou crédit pour afficher la scene
 	 * @param cpte : le compte sur lequel l'opération sera ajoutée
 	 * @param cm : le type d'operation (débit, crédit ou virement)
+	 * @param isDebitExceptionnel : true s'il s'agit d'un débit exceptionnel, false sinon
 	 * @return : tableau d'opérations : [0] correspond au compte qui fait le virement, et [1] correspond au compte destinataire
 	 */
 	public Operation[] doOperationEditorDialog(CompteCourant cpte, CategorieOperation cm, boolean isDebitExceptionnel) {

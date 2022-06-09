@@ -6,38 +6,20 @@ package application.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
 import application.DailyBankState;
-import application.control.EmpruntEditorPane;
-import application.control.ExceptionDialog;
-import application.tools.AlertUtilities;
-import application.tools.ConstantesIHM;
-import application.tools.EditionMode;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert.AlertType;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
-import model.data.Employe;
 import model.data.Emprunt;
 import model.data.LigneEmprunt;
-import model.orm.exception.ApplicationException;
-import model.orm.exception.Order;
-import model.orm.exception.Table;
 
 public class EmpruntResultatController implements Initializable {
 

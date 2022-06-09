@@ -40,7 +40,7 @@ public class EmployeEditorPane {
 			this.primaryStage.initOwner(_parentStage);
 			StageManagement.manageCenteringStage(_parentStage, this.primaryStage);
 			this.primaryStage.setScene(scene);
-			this.primaryStage.setTitle("Gestion d'un client");
+			this.primaryStage.setTitle("Gestion d'un employé");
 			this.primaryStage.setResizable(false);
 
 			this.eepc = loader.getController();
@@ -54,9 +54,9 @@ public class EmployeEditorPane {
 	/**
 	 * Lance la fonction du controleur de la page d'ajout ou de modification des employés pour afficher la scene
 	 *
-	 * @param client : le client que l'on modifie
+	 * @param employe : l'employe que l'on modifie
 	 * @param em : precise le mode d'edition (ajout, modification, suppression)
-	 * @return le client modifié ou non
+	 * @return l'employe modifié ou non
 	 */
 	public Employe doEmployeEditorDialog(Employe employe, EditionMode em) {
 		return this.eepc.displayDialog(employe, em);

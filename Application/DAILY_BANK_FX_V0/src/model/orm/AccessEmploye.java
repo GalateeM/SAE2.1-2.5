@@ -285,7 +285,7 @@ public class AccessEmploye {
 			rs.close();
 			pst.close();
 		} catch (SQLException e) {
-			throw new DataAccessException(Table.Client, Order.SELECT, "Erreur accès", e);
+			throw new DataAccessException(Table.Employe, Order.SELECT, "Erreur accès", e);
 		}
 
 		return alResult;

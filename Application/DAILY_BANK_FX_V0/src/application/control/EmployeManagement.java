@@ -145,10 +145,6 @@ public class EmployeManagement {
 	public ArrayList<Employe> getListeEmploye(int _numEmploye, String _debutNom, String _debutPrenom) {
 		ArrayList<Employe> listeEmp = new ArrayList<>();
 		try {
-			// Recherche des clients en BD. cf. AccessClient > getClients(.)
-			// numCompte != -1 => recherche sur numCompte
-			// numCompte != -1 et debutNom non vide => recherche nom/prenom
-			// numCompte != -1 et debutNom vide => recherche tous les clients
 
 			AccessEmploye ae = new AccessEmploye();
 			listeEmp = ae.getEmployes(this.dbs.getEmpAct().idAg, _numEmploye, _debutNom, _debutPrenom);

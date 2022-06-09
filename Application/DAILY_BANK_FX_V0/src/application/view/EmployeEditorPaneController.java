@@ -6,10 +6,8 @@ package application.view;
 
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.regex.Pattern;
 
 import application.DailyBankState;
-import application.control.ExceptionDialog;
 import application.tools.AlertUtilities;
 import application.tools.ConstantesIHM;
 import application.tools.EditionMode;
@@ -21,13 +19,9 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import model.data.Employe;
-import model.orm.exception.ApplicationException;
-import model.orm.exception.Order;
-import model.orm.exception.Table;
 
 public class EmployeEditorPaneController implements Initializable {
 

@@ -65,6 +65,7 @@ public class OperationEditorPaneController implements Initializable {
 	 * Affiche la fenetre et attend une action, la fenetre change en fonction du type d'opération (débit ou crédit)
 	 * @param cpte : le compte sur lequel l'opération sera ajoutée
 	 * @param mode : le type d'opération (débit ou crédit)
+	 * @param isDebitExceptionnel : true s'il s'agit d'un débit exceptionnel, false sinon
 	 * @return : tableau d'opérations : [0] correspond au compte qui fait le virement, et [1] correspond au compte destinataire
 	 */
 	public Operation[] displayDialog(CompteCourant cpte, CategorieOperation mode, boolean isDebitExceptionnel) {
