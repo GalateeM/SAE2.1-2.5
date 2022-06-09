@@ -28,8 +28,8 @@ Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
 |1    |Guichetier     | Compte | Effectuer un virement|| |F 
 |1    |Guichetier     | Compte | Clôturer||F | 
 |2    |Chef d'Agence     | Compte | Débit exceptionnel|F| | 
-|2    |Chef d'Agence     | Emprunt | Simuler emprunt|D| | 
-|2    |Chef d'Agence     | Emprunt | Simuler assurance|D| | 
+|2    |Chef d'Agence     | Emprunt | Simuler emprunt|F| | 
+|2    |Chef d'Agence     | Emprunt | Simuler assurance|F| | 
 |2    |Guichetier     | Compte | Relevé PDF||F | 
 |2    |Guichetier     | CRUD Prélèvement | C|| | F
 |2    |Guichetier     | CRUD Prélèvement | R|| | F
@@ -372,9 +372,17 @@ Fonctionnement dans le code : après avoir sélectionné un prélèvement dans l
 
 Conditions de validation de l'opération : L'utilisateur a validé la suppression +
 
+===== Simuler un emprunt et une assurance d'emprunt (Galatée Marcq)
+
+Use case :
+
+image:UC/ucSimulationEmpruntAssurance.svg[]
+
+
+
 === c) Version 3
 
-===== Générer les relevés mensuels
+===== Générer les relevés mensuels (Hugo Monté)
 
 Use case : 
 

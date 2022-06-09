@@ -257,11 +257,16 @@ Pour que l'opération soit validée, les comptes à prélever doivent être suff
 
 Pour simuler un emprunt et son assurance, il faut être connecté en tant que Chef d'agence et cliquer sur "Simuler un emprunt" dans le menu déroulant "Gestion".
 
-image:img/.png[]
+image:img/BoutonSimulerEmprunt.png[]
 
-Une fenêtre s'affiche où l'utilisateur doit rentrer le capital emprunté, durée de l'emprunt en années, le taux annuel en pourcentage, la périodicité (mensuel ou annuel) et la mensualité d'assurance (en pourcentage). Si l'utilisateur ne souhaite pas utiliser d'assurance, il faut laisser le champ mensualité d'assurance à 0%.
-L'utilisateur peut ensuite valider l'emprunt. 
+Une fenêtre s'affiche où l'utilisateur doit rentrer le capital emprunté, durée de l'emprunt en année, le taux annuel en pourcentage, la périodicité (mensuelle ou annuelle) et la mensualité d'assurance (en pourcentage). Si l'utilisateur ne souhaite pas utiliser d'assurance, il faut laisser le champ mensualité d'assurance à 0%.
+L'utilisateur peut ensuite valider l'emprunt en cliquant sur valider. 
 
-image:img/.png[]
+image:img/formulaireSimulationEmprunt.png[]
 
-Pour que l'opération soit validée, tous les champs doivent être remplis et positifs.
+Pour que l'opération soit validée, tous les champs doivent être remplis et positifs. Le champ de la durée en année doit être rempli avec un entier (sans virgule). Si un champ apparait en rouge après avoir cliqué sur "Valider", alors il n'est pas valide.
+
+Une fois validé, vous obtiendrai les résultats de la simulation (à gauche les données concernant l'emprunt, à droite concernant l'assurance). Vous pouvez alors revenir au menu si vous le souhaitez.
+
+image:img/resultatSimulationEmprunt.png[]
+

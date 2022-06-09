@@ -1,0 +1,11 @@
+@startuml simulationEmprunt
+
+usecase a as "Simuler un emprunt"
+usecase b as "Simuler un emprunt avec assurance"
+
+actor Chef_agence 
+
+Chef_agence --> a
+Chef_agence --> b
+
+@enduml
