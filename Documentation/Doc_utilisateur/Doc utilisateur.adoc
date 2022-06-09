@@ -2,7 +2,7 @@
 :toc:
 :toc-title: Sommaire
 
-Version de l'application : 1 +
+Version de l'application : 3 +
 Date : 20/04/2022 +
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 Client : BankUniv +
@@ -215,7 +215,7 @@ Vérifiez bien le numéro du compte de l'employé avant de confirmer, car la sup
 
 ==== Réaliser un débit exceptionnel (Galatée Marcq)
 
-Dans la fenêtre de gestion des opérations d'un compte, vous trouverez le bouton "Enregistrer Débit Exceptionnel". Ce bouton sera grisé si vous êtes connecté en temps que guichetier.
+Dans la fenêtre de gestion des opérations d'un compte, vous trouverez le bouton "Débit Exceptionnel". Ce bouton sera grisé si vous êtes connecté en temps que guichetier.
 
 image:img/boutonDebitExceptionnel.png[]
 
@@ -226,3 +226,42 @@ image:img/debitExceptionnel.png[]
 Si le montant indiqué est inférieur à 0 ou ne contient pas des chiffres, alors il sera indiqué en rouge et vous ne pourrez pas valider le débit exceptionnel. 
 
 Pour valider le débit exceptionnel, cliquez sur le bouton "Effectuer Débit Exceptionnel", sinon cliquez sur "Annuler débit exceptionnel" pour annuler.
+
+==== Générer les Relevés Mensuels (Hugo Monté)
+
+Pour générer les relevés mensuels d'un mois d'une année donnée, le chef d'agence doit ouvrir le menu de la liste des clients et cliquer sur "Générer Relevés".
+
+image:img/Bouton Generer Releves Clients.png[]
+
+Ensuite, un menu s'ouvre, invitant à saisir la destination des relevés mensuels, le mois ainsi que l'année. Une fois ceci fait, il n'y a plus qu'à cliquer sur générer et les relevé auront été générés à l'endroit souahité.
+
+image:img/Menu Generer Releve.png[]
+
+==== Exécuter les prélèvements automatiques de tous les comptes (Eva Tubia)
+
+Pour éxécuter les prélèvements automatiques, sur la page de gestion des clients l'utilisateur doit cliquer sur le bouton "Exécuter prélèvements".
+
+image:img/boutonExecPrel.png[]
+
+ne page de confirmation s'affiche, vous pouvez cliquer sur "Annuler" pour annuler l'éxécution, ou cliquer sur "Ok" pour valider l'éxécution des prélèvements automatiques.
+
+image:img/fenetreExecPrel.png[]
+
+Une fois l'opération confirmée, si certains compte ne sont pas assez approvisionnés pour être prélevés, une fenêtre vous indique les erreurs de prélèvements. S'il n'y a pas cette fenêtre alors tous les prélèvements se sont bien passé.
+
+image:img/erreurExecPrel.png[]
+
+Pour que l'opération soit validée, les comptes à prélever doivent être suffisamment approvisionnés et seul le Chef d'agence peut faire cette action.
+
+==== Simuler un emprunt et une assurance d'emprunt (Galatée Marcq)
+
+Pour simuler un emprunt et son assurance, il faut être connecté en tant que Chef d'agence et cliquer sur "Simuler un emprunt" dans le menu déroulant "Gestion".
+
+image:img/.png[]
+
+Une fenêtre s'affiche où l'utilisateur doit rentrer le capital emprunté, durée de l'emprunt en années, le taux annuel en pourcentage, la périodicité (mensuel ou annuel) et la mensualité d'assurance (en pourcentage). Si l'utilisateur ne souhaite pas utiliser d'assurance, il faut laisser le champ mensualité d'assurance à 0%.
+L'utilisateur peut ensuite valider l'emprunt. 
+
+image:img/.png[]
+
+Pour que l'opération soit validée, tous les champs doivent être remplis et positifs.

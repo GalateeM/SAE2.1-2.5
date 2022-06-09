@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" contentStyleType="text/css" height="217px" preserveAspectRatio="none" style="width:335px;height:217px;background:#FFFFFF;" version="1.1" viewBox="0 0 335 217" width="335px" zoomAndPan="magnify"><defs/><g><g id="elem_a"><ellipse cx="167.8149" cy="176.263" fill="#F1F1F1" rx="161.8149" ry="34.763" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="295" x="20.3149" y="179.1097">Exécuter les prélèvements automatiques</text></g><!--MD5=[6e53e4912c308b5abf33c4da5f75d75e]
+entity Chef_agence--><g id="elem_Chef_agence"><ellipse cx="168" cy="14" fill="#F1F1F1" rx="8" ry="8" style="stroke:#181818;stroke-width:0.5;"/><path d="M168,22 L168,49 M155,30 L181,30 M168,49 L155,64 M168,49 L181,64 " fill="none" style="stroke:#181818;stroke-width:0.5;"/><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="93" x="121.5" y="78.4951">Chef_agence</text></g><!--MD5=[3d2839dee7bd3d6d020f2d93ea234908]
+link Chef_agence to a--><g id="link_Chef_agence_a"><path d="M168,81.689 C168,98.69 168,118.8415 168,136.102 " fill="none" id="Chef_agence-to-a" style="stroke:#181818;stroke-width:1.0;"/><polygon fill="#181818" points="168,141.3592,172,132.3592,168,136.3592,164,132.3592,168,141.3592" style="stroke:#181818;stroke-width:1.0;"/></g><!--MD5=[5e1180a8458ded5ee1fea41cbd402b6c]
+@startuml
+usecase a as "Exécuter les prélèvements automatiques"
+
+
+actor Chef_agence 
+
+Chef_agence - -> a
+@enduml
+
+PlantUML version 1.2022.6beta5(Unknown compile time)
+(GPL source distribution)
+Java Runtime: Java(TM) SE Runtime Environment
+JVM: Java HotSpot(TM) 64-Bit Server VM
+Default Encoding: UTF-8
+Language: en
+Country: US
+--></g></svg>

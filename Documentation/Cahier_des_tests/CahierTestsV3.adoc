@@ -1,8 +1,8 @@
-= Cahier de Tests - Version 1
+= Cahier de Tests - Version 3
 :toc:
 :toc-title: Sommaire
 
-Version de l'application : 1 +
+Version de l'application : 3 +
 Date : 20/04/2022 +
 Equipe : Marcq Galatée - Monté Hugo - Tubia Eva +
 Client : BankUniv +
@@ -141,6 +141,31 @@ Le but est de partir d’une application existante et d’y rajouter des fonctio
 | Pas de condition.
 | Avoir sélectionné un prélèvement et cliqué sur "Supprimer prélèvement".
 
+| 20
+| Générer un relevé mensuel au format PDF
+| Il faut sélectionner un chemin, un mois et une année existant
+| Avoir sélectionné un client et cliqué sur "Générer Relevé Mensuel".
+
+| 21
+| Simuler un emprunt et une assurance d'emprunt
+| Tous les champs doivent être remplis, les montants et taux ne doivent pas être négatifs, le nombre d'année doit être entier, laisser 0 en assurance d'emprunt s'il n'y a pas d'assurance, entrer le taux s'il y en a une.
+| Etre connnecté en tant que chef d'agence et cliquer sur "Simuler un emprunt" dans le menu déroulant "Gestion".
+
 |===
 
 == Version 3
+
+|===
+| Id Test | Nom test | Conditions de satisfaction | Préconditions
+
+| 22
+| Générer les relevés mensuels
+| Il faut sélectionner un chemin, un mois et une année existant
+| Avoir cliqué sur "Générer Relevés".
+
+| 23
+| Exécuter les prélèvements automatiques de tous les comptes
+| S'il n'y a pas de prélèvements en ce jour alors il n'y aura pas de changements, les comptes doivent être suffisamment réapprovisionnés pour pouvoir effectuer l'opération de prélèvement sans dépasser le solde autorisé. 
+| Etre connecté en tant que chef d'agence et avoir cliqué sur "Exécuter prélèvements".
+
+|===

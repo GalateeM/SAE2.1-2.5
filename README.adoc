@@ -33,7 +33,21 @@ Equipe : Marcq Galatée - Monté Hugo - Tubia Eva
 * Supprimer un employé
 
 == Version v2 :
-En cours de développement, sera disponible très bientôt
+*Un guichetier peut :*
+
+* Générer un relevé mensuel d’un compte en PDF
+* Gérer les prélèvements automatiques (créer, voir, modifier, supprimer)
+
+*Un chef d’agence peut faire tout ce que fait un guichetier et :*
+
+* Effectuer un Débit exceptionnel
+* Simuler un emprunt (avec ou sans assurance)
+
+== Version v3 :
+*Un chef d’agence peut :*
+
+* Exécuter les prélèvements automatiques
+* Générer les relevés mensuels de tous les comptes en PDF
 
 .Répartition des tâches et état d'avancement
 [options="header,footer"]
@@ -49,15 +63,15 @@ En cours de développement, sera disponible très bientôt
 |1    |Guichetier     | Compte | Effectuer un virement|| |F 
 |1    |Guichetier     | Compte | Clôturer||F | 
 |2    |Chef d'Agence     | Compte | Débit exceptionnel|F| | 
-|2    |Chef d'Agence     | Emprunt | Simuler emprunt|| | 
-|2    |Chef d'Agence     | Emprunt | Simuler assurance|| | 
+|2    |Chef d'Agence     | Emprunt | Simuler emprunt|D| | 
+|2    |Chef d'Agence     | Emprunt | Simuler assurance|D| | 
 |2    |Guichetier     | Compte | Relevé PDF||F | 
-|2    |Guichetier     | CRUD Prélèvement | C|| | D
+|2    |Guichetier     | CRUD Prélèvement | C|| | F
 |2    |Guichetier     | CRUD Prélèvement | R|| | F
-|2    |Guichetier     | CRUD Prélèvement | U|| | D
-|2    |Guichetier     | CRUD Prélèvement | D|| | D
-|2    |Bach     | Prélèvements automatiques | || | 
-|2    |Bach     | Relevés mensuels | || | 
+|2    |Guichetier     | CRUD Prélèvement | U|| | F
+|2    |Guichetier     | CRUD Prélèvement | D|| | F
+|3    |Batch     | Prélèvements |Exécuter les prélèvements automatiques || |F 
+|3    |Batch     | Relevés mensuels | Générer les relevés mensuels de tous les comptes ||F | 
 
 |=======================
 
@@ -88,23 +102,23 @@ D pour en Développement
 |         | Doc User V1    | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc        |lien ne marche pas
 |         | Recette V1  | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc                     | 
 |         | Suivi projet| Pour les docs utilisateur et technique et pour le gantt, nous (Galatée et Eva) avons travaillé sur la même machine donc il y a écrit que seul Eva a commit, mais Galatée a participé à la rédaction aussi. | 
-| 22/05   | Gantt V1  à jour    |       | 
+| 22/05   | Gantt V1  à jour    | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v1.pdf      | 
 |         | Doc. Util. V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc        |         
 |         | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20Technique.adoc             |     
 |         | Code V1     | https://github.com/IUT-Blagnac/sae2022-bank-2B1/tree/main/Application/DAILY_BANK_FX_V0                 | 
-|         | Recette V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc           | 
+|         | Recette V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV3.adoc           | 
 |         | `jar` projet | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Application/DailyBankV1.jar   | 
-| 05/06   | Gantt V3 à Jour  |    |  
+| 05/06   | Gantt V3 à Jour  | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v3.pdf   |  
 |         | Doc. Util. V2 |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc       |           
 |         | Doc. Tec. V2 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20Technique.adoc    |     
-|         | Code V2     |                       |
-|         | Recette V2  |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc  |
+|         | Code V2     | https://github.com/IUT-Blagnac/sae2022-bank-2B1/tree/main/Application                      |
+|         | Recette V2  |  https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV3.adoc  |
 |         | `jar` projet |     |
-|12/06   | Gantt V3 à Jour  |    |  
-|         | Doc. Util. V3 |         |           
-|         | Doc. Tec. V3 |    |     
-|         | Code V3     |                       |
-|         | Recette V3  |   |
+|12/06   | Gantt V3 à Jour  | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v3.pdf    |  
+|         | Doc. Util. V3 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc        |           
+|         | Doc. Tec. V3 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20Technique.adoc   |     
+|         | Code V3     | https://github.com/IUT-Blagnac/sae2022-bank-2B1/tree/main/Application                      |
+|         | Recette V3  | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV3.adoc  |
 |         | `jar` projet |     |
 |===
 == Les critères d'évaluation :SAE S2.05 Gestion de projet
@@ -124,4 +138,3 @@ Gantts complets, cohérents avec les issues et à jour (tâches, resp., avanceme
 Format (Gantt en pdf, docs en asciidoc) et arborescence du dépôt
 Sources versionnées, commit réguliers et commentés...
 Gestion du projet sous Github (issues, millestones, avancée ...), prise en compte des remarques dans le readme
-

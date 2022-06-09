@@ -27,7 +27,7 @@ public class PdfUtilities {
 		table.addCell(cell);
 	}
 	
-	public static void genererReleve(String nomFichier, CompteCourant compte, ArrayList<Operation> operations) throws FileNotFoundException, DocumentException {
+	public static void genererReleve(String nomFichier, int idCompte, ArrayList<Operation> operations) throws FileNotFoundException, DocumentException {
 		Document doc = new Document(PageSize.A4, 50, 50, 50, 50);
 		
 		PdfWriter.getInstance(doc, new FileOutputStream(nomFichier));
@@ -36,7 +36,7 @@ public class PdfUtilities {
 		
 		int nbOp = operations.size();
 		
-		Paragraph titre = new Paragraph(new Phrase("Relevé mensuel du compte numéro 5", FontFactory.getFont(FontFactory.HELVETICA_BOLD, 20f)));
+		Paragraph titre = new Paragraph(new Phrase("Relevé mensuel du compte numéro " + idCompte, FontFactory.getFont(FontFactory.HELVETICA_BOLD, 20f)));
 		titre.setAlignment(Element.ALIGN_CENTER);
 		titre.setSpacingAfter(20);
 		doc.add(titre);

@@ -2,7 +2,7 @@
 :toc:
 :toc-title: Sommaire
 
-Version de l'application : 1 +
+Version de l'application : 3 +
 Date : 20/04/2022 +
 Client : BankUniv +
 Projet : Daily Bank + 
@@ -28,15 +28,15 @@ Conception/Développement : Marcq Galatée - Monté Hugo - Tubia Eva +
 |1    |Guichetier     | Compte | Effectuer un virement|| |F 
 |1    |Guichetier     | Compte | Clôturer||F | 
 |2    |Chef d'Agence     | Compte | Débit exceptionnel|F| | 
-|2    |Chef d'Agence     | Emprunt | Simuler emprunt|| | 
-|2    |Chef d'Agence     | Emprunt | Simuler assurance|| | 
-|2    |Guichetier     | Compte | Relevé PDF|| F| 
+|2    |Chef d'Agence     | Emprunt | Simuler emprunt|D| | 
+|2    |Chef d'Agence     | Emprunt | Simuler assurance|D| | 
+|2    |Guichetier     | Compte | Relevé PDF||F | 
 |2    |Guichetier     | CRUD Prélèvement | C|| | F
 |2    |Guichetier     | CRUD Prélèvement | R|| | F
 |2    |Guichetier     | CRUD Prélèvement | U|| | F
 |2    |Guichetier     | CRUD Prélèvement | D|| | F
-|2    |Bach     | Prélèvements automatiques | || | 
-|2    |Bach     | Relevés mensuels | || | 
+|3    |Batch     | Prélèvements |Exécuter les prélèvements automatiques || |F 
+|3    |Batch     | Relevés mensuels | Générer les relevés mensuels de tous les comptes ||F | 
 
 |=======================
 
@@ -120,6 +120,8 @@ Répartitions des classes utilisées dans les packages :
 
 Accessibilité : Guichetier et Chef d'agence +
 
+image:Tables/Table Operation.PNG[]
+
 Action de création d'une opération crédit sur un compte. +
 Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Enregistrer crédit ", le contrôleur de vue `OperationsManagementController` transfère les informations nécessaires au contrôle `OperationsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer le crédit, la classe contrôle `OperationEditorPane` est utilisée, elle va afficher la page pour créer l'opération et transmettre les informations au controleur de vue `OperationEditorPaneController`. Les entrées de l'utilisateur sont controlées lorsqu'il tente de valider l'opération, si tout est correct l'opération est créée et le contrôle `OperationsManagement` peut enfin se connecter à la base de données et effectuer l'opération si l'opération n'est pas nulle. L'opération dans la base de données est effectué en utilisant la classe ORM `AccessOperation`. +
 
@@ -146,6 +148,8 @@ Répartitions des classes utilisées dans les packages :
 
 Accessibilité : Guichetier et Chef d'agence +
 
+image:Tables/Table Operation.PNG[]
+
 Action de création d'une opération virement entre deux comptes. +
 Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Effectuer un virement ", le contrôleur de vue `OperationsManagementController` transfère les informations nécessaires au contrôle `OperationsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer le virement, la classe contrôle `OperationEditorPane` est utilisée, elle va afficher la page pour créer l'opération et transmettre les informations au controleur de vue `OperationEditorPaneController`. Les entrées de l'utilisateur sont controlées lorsqu'il tente de valider l'opération, si tout est correct deux opérations sont crées, l'une correspondant au compte qui effectue le virement (débit) et l'autre correspondant au compte destinataire (crédit). Ces deux opérations sont transmises au controle `OperationsManagement` qui peut enfin se connecter à la base de données et effectuer les opérations en utilisant la classe ORM `AccessOperation`. +
 
@@ -157,6 +161,8 @@ Use case : "Créer un compte"
 
 image:UC/ucCreerCompte.png[]
 
+image:Tables/Table Compte Courant.PNG[]
+
 Action d'insertion du nouveau compte dans cette table. +
 Fonctionnement dans le code : le contrôleur de vue ComptesManagement transfère l'information de création (pour ouvrir le menu qui affiche les données à saisir) au contrôle ComptesManagement qui va afficher l'interface puis envoyer l'information de création à l'ORM AccesCompteCourant et renvoyer le résultat après tout ça au contrôleur de vue initial. AccesCompteCourant va appeler CreerCompte dans la base de données.
 
@@ -167,6 +173,8 @@ Informations supplémentaires sur la documentation utilisateur.
 Use case : "Clôturer un compte"
 
 image:UC/ucCloturerCompte.png[]
+
+image:Tables/Table Compte Courant.PNG[]
 
 Action de modification sur cette table de "solde" et de "estCloture" (respectivement 0 et "O"). +
 Fonctionnement dans le code : le contrôleur de vue ComptesManagement transfère l'information de clôture au contrôle ComptesManagement qui va envoyer l'information de clôture à l'ORM AccesCompteCourant et renvoyer le résultat après tout ça au contrôleur de vue initial. AccesCompteCourant va modifier "estCloture" de ce compte pour mettre "O" (signifiant oui) ainsi que le solde (remis à 0) dans la base de données.
@@ -204,6 +212,7 @@ Répartitions des fonctions dans les packages :
 ** `insertEmploye()`
 ** `deleteEmploye()`
 
+image:Tables/Table Employe.PNG[]
 
 La fenêtre principale de gestion des employés est gérée par la classe `EmployeManagementController`. Dans celle-ci, plusieurs fonctionnalités sont présentes :
 
@@ -264,6 +273,8 @@ Répartitions des fonctions dans les packages :
 * model.orm, classe `AccessOperation` :
 ** `insertDebitExceptionnel()`
 
+image:Tables/Table Operation.PNG[]
+
 La création d'un débit exceptionnel se fait dans la page `Gestion des opérations`, avec le bouton "Enregistrer un débit exceptionnel". Ce bouton est activé seulement si un chef d'agence est connecté (fonction `validateComponentState()`, en fonction de `this.dbs.isChefDAgence()`). 
 Une fois le bouton cliqué, l'attribut `debitExceptionnel` prend la valeur true. Ainsi, les mêmes fonctions sont appelées que dans le cas d'un débit (`enregistrerDebit()` dans `OperationsMangement`, `doOperationEditorDialog()` dans `OperationEditorPane`, `displayDialog()` dans `OperationEditorPaneController` et `doAjouter()` dans `OperationEditorPaneController`). Le changement se fait au niveau de la fonction `doAjouter()` qui ne vérifie pas le dépassement de découvert autorisé (au moment où les champs sont remplis), et avec l'appel de la fonction `insertDebitExceptionnel()` qui n'utilise pas la procédure en base de données "Débiter" mais "Débiterexceptionnel". Cette procédure ne vérifie donc pas le dépassement du découvert autorisé.
 
@@ -272,6 +283,8 @@ Une fois le bouton cliqué, l'attribut `debitExceptionnel` prend la valeur true.
 Use case :
 
 image:UC/ucGenererReleveMensuel.png[]
+
+image:Tables/Table Operation.PNG[]
 
 Aucune action de modification des données en base de données, seulement une sélection des opérations correspondant au mois et au compte concernés. +
 Fonctionnement dans le code : le contrôleur de vue `ComptesManagementController` transfère l'information d'ouvrir le menu pour choisir les options de la génération au contrôle `ComptesManagement`. Ce contrôle va obtenir les informations depuis son appel au contrôle `GenererRelevePane` qui va lui utiliser le contrôleur de vue `GenererRelevePaneController` afin d'ouvrir le menu. Une fois toutes les informations nécessaires remontées au contrôle `CompteManagement`, ce-dernier va appeler l'ORM `AccesOperation` pour récupérer les opérations du compte du mois concerné. Enfin, tout cela sera transmis à l'outil `PdfUtilities` qui se charge de générer le fichier PDF en lui-même.
@@ -283,6 +296,8 @@ Informations supplémentaires sur la documentation utilisateur.
 Use case général du CRUD: 
 
 image:UC/ucCRUDPrelevements.svg[]
+
+image:Tables/Table Prelevement Automatique.PNG[]
 
 Répartitions des classes utilisées dans les packages :
 
@@ -307,6 +322,8 @@ image:UC/ucCREATEPrelevement.svg[]
 
 Accessibilité : Guichetier et Chef d'agence +
 
+image:Tables/Table Prelevement Automatique.PNG[]
+
 Action de création d'un prélèvement automatique sur un compte. +
 Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Nouveau prélèvement", le contrôleur de vue `PrelevementsManagementController` transfère les informations nécessaires au contrôle `PrelevementsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer la création, la classe contrôle `PrelevementEditorPane` est utilisée, elle va afficher la page pour créer le prélèvement et transmettre les informations au controleur de vue `PrelevementEditorPaneController`. Les entrées de l'utilisateur sont controlées lorsqu'il tente de créer le prélèvement, si tout est correct le prélèvement est créé. Le prélèvement est ensuite transmis à la classe `PrelevementsManagement` qui peut enfin se connecter à la base de données et effectuer l'insert correspondant en utilisant la classe ORM `AccessPrelevement`. +
 
@@ -320,6 +337,8 @@ image:UC/ucREADPrelevement.svg[]
 
 Accessibilité : Guichetier et Chef d'agence +
 
+image:Tables/Table Prelevement Automatique.PNG[]
+
 Action de visualisation des prélèvements automatiques d'un compte. +
 Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Voir prélèvements", le contrôleur de vue `ComptesManagementController` transfère les informations nécessaires (compte à prélever) au contrôle `ComtpesManagement` puis à `PrelevementsManagement` qui charge le contrôleur de vue `PrelevementsManagementController` pour l'affichage de la page et attente d'une action de l'utilisateur. La classe controle `PrelevementsManagement` va aussi se connecter à la base de données pour afficher la liste des prélèvements automatiques existants sur le compte, grâce à la classe ORM `AccessPrelevement` qui effectuera le Select correspondant. +
 
@@ -330,6 +349,8 @@ Use case :
 image:UC/ucUPDATEPrel.svg[]
 
 Accessibilité : Guichetier et Chef d'agence +
+
+image:Tables/Table Prelevement Automatique.PNG[]
 
 Action de modification d'un prélèvement automatique sur un compte. +
 Fonctionnement dans le code : après avoir sélectionné un prélèvement dans la liste, lorsque l'utilisateur clique sur le bouton "Modifier prélèvement", le contrôleur de vue `PrelevementsManagementController` transfère les informations nécessaires (le prélèvement à éditer) au contrôle `PrelevementsManagement`  pour l'affichage de la page. Ensuite, pour enregistrer la modification, la classe contrôle `PrelevementEditorPane` est utilisée, elle va afficher la page pour modifier le prélèvement et transmettre les informations au controleur de vue `PrelevementEditorPaneController`. Le choix d'implémentation pour cette fonctionnalité était de modifier seulement le montant ou le jour de prélèvement, étant donné que changer un bénéficiaire reviendrai à créer un nouveau prélèvement. Les entrées de l'utilisateur sont controlées lorsqu'il tente de modifier le prélèvement, si tout est correct le prélèvement est modifié. Le prélèvement édité est ensuite transmis à la classe `PrelevementsManagement` qui peut enfin se connecter à la base de données et effectuer l'update correspondant en utilisant la classe ORM `AccessPrelevement`. +
@@ -344,9 +365,49 @@ image:UC/ucDELETEPrel.svg[]
 
 Accessibilité : Guichetier et Chef d'agence +
 
+image:Tables/Table Prelevement Automatique.PNG[]
+
 Action de suppression d'un prélèvement automatique sur un compte. +
 Fonctionnement dans le code : après avoir sélectionné un prélèvement dans la liste, lorsque l'utilisateur clique sur le bouton "Supprimer prélèvement", le contrôleur de vue `PrelevementsManagementController` affiche une boîte de dialogue pour confirmer la suppression. Si l'utilisateur confirme, la classe transfère les informations nécessaires (le prélèvement à supprimer) au contrôle `PrelevementsManagement` qui va se connecter à la base de données en utilisant la classe ORM `AccessPrelevement` qui effectue le Delete correspondant. +
 
 Conditions de validation de l'opération : L'utilisateur a validé la suppression +
 
 === c) Version 3
+
+===== Générer les relevés mensuels
+
+Use case : 
+
+image:UC/ucGenererRelevesClients.png[]
+
+Accessibilité : Chef d'agence +
+
+image:Tables/Table Operation.PNG[]
+
+Aucune action de modification des données en base de données, seulement une sélection des opérations correspondant au mois. +
+Fonctionnement dans le code : le contrôleur de vue `ClientsManagementController` transfère l'information d'ouvrir le menu pour choisir les options de la génération au contrôle `ClientsManagement`. Ce contrôle va obtenir les informations depuis son appel au contrôle `GenererRelevePane` qui va lui utiliser le contrôleur de vue `GenererRelevePaneController` afin d'ouvrir le menu. Une fois toutes les informations nécessaires remontées au contrôle `ClientsManagement`, ce-dernier va appeler l'ORM `AccesOperation` pour récupérer les opérations du mois concerné (de tous les comptes). Enfin, le contrôle, après avoir isoler chaque compte avec ses opérations, fait appel pour chaque compte à l'outil `PdfUtilities` qui se charge de générer le fichier PDF en lui-même. +
+
+Conditions de validation de l'opération : L'utilisateur a choisi une destination ainsi qu'un mois et une année +
+
+===== Executer tous les prélèvements automatiques (Eva Tubia)
+
+Use case : 
+
+image:UC/ucExecuterPrelevements.svg[]
+
+Répartitions des classes utilisées dans les packages :
+
+* application.view :
+** `ClientsManagementController`
+
+* model.orm :
+** `AccessPrelevement`
+
+Accessibilité : Chef d'agence +
+
+image:Tables/Table Prelevement Automatique.PNG[]
+
+Action d'éxécution des prélèvements automatiques sur tous les comptes. +
+Fonctionnement dans le code : lorsque l'utilisateur clique sur le bouton "Exécuter prélèvements", le contrôleur de vue `ClientsManagementController` affiche une boît de dialogue qui demande la confirmation de l'éxécution des prélèvements automatiques pour ce jour. Si l'utilisateur confirme, la focntion se connecte a la base de données et effectue la procédure correspondante en utilisant la classe ORM `AccessPrelevement`. Si certains comptes ne sont pas assez approvisionés pour effectuer le prélèvement, la procédure renvoie un message en retour qui est affiché dans une boîte de dialogue par `ClientsManagementController`. +
+
+Conditions de validation de l'opération : Les comptes à prélever sont suffisamment approvisionnés. +

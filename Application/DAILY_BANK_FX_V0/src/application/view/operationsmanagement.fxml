@@ -45,7 +45,7 @@
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
                         </Button>
-                        <Button fx:id="btnDebitExceptionnel" disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doDebitExceptionnel" text="Enregistrer Débit Exceptionnel" GridPane.rowIndex="3">
+                        <Button fx:id="btnDebitExceptionnel" disable="true" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#doDebitExceptionnel" text="Débit Exceptionnel" GridPane.rowIndex="3">
                            <GridPane.margin>
                               <Insets bottom="10.0" top="10.0" />
                            </GridPane.margin>
