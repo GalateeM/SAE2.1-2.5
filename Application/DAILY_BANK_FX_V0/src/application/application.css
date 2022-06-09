@@ -19,3 +19,7 @@
 .borderred {
 	-fx-text-fill: red;
 }
+
+.table-view{
+	-fx-font-size : 11pt;
+}

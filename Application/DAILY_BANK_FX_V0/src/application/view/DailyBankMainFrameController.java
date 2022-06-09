@@ -1,5 +1,7 @@
 package application.view;
 
+import java.awt.Menu;
+
 /**
  * Fenetre principale page d'accueil de l'application
  */
@@ -82,6 +84,8 @@ public class DailyBankMainFrameController implements Initializable {
 	@FXML
 	private MenuItem mitemEmploye;
 	@FXML
+	private MenuItem mitemEmprunt;
+	@FXML
 	private MenuItem mitemConnexion;
 	@FXML
 	private MenuItem mitemDeConnexion;
@@ -143,6 +147,11 @@ public class DailyBankMainFrameController implements Initializable {
 			} else {
 				this.mitemEmploye.setDisable(true);
 			}
+			if (this.dbs.isChefDAgence()) {
+				this.mitemEmprunt.setDisable(false);
+			} else {
+				this.mitemEmprunt.setDisable(true);
+			}
 			this.mitemClient.setDisable(false);
 			this.mitemConnexion.setDisable(true);
 			this.mitemDeConnexion.setDisable(false);
@@ -171,6 +180,11 @@ public class DailyBankMainFrameController implements Initializable {
 	@FXML
 	private void doEmployeOption() {
 		this.dbmf.gestionEmployes();
+	}
+	
+	@FXML
+	private void doSimulerEmprunt() {
+		this.dbmf.simulerEmprunt();
 	}
 
 	private void actionQuitterBD() {

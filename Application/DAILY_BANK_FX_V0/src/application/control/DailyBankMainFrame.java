@@ -169,4 +169,12 @@ public class DailyBankMainFrame extends Application {
 		EmployeManagement em = new EmployeManagement(this.primaryStage, this.dbs);
 		em.doEmployeManagementDialog();
 	}
+	
+	/**
+	 * Ouvre la fenetre de simulation d'emprunt
+	 */
+	public void simulerEmprunt() {
+		EmpruntEditorPane eep = new EmpruntEditorPane(primaryStage, dbs);
+		eep.doEmpruntEditorDialog();
+	}
 }
