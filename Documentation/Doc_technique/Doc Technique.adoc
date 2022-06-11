@@ -212,6 +212,8 @@ Répartitions des fonctions dans les packages :
 ** `insertEmploye()`
 ** `deleteEmploye()`
 
+Extrait du diagramme de classe :
+
 image:Tables/Table Employe.PNG[]
 
 La fenêtre principale de gestion des employés est gérée par la classe `EmployeManagementController`. Dans celle-ci, plusieurs fonctionnalités sont présentes :
@@ -272,6 +274,8 @@ Répartitions des fonctions dans les packages :
 
 * model.orm, classe `AccessOperation` :
 ** `insertDebitExceptionnel()`
+
+Extrait du diagramme de classe :
 
 image:Tables/Table Operation.PNG[]
 
@@ -377,6 +381,45 @@ Conditions de validation de l'opération : L'utilisateur a validé la suppressio
 Use case :
 
 image:UC/ucSimulationEmpruntAssurance.svg[]
+
+Répartitions des fonctions dans les packages :
+
+* application.control, classe `DailyBankMainFrame`:
+** `simulerEmprunt()`
+
+* application.control, classe  `EmpruntEditorPane` : 
+** `doEmpruntEditorDialog()`
+** `doResultat()` +
+
+* application.control, classe `EmpruntResultat`:
+** `doEmpruntResultatDialog()`
+
+* application.view, classe `DailyBankMainFrameController` :
+** `validateComponentState()`
+** `doSimulerEmprunt()`
+
+* application.view, classe `EmpruntEditorPaneController` :
+** `doSimuler()`
+** `isSaisieValide()`
+
+* application.view, classe `EmpruntResultatController` :
+** `displayDialog()`
+** `getLignes()`
+
+* model.data, classe `Emprunt`
+* model.data classe `LigneEmprunt`
+
+Extrait du diagramme de classe :
+
+image:Tables/Table Emprunt.PNG[] +
+
+image:Tables/Table Assurance Emprunt.PNG[]
+
+A partir du menu principal de l'application, un chef d'agence peut effectuer une simulation d'emprunt (avec ou sans assurance). Pour cela, dans la fonction `validateComponentState()` de la classe `DailyBankMainFrameController` rend actif le menuItem `mitemEmprunt` si un chef d'agence est connecté. Lorsque ce menuItem est cliqué, la fonction `doSimulerEmprunt()` est appelée, elle-même appelant la fonction `simulerEmprunt()` (classe `DailyBankMainFrame`). +
+
+Une nouvelle fenêtre apparait alors afin que l'utilisateur saisisse les informations concernant la simulation. Cette fenêtre est gérée par la classe `EmpruntEditorPane` et le controleur `EmpruntEditorPaneController`. Lorsque l'utilisateur appuie sur "Valider", la fonction `doSimuler()` appelle `isSaisieValide()` afin de vérifier les champs saisis (classe `EmpruntEditorPaneController`). Pour être valide : le champ capital doit être un nombre positif, le champ durée doit être un nombre entier positif, les taux d'emprunt et d'assurance doivent être des nombres compris entre 0 et 100. Si un champ n'est pas valide, il sera écrit en rouge et la fonction renverra un objet de type Emprunt null.
+
+Une fois la saisie valide, la fonction `doResultat()` est appelée (classe `EmpruntEditorPane`). Cette fonction crée alors une nouvelle fenêtre de résultat de l'emprunt, gérée par `EmpruntResultat` et `EmpruntResultatController`. L'objet Emprunt créé à partir des informations saisies permet alors de faire les calculs concernant la simulation d'emprunt et d'assurance. La fenêtre de résultat comporte une TableView, dont les colonnes sont créées et paramétrées dans la fonction `displayDialog()` de la classe `EmpruntResultatController`. La fonction `getLignes()` permet de créer une liste observable contenant toutes les lignes de la simulation. Cette liste observable sera alors ajoutée à la TableView.
 
 
 
