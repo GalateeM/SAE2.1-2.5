@@ -100,7 +100,7 @@ D pour en Développement
 |         | Gantt V3 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v3.pdf        |     
 |         | Doc. Tec. V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_technique/Doc%20Technique.adoc       |    
 |         | Doc User V1    | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc        |lien ne marche pas
-|         | Recette V1  | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV1.adoc                     | 
+|         | Recette V1  | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Cahier_des_tests/CahierTestsV3.adoc                     | 
 |         | Suivi projet| Pour les docs utilisateur et technique et pour le gantt, nous (Galatée et Eva) avons travaillé sur la même machine donc il y a écrit que seul Eva a commit, mais Galatée a participé à la rédaction aussi. | 
 | 22/05   | Gantt V1  à jour    | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Gant/Projet_v1.pdf      | 
 |         | Doc. Util. V1 | https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc        |         
