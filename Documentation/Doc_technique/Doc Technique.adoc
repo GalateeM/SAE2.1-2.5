@@ -91,13 +91,30 @@ Classes des exceptions spécifiques d’accès à la BD, levées par les classes
 
 A chaque page est associée une vue FXML, un controleur de vue et une classe qui lance la page.
 
+=== d) Diagramme de classe de données
+
+Voici le diagramme de classe structurant la base de données :
+
+image:DC/dc-general.svg[]
+
+Chaque client possède un ou plusieurs comptes courants, sur lesquels aucune ou plusieurs opérations ont été réalisées. Chaque opération a un type (chèque, retrait CB, paiement CB, virement, ...). +
+Le client appartient donc à une agence bancaire. Les employés de celles-ci (guichetier et chef d'agence) peuvent donc gérer les clients, mais également leurs comptes et leurs opérations. Ils peuvent également mettre en place un prélèvement automatique sur un compte courant. +
+Une agence bancaire possède ainsi plusieurs guichetiers, et un chef d'agence. Ce chef d'agence peut gérer les employés de son agence. +
+Enfin, le chef d'agence peut simuler un emprunt, qui est couvert par zéro ou une assurance d'emprunt.
 
 == 3. Fonctionnalités
+
+Pour visualiser les copies écrans de chaque fonctionnalité, réferrez-vous à la documentation utilisateur :
+https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation/Doc_utilisateur/Doc%20utilisateur.adoc[documentation_utilisateur].
+
 === a) Version 1
 
 Voici le Use Case général de la version 1 :
 
 image:UC/use case v1.svg[]
+
+Il existe deux rôles d’utilisateurs différents : guichetier et chef d’agence. Les guichetiers ont le rôle le plus basique, alors que les chefs d’agence ont accès aux mêmes fonctionnalités que les guichetiers, avec de nouvelles fonctionnalités en supléments, auxquelles les guichetiers n’ont pas accès.
+Dans cette version, le chef d'agence peut gérer les employés de son agence (ajouter, modifier, supprimer un employé, ou voir la liste des employés), en plus des fonctionnalités du guichetier.
 
 ==== Créditer un compte (Eva Tubia)
 
@@ -250,6 +267,10 @@ Une fenêtre d'alerte est déclenchée, demandant la confirmation de la suppress
 Voici le Use Case général de la version 2 :
 
 image:UC/use case v2.svg[]
+
+Pour rappel :
+Il existe deux rôles d’utilisateurs différents : guichetier et chef d’agence. Les guichetiers ont le rôle le plus basique, alors que les chefs d’agence ont accès aux mêmes fonctionnalités que les guichetiers, avec de nouvelles fonctionnalités en supléments, auxquelles les guichetiers n’ont pas accès.
+Dans cette version, le chef d'agence peut effectuer un débit exceptionnel, simuler un emprunt et une assurance d'emprunt, en plus des fonctionnalités du guichetier.
 
 ==== Debit exceptionnel (Galatée Marcq)
 
@@ -425,7 +446,13 @@ Une fois la saisie valide, la fonction `doResultat()` est appelée (classe `Empr
 
 === c) Version 3
 
-===== Générer les relevés mensuels (Hugo Monté)
+Voici le Use Case général de la version 3 :
+
+image:UC/use case v3.svg[]
+
+Un nouveau rôle apparait, le rôle "Batch" (automatisation de tâche).
+
+==== Générer les relevés mensuels (Hugo Monté)
 
 Use case : 
 
