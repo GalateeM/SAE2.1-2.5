@@ -118,7 +118,7 @@ public class EmpruntEditorPaneController implements Initializable {
 		double taux =0;
 		double tauxAssurance = 0;
 		String periodicite="";
-		int durée=0;
+		int duree=0;
 		//Verif Capital
 		this.txtCapital.getStyleClass().remove("borderred");
 		this.lblCapital.getStyleClass().remove("borderred");
@@ -139,8 +139,8 @@ public class EmpruntEditorPaneController implements Initializable {
 		this.lblDuree.getStyleClass().remove("borderred");
 		this.txtDuree.getStyleClass().remove("borderred");
 		try {
-			durée = Integer.parseInt(this.txtDuree.getText().trim());
-			if (durée <= 0)
+			duree = Integer.parseInt(this.txtDuree.getText().trim());
+			if (duree <= 0)
 				throw new NumberFormatException();
 		} catch (NumberFormatException nfe) {
 			this.txtDuree.getStyleClass().add("borderred");
@@ -180,7 +180,7 @@ public class EmpruntEditorPaneController implements Initializable {
 		}
 		periodicite = this.periodicite.getValue();
 		if(estValide==true) {
-			emp = new Emprunt(capital, durée, taux, periodicite, tauxAssurance);
+			emp = new Emprunt(capital, duree, taux, periodicite, tauxAssurance);
 		}
 		return emp;
 	}
