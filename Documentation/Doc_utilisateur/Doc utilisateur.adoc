@@ -268,5 +268,5 @@ Pour que l'opération soit validée, tous les champs doivent être remplis et po
 
 Une fois validé, vous obtiendrai les résultats de la simulation (à gauche les données concernant l'emprunt, à droite concernant l'assurance). Vous pouvez alors revenir au menu si vous le souhaitez.
 
-image:img/resultatSimulationEmprunt.png[]
+image:img/ResultatSimulationEmprunt.png[]
 
