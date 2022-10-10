@@ -1,0 +1,10 @@
+= SAE 2.01 - Développement d'une application 
+
+= SAE 2.05 - Gestion d'un projet
+
+
+Date : 29/03/2022 au 10/06/2022
+Durée : 14 séances de 1h30 +
+Modalités : travail réalisé en groupe de 3 +
+Présentation du client, situation initiale, besoin du client : cf Cahier des charges (https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/CDCU%20V2%20V3.adoc[ici]) +
+Solution apportée, travail effectué, place dans le travail : cf Documentation (https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/Documentation[ici])
