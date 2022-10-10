@@ -3,7 +3,7 @@
 = SAE 2.05 - Gestion d'un projet
 
 
-Date : 29/03/2022 au 10/06/2022
+Date : 29/03/2022 au 10/06/2022 +
 Durée : 14 séances de 1h30 +
 Modalités : travail réalisé en groupe de 3 +
 Présentation du client, situation initiale, besoin du client : cf Cahier des charges (https://github.com/IUT-Blagnac/sae2022-bank-2B1/blob/main/CDC/CDCU%20V2%20V3.adoc[ici]) +
